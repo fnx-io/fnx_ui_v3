@@ -1,0 +1,72 @@
+@use 'vars';
+
+@mixin renderTLBR($prefix, $name, $property, $value) {
+  .#{$prefix}#{$name} {
+    #{$property}: #{$value};
+  }
+  .#{$prefix}#{$name}--top {
+    #{$property}-top: #{$value};
+  }
+  .#{$prefix}#{$name}--left {
+    #{$property}-left: #{$value};
+  }
+  .#{$prefix}#{$name}--bottom {
+    #{$property}-bottom: #{$value};
+  }
+  .#{$prefix}#{$name}--right {
+    #{$property}-right: #{$value};
+  }
+  .#{$prefix}#{$name}--horizontal {
+    #{$property}-right: #{$value};
+    #{$property}-left: #{$value};
+  }
+  .#{$prefix}#{$name}--vertical {
+    #{$property}-top: #{$value};
+    #{$property}-bottom: #{$value};
+  }
+}
+@mixin render($prefix) {
+
+  @include renderTLBR($prefix, 'padding', 'padding', #{vars.$rem});
+  @include renderTLBR($prefix, 'padding--bottom', 'padding', #{vars.$widgetSize});
+  @include renderTLBR($prefix, 'padding--small', 'padding', #{vars.$widgetPadding});
+
+  @include renderTLBR($prefix, 'margin', 'margin', #{vars.$rem});
+  @include renderTLBR($prefix, 'margin--bottom', 'margin', #{vars.$widgetSize});
+  @include renderTLBR($prefix, 'margin--small', 'margin', #{vars.$widgetPadding});
+
+  @include renderTLBR($prefix, 'border', 'border', #{vars.$border});
+
+  .#{$prefix}no-margin {
+    margin: 0 !important;
+  }
+  .#{$prefix}no-padding {
+    padding: 0 !important;
+  }
+  .#{$prefix}margin--auto, .#{$prefix}margin--auto--horizontal {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .#{$prefix}margin--auto--vertical {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .#{$prefix}width--third {
+    width: 33.33% !important;
+  }
+  .#{$prefix}width--half {
+    width: 50% !important;
+  }
+  .#{$prefix}width--10 { width: 10% !important; }
+  .#{$prefix}width--20 { width: 20% !important; }
+  .#{$prefix}width--30 { width: 30% !important; }
+  .#{$prefix}width--40 { width: 40% !important; }
+  .#{$prefix}width--50 { width: 50% !important; }
+  .#{$prefix}width--60 { width: 60% !important; }
+  .#{$prefix}width--70 { width: 70% !important; }
+  .#{$prefix}width--80 { width: 80% !important; }
+  .#{$prefix}width--90 { width: 90% !important; }
+  .#{$prefix}width--100 { width: 100% !important; }
+
+}

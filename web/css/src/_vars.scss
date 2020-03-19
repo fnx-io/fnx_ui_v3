@@ -1,0 +1,17 @@
+$rem: var(--rem);
+$widgetPadding: var(--padding);
+$widgetSize: calc(var(--padding)*2+ var(--rem)*var(--lh));
+$border: var(--border);
+$primaryColor: var(--color);
+
+:root {
+  --rem: 15px;
+  --lh: 1.2;
+  --padding: 8px;
+  --border: 1px solid #aaa;
+}
+
+body {
+  background-color: #eee;
+}
+

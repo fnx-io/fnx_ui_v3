@@ -1,0 +1,73 @@
+$gutter: var(--rem);
+
+@mixin renderGridRules($prefix, $cols) {
+  & > .#{$prefix}c#{$cols} {
+    width: (99.9% / 12) * $cols;
+  }
+  & > .#{$prefix}o#{$cols} {
+    margin-left: (99.9% / 12) * $cols;
+  }
+}
+@mixin renderGridRulesWithGutter($prefix, $cols) {
+  & > .#{$prefix}c#{$cols} {
+    width: calc( (99.99% / 12) * #{$cols} - #{$gutter} );
+    margin-left: calc( #{$gutter} / 2);
+    margin-right: calc( #{$gutter} / 2);
+  }
+  & > .#{$prefix}o#{$cols} {
+    margin-left: calc( (99.99% / 12) * #{$cols} + #{$gutter} / 2 ) !important;
+  }
+}
+@mixin render($prefix) {
+  .row, .row--gutter, .row--gutter--horizontal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    & > * {
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+  }
+  .row--gutter {
+    margin-left: calc( -1 * #{$gutter} / 2);
+    margin-right: calc( -1 * #{$gutter} / 2);
+    & > * {
+      margin-bottom: #{$gutter};
+    }
+  }
+  .row--gutter--horizontal {
+    margin-left: calc( -1 * #{$gutter} );
+    margin-right: calc( -1 * #{$gutter} );
+  }
+  .row {
+    @include renderGridRules($prefix, 1);
+    @include renderGridRules($prefix, 2);
+    @include renderGridRules($prefix, 3);
+    @include renderGridRules($prefix, 4);
+    @include renderGridRules($prefix, 5);
+    @include renderGridRules($prefix, 6);
+    @include renderGridRules($prefix, 7);
+    @include renderGridRules($prefix, 8);
+    @include renderGridRules($prefix, 9);
+    @include renderGridRules($prefix, 10);
+    @include renderGridRules($prefix, 11);
+    @include renderGridRules($prefix, 12);
+  }
+  .row--gutter, .row--gutter--horizontal {
+    .offset--s0 {
+      margin-left: $gutter !important;
+    }
+    @include renderGridRulesWithGutter($prefix,  1);
+    @include renderGridRulesWithGutter($prefix,  2);
+    @include renderGridRulesWithGutter($prefix,  3);
+    @include renderGridRulesWithGutter($prefix,  4);
+    @include renderGridRulesWithGutter($prefix,  5);
+    @include renderGridRulesWithGutter($prefix,  6);
+    @include renderGridRulesWithGutter($prefix,  7);
+    @include renderGridRulesWithGutter($prefix,  8);
+    @include renderGridRulesWithGutter($prefix,  9);
+    @include renderGridRulesWithGutter($prefix,  10);
+    @include renderGridRulesWithGutter($prefix,  11);
+    @include renderGridRulesWithGutter($prefix,  12);
+  }
+}

@@ -1,0 +1,43 @@
+@use 'src/vars';
+
+@use 'src/reboot';
+@use 'src/sizing';
+@use 'src/utils';
+@use 'src/flex';
+@use 'src/grid';
+
+html {
+  font-size: var(--rem);
+}
+
+@mixin renderAll($prefix) {
+  @include utils.render($prefix);
+  @include sizing.render($prefix);
+  @include flex.render($prefix);
+  @include grid.render($prefix);
+}
+
+/* MEDIUM DESKTOP - DEFAULT VIEWPORT*/
+@include renderAll("");
+/* MEDIUM DESKTOP */
+@media (min-width: 900.01px) and (max-width: 1200px) {
+  @include renderAll("m--");
+}
+
+/* BIGGER TABLET */
+@media (max-width: 900px) {
+  @include renderAll("s--");
+}
+/* BIGGER DESKTOP */
+@media (min-width: 1200.01px) {
+  @include renderAll("l--");
+}
+
+/* HUGE DESKTOP */
+@media (min-width: 1600.01px) {
+  @include renderAll("xl--");
+}
+/* PHONE */
+@media (max-width: 600px) {
+  @include renderAll("xs--");
+}
