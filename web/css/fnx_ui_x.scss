@@ -1,0 +1,8 @@
+@use 'src/main';
+
+@media (min-width: 1600.01px) {
+  @include main.renderAll("xl--");
+}
+@media (max-width: 600px) {
+  @include main.renderAll("xs--");
+}

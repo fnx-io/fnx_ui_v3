@@ -11,7 +11,9 @@ $primaryColor: var(--color);
   --border: 1px solid #aaa;
 }
 
-body {
+html {
   background-color: #eee;
+  font-size: var(--rem);
+  line-height: var(--lh);
 }
 

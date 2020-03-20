@@ -1,0 +1,94 @@
+@use 'vars';
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+}
+h6 {
+  font-weight: normal;
+}
+h1 {
+  font-size: calc(2 * #{vars.$rem});
+}
+h2 {
+  font-size: calc(1.6 * #{vars.$rem});
+}
+h3 {
+  font-size: calc(1.4 * #{vars.$rem});
+}
+h4 {
+  font-size: calc(1.2 * #{vars.$rem});
+}
+h5 {
+  font-size: calc(0.80 * #{vars.$rem});
+}
+h6 {
+  font-size: calc(0.66666 * #{vars.$rem});
+}
+a {
+  text-decoration: none;
+  cursor: pointer;
+  &[disabled], &.disabled {
+    cursor: not-allowed;
+  }
+}
+p a {
+  &:not(.icon):not(.btn):not(.btn--icon):not(.btn--fab):not(.icon--calc) {
+    text-decoration: underline;
+  }
+}
+@mixin render($prefix) {
+  .#{$prefix}f-monospace, .#{$prefix}monospace {
+    font-family: monospace;
+  }
+  .#{$prefix}fs-xxxl {
+    font-size: calc(2 * #{vars.$rem});
+  }
+  .#{$prefix}fs-xxl {
+    font-size: calc(1.6 * #{vars.$rem});
+  }
+  .#{$prefix}fs-xl {
+    font-size: calc(1.4 * #{vars.$rem});
+  }
+  .#{$prefix}fs-l {
+    font-size: calc(1.2 * #{vars.$rem});
+  }
+  .#{$prefix}fs-m {
+    font-size: 1rem;
+  }
+  .#{$prefix}fs-s {
+    font-size: calc(0.80 * #{vars.$rem});
+  }
+  .#{$prefix}fs-xs {
+    font-size: calc(0.66666 * #{vars.$rem});
+  }
+  .#{$prefix}regular {
+    font-weight: 400;
+  }
+  .#{$prefix}normal {
+    font-weight: 400;
+  }
+  .#{$prefix}bold {
+    font-weight: 700;
+  }
+  .#{$prefix}uppercase {
+    text-transform: uppercase;
+  }
+  .#{$prefix}underline {
+    text-decoration: underline;
+  }
+  .#{$prefix}italics {
+    font-style: italic;
+  }
+  .#{$prefix}strike, .#{$prefix}line-through {
+    text-decoration: line-through;
+  }
+  .#{$prefix}text--center {
+    text-align: center;
+  }
+  .#{$prefix}text--right {
+    text-align: right;
+  }
+  .#{$prefix}text--left {
+    text-align: left;
+  }
+}
