@@ -1,17 +1,18 @@
 @use 'src/main';
+@use 'src/vars';
 
 /* MEDIUM DESKTOP - DEFAULT VIEWPORT*/
 @include main.renderAll("");
+
 /* MEDIUM DESKTOP */
-@media (min-width: 900.01px) and (max-width: 1200px) {
+@media (min-width: #{vars.$sBreakpoint+0.01}px) and (max-width: #{vars.$lBreakpoint}px) {
   @include main.renderAll("m--");
 }
-
-/* BIGGER TABLET */
-@media (max-width: 900px) {
+/* TABLET */
+@media (max-width: #{vars.$sBreakpoint}px) {
   @include main.renderAll("s--");
 }
 /* BIGGER DESKTOP */
-@media (min-width: 1200.01px) {
+@media (min-width: #{vars.$lBreakpoint+0.01}px) {
   @include main.renderAll("l--");
 }

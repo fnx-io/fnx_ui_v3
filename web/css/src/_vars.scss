@@ -1,6 +1,6 @@
+// Customizable:
 $rem: var(--rem);
 $widgetPadding: var(--padding);
-$widgetSize: calc(var(--padding)*2+ var(--rem)*var(--lh));
 $border: var(--border);
 $primaryColor: var(--color);
 
@@ -16,4 +16,14 @@ html {
   font-size: var(--rem);
   line-height: var(--lh);
 }
+
+$widgetSize: calc(var(--padding)*2 + var(--rem)*var(--lh));
+
+$xsBreakpoint: 600;
+$sBreakpoint: 900;
+// 'm' lives here
+$lBreakpoint: 1200;
+$xlBreakpoint: 1600;
+
+
 
