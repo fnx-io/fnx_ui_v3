@@ -5,6 +5,7 @@ import 'package:fnx_ui/src/docs/fnx_ui_docs_0010_usage.dart';
 
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0000_intro.template.dart' as a;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0010_usage.template.dart' as b;
+import 'package:fnx_ui/src/docs/fnx_ui_docs_0020_responsivity.template.dart' as c0020;
 
 import 'fnx_ui.dart';
 
@@ -17,7 +18,11 @@ import 'fnx_ui.dart';
   directives: [fnxUiAllDirectives, coreDirectives, formDirectives, routerDirectives],
 )
 class FnxUiDocs {
-  static List<Chapter> chapters = [Chapter("Introduction", a.FnxUiDocs0000IntroNgFactory), Chapter("Basic usage", b.FnxUiDocs0010UsageNgFactory)];
+  static List<Chapter> chapters = [
+    Chapter("Introduction", a.FnxUiDocs0000IntroNgFactory),
+    Chapter("Basic usage", b.FnxUiDocs0010UsageNgFactory),
+    Chapter("Responsivity", c0020.FnxUiDocs0020ResponsivityNgFactory)
+  ];
 
   List<RouteDefinition> routes;
   FnxUiDocs() {
