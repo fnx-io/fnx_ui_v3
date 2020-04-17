@@ -31,5 +31,5 @@ class FnxUiDocs${number}${name} {}
 
   print("import 'package:fnx_ui/src/docs/${filename}.template.dart' as c${number};");
   print("");
-  print('Chapter("${name}", c${number}.FnxUiDocs${number}${name}NgFactory)');
+  print('Chapter("${name}", c${number}.FnxUiDocs${number}${name}NgFactory),');
 }
