@@ -39,7 +39,7 @@ $gutter: var(--rem);
     margin-left: calc( -1 * #{$gutter} / 2);
     margin-right: calc( -1 * #{$gutter} / 2);
   }
-  .#{$prefix}row {
+  .#{$prefix}row, .row {
     @include renderGridRules($prefix, 1);
     @include renderGridRules($prefix, 2);
     @include renderGridRules($prefix, 3);
@@ -53,8 +53,8 @@ $gutter: var(--rem);
     @include renderGridRules($prefix, 11);
     @include renderGridRules($prefix, 12);
   }
-  .#{$prefix}row--gutter, .#{$prefix}row--gutter--horizontal {
-    .offset--s0 {
+  .#{$prefix}row--gutter, .#{$prefix}row--gutter--horizontal, .row--gutter, .row--gutter--horizontal {
+    .#{$prefix}offset--s0 {
       margin-left: $gutter !important;
     }
     @include renderGridRulesWithGutter($prefix,  1);
