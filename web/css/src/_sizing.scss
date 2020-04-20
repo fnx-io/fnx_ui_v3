@@ -27,13 +27,13 @@
 }
 @mixin render($prefix) {
 
-  @include renderTLBR($prefix, 'padding', 'padding', #{vars.$rem});
-  @include renderTLBR($prefix, 'padding--bottom', 'padding', #{vars.$widgetSize});
-  @include renderTLBR($prefix, 'padding--small', 'padding', #{vars.$widgetPadding});
+  @include renderTLBR($prefix, 'padding', 'padding', #{vars.$mediumSize});
+  @include renderTLBR($prefix, 'padding--bottom', 'padding-bottom', #{vars.$bigSize});
+  @include renderTLBR($prefix, 'padding--small', 'padding-bottom', #{vars.$smallSize});
 
-  @include renderTLBR($prefix, 'margin', 'margin', #{vars.$rem});
-  @include renderTLBR($prefix, 'margin--bottom', 'margin', #{vars.$widgetSize});
-  @include renderTLBR($prefix, 'margin--small', 'margin', #{vars.$widgetPadding});
+  @include renderTLBR($prefix, 'margin', 'margin', #{vars.$mediumSize});
+  @include renderTLBR($prefix, 'margin--bottom', 'margin-bottom', #{vars.$bigSize});
+  @include renderTLBR($prefix, 'margin--small', 'margin-bottom', #{vars.$smallSize});
 
   @include renderTLBR($prefix, 'border', 'border', #{vars.$border});
 
@@ -68,5 +68,9 @@
   .#{$prefix}width--80 { width: 80% !important; }
   .#{$prefix}width--90 { width: 90% !important; }
   .#{$prefix}width--100 { width: 100% !important; }
+
+  .#{$prefix}width--small {width: vars.$smallSize !important;}
+  .#{$prefix}width--medium {width: vars.$mediumSize !important;}
+  .#{$prefix}width--big {width: vars.$bigSize !important;}
 
 }

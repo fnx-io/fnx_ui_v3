@@ -1,48 +1,92 @@
 @use 'vars';
 
+@mixin renderCharRules() {
+  display: inline-block;
+  width: vars.$bigSize;
+  min-height: vars.$bigSize;
+  line-height: vars.$bigSize;
+  text-align: center;
+}
+
+@mixin renderCharWithBorderRules() {
+  display: inline-block;
+  width: vars.$bigSize;
+  min-height: vars.$bigSize;
+  line-height: vars.$bigSize_withoutBorder;
+  text-align: center;
+  border-radius: vars.$borderRadius;
+}
+
+
+@mixin renderItemRules() {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: vars.$smallSize vars.$mediumSize;
+  min-height: vars.$bigSize;
+  /*
+  & > a {
+    &:only-child {
+      display: inline-block;
+      margin: calc(-1 * #{vars.$smallSize}) calc(-1 * -#{vars.$mediumSize});
+      padding: vars.$smallSize vars.$mediumSize;
+    }
+  }
+  */
+}
+
 @mixin render($prefix) {
 
+  [data-prefix] {
+    position: relative;
+    padding-left: vars.$bigSize !important;
+    &:before {
+      position: absolute;
+      top:0;
+      left:0;
+      content: attr(data-prefix);
+      @include renderCharRules();
+    }
+  }
+  [data-suffix] {
+    position: relative;
+    padding-right: vars.$bigSize !important;
+    &:after {
+      position: absolute;
+      top:0;
+      right:0;
+      content: attr(data-suffix);
+      @include renderCharRules();
+    }
+  }
+  [class*='border'][data-prefix] {
+    &:before {
+      @include renderCharWithBorderRules();
+    }
+  }
+  [class*='border'][data-suffix] {
+    &:after {
+      @include renderCharWithBorderRules();
+    }
+  }
   .#{$prefix}char {
-    display: inline-block;
-    width: vars.$widgetSize;
-    min-height: vars.$widgetSize;
-    line-height: vars.$widgetSize;
-    text-align: center;
+    @include renderCharRules();
   }
   [class*=border].#{$prefix}char {
-    display: inline-block;
-    width: vars.$widgetSize;
-    min-height: vars.$widgetSize;
-    line-height: vars.$widgetSizeWithBorder;
-    text-align: center;
+    @include renderCharWithBorderRules();
+  }
+  .#{$prefix}item {
+    @include renderItemRules();
+  }
+  [class*=border].#{$prefix}item {
+    padding: vars.$smallSize_withoutBorder vars.$mediumSize_withoutBorder;
   }
 
 }
 /*
 
 .renderItemIcons() {
-&[data-prefix] {
-  position: relative;
-  padding-left: @paddingBig !important;
-  &:before {
-    .icon;
-    position: absolute;
-    top:0;
-    left:0;
-    content: attr(data-prefix);
-  }
-}
-&[data-suffix] {
-  position: relative;
-  padding-right: @paddingBig !important;
-  &:after {
-    .icon;
-    position: absolute;
-    top:0;
-    right:0;
-    content: attr(data-suffix);
-  }
-}
+
 }
 
 .renderItem() {

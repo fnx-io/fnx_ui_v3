@@ -6,23 +6,24 @@ h1, h2, h3, h4, h5 {
 h6 {
   font-weight: normal;
 }
+
 h1 {
-  font-size: calc(2 * #{vars.$rem});
+  font-size: calc(2 * #{vars.$mediumSize});
 }
 h2 {
-  font-size: calc(1.6 * #{vars.$rem});
+  font-size: calc(1.5 * #{vars.$mediumSize});
 }
 h3 {
-  font-size: calc(1.4 * #{vars.$rem});
+  font-size: calc(1.125 * #{vars.$mediumSize});
 }
 h4 {
-  font-size: calc(1.2 * #{vars.$rem});
+  font-size: calc(1 * #{vars.$mediumSize});
 }
 h5 {
-  font-size: calc(0.80 * #{vars.$rem});
+  font-size: calc(0.75 * #{vars.$mediumSize});
 }
 h6 {
-  font-size: calc(0.66666 * #{vars.$rem});
+  font-size: calc(0.625 * #{vars.$mediumSize});
 }
 a {
   text-decoration: none;
@@ -41,25 +42,25 @@ p a {
     font-family: monospace;
   }
   .#{$prefix}fs-xxxl {
-    font-size: calc(2 * #{vars.$rem});
+    font-size: calc(3 * #{vars.$mediumSize});
   }
   .#{$prefix}fs-xxl {
-    font-size: calc(1.6 * #{vars.$rem});
+    font-size: calc(2 * #{vars.$mediumSize});
   }
   .#{$prefix}fs-xl {
-    font-size: calc(1.4 * #{vars.$rem});
+    font-size: calc(1.5 * #{vars.$mediumSize});
   }
   .#{$prefix}fs-l {
-    font-size: calc(1.2 * #{vars.$rem});
+    font-size: calc(1.125 * #{vars.$mediumSize});
   }
   .#{$prefix}fs-m {
     font-size: 1rem;
   }
   .#{$prefix}fs-s {
-    font-size: calc(0.80 * #{vars.$rem});
+    font-size: calc(0.75 * #{vars.$mediumSize});
   }
   .#{$prefix}fs-xs {
-    font-size: calc(0.66666 * #{vars.$rem});
+    font-size: calc(0.625 * #{vars.$mediumSize});
   }
   .#{$prefix}regular {
     font-weight: 400;
