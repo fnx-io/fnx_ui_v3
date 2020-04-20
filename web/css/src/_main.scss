@@ -1,17 +1,22 @@
 @use 'vars';
 
 @use 'reboot';
-@use 'sizing';
+
+
 @use 'utils';
+@use 'typography';
+@use 'sizing';
 @use 'flex';
 @use 'grid';
 @use 'position';
-@use 'typography';
+@use 'items';
 
 @mixin renderAll($prefix) {
   @include utils.render($prefix);
+  @include typography.render($prefix);
   @include sizing.render($prefix);
   @include flex.render($prefix);
   @include grid.render($prefix);
-  @include typography.render($prefix);
+  @include position.render($prefix);
+  @include items.render($prefix);
 }

@@ -12,6 +12,8 @@ import 'package:fnx_ui/src/docs/fnx_ui_docs_0050_positioning.template.dart' as c
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0060_padding.template.dart' as c0060;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0070_margin.template.dart' as c0070;
 
+import 'package:fnx_ui/src/docs/fnx_ui_docs_0100_item.template.dart' as c0100;
+
 import 'fnx_ui.dart';
 
 // AngularDart info: https://angulardart.dev
@@ -32,6 +34,7 @@ class FnxUiDocs {
     Chapter("Positioning", c0050.FnxUiDocs0050PositioningNgFactory),
     Chapter("Padding", c0060.FnxUiDocs0060PaddingNgFactory),
     Chapter("Margin", c0070.FnxUiDocs0070MarginNgFactory),
+    Chapter("Item", c0100.FnxUiDocs0100ItemNgFactory),
   ];
 
   List<RouteDefinition> routes;

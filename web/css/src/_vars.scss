@@ -1,14 +1,20 @@
 // Customizable:
 $rem: var(--rem);
 $widgetPadding: var(--padding);
+$borderSize: var(--border-size);
 $border: var(--border);
-$primaryColor: var(--color);
+$themeColor: var(--theme-color);
+$themeTextColor: var(--theme-text-color);
+
+$accentColor: var(--accent-color);
+$accentTextColor: var(--accent-text-color);
 
 :root {
   --rem: 15px;
   --lh: 1.2;
   --padding: 8px;
-  --border: 1px solid #aaa;
+  --border-size: 1px;
+  --border: #{$borderSize} solid #aaa;
 }
 
 html {
@@ -18,6 +24,7 @@ html {
 }
 
 $widgetSize: calc(var(--padding)*2 + var(--rem)*var(--lh));
+$widgetSizeWithBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2) ;
 
 $xsBreakpoint: 600;
 $sBreakpoint: 900;

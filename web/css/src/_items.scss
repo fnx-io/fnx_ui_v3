@@ -1,0 +1,81 @@
+@use 'vars';
+
+@mixin render($prefix) {
+
+  .#{$prefix}char {
+    display: inline-block;
+    width: vars.$widgetSize;
+    min-height: vars.$widgetSize;
+    line-height: vars.$widgetSize;
+    text-align: center;
+  }
+  [class*=border].#{$prefix}char {
+    display: inline-block;
+    width: vars.$widgetSize;
+    min-height: vars.$widgetSize;
+    line-height: vars.$widgetSizeWithBorder;
+    text-align: center;
+  }
+
+}
+/*
+
+.renderItemIcons() {
+&[data-prefix] {
+  position: relative;
+  padding-left: @paddingBig !important;
+  &:before {
+    .icon;
+    position: absolute;
+    top:0;
+    left:0;
+    content: attr(data-prefix);
+  }
+}
+&[data-suffix] {
+  position: relative;
+  padding-right: @paddingBig !important;
+  &:after {
+    .icon;
+    position: absolute;
+    top:0;
+    right:0;
+    content: attr(data-suffix);
+  }
+}
+}
+
+.renderItem() {
+  position: relative;
+  margin: 0;
+  padding: @basicWidgetPadding @padding;
+  min-height: @basicWidgetSize;
+& > a {
+  &:only-child {
+    .renderItemIcons();
+    margin: -@basicWidgetPadding -@padding;
+    padding: @basicWidgetPadding @padding;
+    display: block;
+  }
+}
+}
+.item {
+  .renderItem();
+}
+.item--border {
+  margin: 0;
+  padding: @borderedWidgetPadding;
+  border: @borderSize solid @colorBorderDefault;
+  border-radius: @borderRadius;
+}
+.char {
+  display: inline-block;
+  width: @basicWidgetSize;
+  line-height: @basicWidgetSize;
+  text-align: center;
+}
+
+.item, .item--border {
+  .renderItemIcons();
+}
+ */
