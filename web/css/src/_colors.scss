@@ -1,0 +1,112 @@
+$colorFnxOrange: #ff8403;
+
+$colorRed: #F44336;
+$colorPink: #E91E63;
+$colorPurple: #9C27B0;
+
+$colorDeepPurple: #673AB7;
+$colorIndigo: #3F51B5;
+$colorBlue: #2196F3;
+$colorLightBlue: #03A9F4;
+$colorCyan: #00BCD4;
+$colorTeal: #009688;
+
+$colorGreen: #4CAF50;
+$colorLightGreen: #8BC34A;
+$colorLime: #CDDC39;
+
+$colorYellow: #FFEB3B;
+$colorAmber: #FFC107;
+$colorOrange: #FF9800;
+$colorDeepOrange: #FF5722;
+$colorBrown: #795548;
+$colorGrey: #9E9E9E;
+$colorBlueGrey: #607D8B;
+
+$level1: 5%;
+$level2: $level1 * 2;
+$level3: $level1 * 3;
+$level4: $level1 * 4;
+
+@mixin renderColorRules($hexa, $name) {
+  .bg--#{$name} {
+    background-color: $hexa;
+    &--l1 {
+      background-color: lighten($hexa, $level1);
+    }
+    &--l2 {
+      background-color: lighten($hexa, $level2);
+    }
+    &--l3 {
+      background-color: lighten($hexa, $level3);
+    }
+    &--l4 {
+      background-color: lighten($hexa, $level4);
+    }
+    &--d1 {
+      background-color: darken($hexa, $level1);
+    }
+    &--d2 {
+      background-color: darken($hexa, $level2);
+    }
+    &--d3 {
+      background-color: darken($hexa, $level3);
+    }
+    &--d4 {
+      background-color: darken($hexa, $level4);
+    }
+  }
+
+  .text--#{$name} {
+    color: $hexa;
+    &--l1 {
+      color: lighten($hexa, $level1);
+    }
+    &--l2 {
+      color: lighten($hexa, $level2);
+    }
+    &--l3 {
+      color: lighten($hexa, $level3);
+    }
+    &--l4 {
+      color: lighten($hexa, $level4);
+    }
+    &--d1 {
+      color: darken($hexa, $level1);
+    }
+    &--d2 {
+      color: darken($hexa, $level2);
+    }
+    &--d3 {
+      color: darken($hexa, $level3);
+    }
+    &--d4 {
+      color: darken($hexa, $level4);
+    }
+  }
+}
+
+@mixin render() {
+  @include renderColorRules(#000, black);
+  @include renderColorRules(#fff, white);
+  @include renderColorRules($colorFnxOrange, fnx);
+  @include renderColorRules($colorRed, red);
+  @include renderColorRules($colorPink, pink);
+  @include renderColorRules($colorPurple, purple);
+  @include renderColorRules($colorDeepPurple, deep-purple);
+  @include renderColorRules($colorIndigo, indigo);
+  @include renderColorRules($colorBlue, blue);
+  @include renderColorRules($colorLightBlue, light-blue);
+  @include renderColorRules($colorCyan, cyan);
+  @include renderColorRules($colorTeal, teal);
+  @include renderColorRules($colorGreen, green);
+  @include renderColorRules($colorLightGreen, light-green);
+  @include renderColorRules($colorLime, lime);
+  @include renderColorRules($colorYellow, yellow);
+  @include renderColorRules($colorAmber, amber);
+  @include renderColorRules($colorOrange, orange);
+  @include renderColorRules($colorDeepOrange, deep-orange);
+  @include renderColorRules($colorBrown, brown);
+  @include renderColorRules($colorGrey, grey);
+  @include renderColorRules($colorBlueGrey, blue-grey);
+}

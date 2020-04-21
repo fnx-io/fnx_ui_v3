@@ -11,6 +11,8 @@ import 'package:fnx_ui/src/docs/fnx_ui_docs_0040_grid.template.dart' as c0040;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0050_positioning.template.dart' as c0050;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0060_padding.template.dart' as c0060;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0070_margin.template.dart' as c0070;
+import 'package:fnx_ui/src/docs/fnx_ui_docs_0080_border.template.dart' as c0080;
+import 'package:fnx_ui/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0090;
 
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0100_item.template.dart' as c0100;
 
@@ -34,6 +36,8 @@ class FnxUiDocs {
     Chapter("Positioning", c0050.FnxUiDocs0050PositioningNgFactory),
     Chapter("Padding", c0060.FnxUiDocs0060PaddingNgFactory),
     Chapter("Margin", c0070.FnxUiDocs0070MarginNgFactory),
+    Chapter("Border", c0080.FnxUiDocs0080BorderNgFactory),
+    Chapter("Colors", c0090.FnxUiDocs0090ColorsNgFactory),
     Chapter("Item", c0100.FnxUiDocs0100ItemNgFactory),
   ];
 

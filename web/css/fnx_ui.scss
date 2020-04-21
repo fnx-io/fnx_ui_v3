@@ -1,6 +1,8 @@
 @use 'src/main';
 @use 'src/vars';
 
+@include main.renderPrefixIndependent();
+
 /* MEDIUM DESKTOP - DEFAULT VIEWPORT*/
 @include main.renderAll("");
 

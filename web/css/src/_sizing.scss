@@ -28,12 +28,12 @@
 @mixin render($prefix) {
 
   @include renderTLBR($prefix, 'padding', 'padding', #{vars.$mediumSize});
-  @include renderTLBR($prefix, 'padding--bottom', 'padding-bottom', #{vars.$bigSize});
-  @include renderTLBR($prefix, 'padding--small', 'padding-bottom', #{vars.$smallSize});
+  @include renderTLBR($prefix, 'padding--big', 'padding', #{vars.$bigSize});
+  @include renderTLBR($prefix, 'padding--small', 'padding', #{vars.$smallSize});
 
   @include renderTLBR($prefix, 'margin', 'margin', #{vars.$mediumSize});
-  @include renderTLBR($prefix, 'margin--bottom', 'margin-bottom', #{vars.$bigSize});
-  @include renderTLBR($prefix, 'margin--small', 'margin-bottom', #{vars.$smallSize});
+  @include renderTLBR($prefix, 'margin--big', 'margin', #{vars.$bigSize});
+  @include renderTLBR($prefix, 'margin--small', 'margin', #{vars.$smallSize});
 
   @include renderTLBR($prefix, 'border', 'border', #{vars.$border});
 

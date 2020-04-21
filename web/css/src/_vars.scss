@@ -11,25 +11,6 @@ $themeTextColor: var(--theme-text-color);
 $accentColor: var(--accent-color);
 $accentTextColor: var(--accent-text-color);
 
-:root {
-  --rem: 16px;
-  --lh: 1.25;
-  --padding: 8px;
-  --border-size: 1px;
-  --border: #{$borderSize} solid #aaa;
-  --border-radius: 2px;
-  --theme-color: #rff;
-  --theme-text-color: #fff;
-  --accent-color: #00f;
-  --accent-text-color: #fff;
-}
-
-html {
-  background-color: #eee;
-  font-size: var(--rem);
-  line-height: var(--lh);
-}
-
 $bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh));
 $bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2);
 
@@ -41,6 +22,27 @@ $sBreakpoint: 900;
 // 'm' lives here
 $lBreakpoint: 1200;
 $xlBreakpoint: 1600;
+
+@mixin render() {
+  :root {
+    --rem: 16px;
+    --lh: 1.25;
+    --padding: 8px;
+    --border-size: 1px;
+    --border: #{$borderSize} solid #aaa;
+    --border-radius: 2px;
+    --theme-color: #rff;
+    --theme-text-color: #fff;
+    --accent-color: #00f;
+    --accent-text-color: #fff;
+  }
+
+  html {
+    background-color: #eee;
+    font-size: var(--rem);
+    line-height: var(--lh);
+  }
+}
 
 
 
