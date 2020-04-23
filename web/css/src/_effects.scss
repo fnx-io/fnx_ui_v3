@@ -1,0 +1,77 @@
+@use 'colors';
+@use 'vars';
+
+$shadowSize: 2px;
+
+@mixin focusOutline() {
+  outline: 1px dotted vars.$accentColor !important;
+  outline-offset: 2px !important;
+}
+
+@mixin renderShadow($size) {
+  box-shadow: $size $size*1.5 $size rgba(0,0,0,0.2);
+}
+
+@mixin render() {
+
+  * {
+    transition: box-shadow 0.3s, background-color 0.2s, outline 0.2s;
+    outline: none !important;
+  }
+
+  *:focus {
+    @include focusOutline();
+    z-index: 1;
+  }
+
+  .focused {
+    @include focusOutline();
+    z-index: 1;
+  }
+
+  .embossed {
+    box-shadow: inset -1px -2px 2px rgba(0,0,0,.1);
+  }
+
+  .debossed {
+    box-shadow: inset 1px 2px 2px rgba(0,0,0,.1);
+  }
+
+  .hover\:embossed:hover {
+    box-shadow: inset -1px -2px 2px rgba(0,0,0,.1);
+  }
+
+  .hover\:debossed:hover {
+    box-shadow: inset 1px 2px 2px rgba(0,0,0,.1);
+  }
+
+  .shadow {
+    @include renderShadow($shadowSize);
+    &-raising {
+      @include renderShadow($shadowSize);
+      &:hover {
+        @include renderShadow(2 * $shadowSize);
+      }
+    }
+  }
+  .shadow-big {
+    @include renderShadow(2*$shadowSize);
+    &-raising {
+      @include renderShadow(2*$shadowSize);
+      &:hover {
+        @include renderShadow(3*$shadowSize);
+      }
+    }
+  }
+
+  .shadow-huge {
+    @include renderShadow(3*$shadowSize);
+    &-raising {
+      @include renderShadow(3*$shadowSize);
+      &:hover {
+        @include renderShadow(4*$shadowSize);
+      }
+    }
+  }
+
+}

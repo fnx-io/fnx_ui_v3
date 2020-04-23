@@ -4,7 +4,10 @@
 
 @use 'utils';
 @use 'typography';
-@use 'sizing';
+@use 'effects';
+@use 'padding';
+@use 'margin';
+@use 'border';
 @use 'flex';
 @use 'grid';
 @use 'position';
@@ -13,12 +16,15 @@
 @mixin renderPrefixIndependent() {
   @include vars.render();
   @include colors.render();
+  @include effects.render();
 }
 
 @mixin renderAll($prefix) {
   @include utils.render($prefix);
   @include typography.render($prefix);
-  @include sizing.render($prefix);
+  @include padding.render($prefix);
+  @include margin.render($prefix);
+  @include border.render($prefix);
   @include flex.render($prefix);
   @include grid.render($prefix);
   @include position.render($prefix);

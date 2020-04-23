@@ -1,0 +1,12 @@
+@use 'vars';
+@use 'functions';
+
+@mixin render($prefix) {
+
+  @include functions.renderTLBR($prefix, 'border', 'border', #{vars.$border});
+
+  .round {
+    border-radius: vars.$borderRadius;
+  }
+
+}

@@ -1,0 +1,25 @@
+@mixin renderTLBR($prefix, $name, $property, $value) {
+  .#{$prefix}#{$name} {
+    #{$property}: #{$value};
+  }
+  .#{$prefix}#{$name}-top {
+    #{$property}-top: #{$value};
+  }
+  .#{$prefix}#{$name}-left {
+    #{$property}-left: #{$value};
+  }
+  .#{$prefix}#{$name}-bottom {
+    #{$property}-bottom: #{$value};
+  }
+  .#{$prefix}#{$name}-right {
+    #{$property}-right: #{$value};
+  }
+  .#{$prefix}#{$name}-horizontal {
+    #{$property}-right: #{$value};
+    #{$property}-left: #{$value};
+  }
+  .#{$prefix}#{$name}-vertical {
+    #{$property}-top: #{$value};
+    #{$property}-bottom: #{$value};
+  }
+}

@@ -17,13 +17,18 @@
   border-radius: vars.$borderRadius;
 }
 
-
 @mixin renderItemRules() {
   display: inline-block;
   position: relative;
   margin: 0;
-  padding: vars.$smallSize vars.$mediumSize;
+  padding: vars.$smallSize vars.$smallSize;
   min-height: vars.$bigSize;
+  vertical-align: bottom;
+  &.border {
+      padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
+      min-height: vars.$bigSize;
+      border-radius: vars.$borderRadius;
+  }
   /*
   & > a {
     &:only-child {
@@ -40,6 +45,7 @@
   [data-prefix] {
     position: relative;
     padding-left: vars.$bigSize !important;
+    @include renderItemRules();
     &:before {
       position: absolute;
       top:0;
@@ -51,22 +57,13 @@
   [data-suffix] {
     position: relative;
     padding-right: vars.$bigSize !important;
+    @include renderItemRules();
     &:after {
       position: absolute;
       top:0;
       right:0;
       content: attr(data-suffix);
       @include renderCharRules();
-    }
-  }
-  [class*='border'][data-prefix] {
-    &:before {
-      @include renderCharWithBorderRules();
-    }
-  }
-  [class*='border'][data-suffix] {
-    &:after {
-      @include renderCharWithBorderRules();
     }
   }
   .#{$prefix}char {
@@ -78,10 +75,6 @@
   .#{$prefix}item {
     @include renderItemRules();
   }
-  [class*=border].#{$prefix}item {
-    padding: vars.$smallSize_withoutBorder vars.$mediumSize_withoutBorder;
-  }
-
 }
 /*
 
