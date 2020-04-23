@@ -33,5 +33,13 @@ class FnxUiDocs0090Colors {
     "deep-orange",
     "brown",
   ];
-  List<String> flavours = ["", ...List.generate(4, (i) => "--l${i + 1}"), ...List.generate(4, (i) => "--d${i + 1}")];
+
+  List<String> themeColors = [
+    "theme",
+    "accent",
+    "hover",
+    "selected",
+  ];
+
+  List<String> flavours = ["", ...List.generate(4, (i) => "-l${i + 1}"), ...List.generate(4, (i) => "-d${i + 1}")];
 }

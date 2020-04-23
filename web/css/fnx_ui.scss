@@ -1,6 +1,7 @@
 @use 'src/main';
 @use 'src/vars';
 
+/* NON-RESPONSIVE STYLES */
 @include main.renderPrefixIndependent();
 
 /* MEDIUM DESKTOP - DEFAULT VIEWPORT*/
@@ -8,13 +9,13 @@
 
 /* MEDIUM DESKTOP */
 @media (min-width: #{vars.$sBreakpoint+0.01}px) and (max-width: #{vars.$lBreakpoint}px) {
-  @include main.renderAll("m--");
+  @include main.renderAll("m\\:");
 }
 /* TABLET */
 @media (max-width: #{vars.$sBreakpoint}px) {
-  @include main.renderAll("s--");
+  @include main.renderAll("s\\:");
 }
 /* BIGGER DESKTOP */
 @media (min-width: #{vars.$lBreakpoint+0.01}px) {
-  @include main.renderAll("l--");
+  @include main.renderAll("l\\:");
 }

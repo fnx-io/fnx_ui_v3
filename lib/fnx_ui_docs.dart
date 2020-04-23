@@ -14,7 +14,7 @@ import 'package:fnx_ui/src/docs/fnx_ui_docs_0070_margin.template.dart' as c0070;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0080_border.template.dart' as c0080;
 import 'package:fnx_ui/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0090;
 
-import 'package:fnx_ui/src/docs/fnx_ui_docs_0100_item.template.dart' as c0100;
+import 'package:fnx_ui/src/docs/fnx_ui_docs_0200_item.template.dart' as c0200;
 
 import 'fnx_ui.dart';
 
@@ -38,7 +38,7 @@ class FnxUiDocs {
     Chapter("Margin", c0070.FnxUiDocs0070MarginNgFactory),
     Chapter("Border", c0080.FnxUiDocs0080BorderNgFactory),
     Chapter("Colors", c0090.FnxUiDocs0090ColorsNgFactory),
-    Chapter("Item", c0100.FnxUiDocs0100ItemNgFactory),
+    Chapter("Item", c0200.FnxUiDocs0200ItemNgFactory),
   ];
 
   List<RouteDefinition> routes;

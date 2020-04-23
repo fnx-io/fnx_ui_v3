@@ -19,7 +19,7 @@ $gutter: var(--rem);
   }
 }
 @mixin render($prefix) {
-  .#{$prefix}row, .#{$prefix}row--gutter, .#{$prefix}row--gutter--horizontal {
+  .#{$prefix}row, .#{$prefix}row-gutter, .#{$prefix}row-gutter-horizontal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -28,14 +28,14 @@ $gutter: var(--rem);
       flex-shrink: 1;
     }
   }
-  .#{$prefix}row--gutter {
+  .#{$prefix}row-gutter {
     margin-left: calc( -1 * #{$gutter} / 2);
     margin-right: calc( -1 * #{$gutter} / 2);
     & > * {
       margin-bottom: #{$gutter};
     }
   }
-  .#{$prefix}row--gutter--horizontal {
+  .#{$prefix}row-gutter-horizontal {
     margin-left: calc( -1 * #{$gutter} / 2);
     margin-right: calc( -1 * #{$gutter} / 2);
   }
@@ -53,8 +53,8 @@ $gutter: var(--rem);
     @include renderGridRules($prefix, 11);
     @include renderGridRules($prefix, 12);
   }
-  .#{$prefix}row--gutter, .#{$prefix}row--gutter--horizontal, .row--gutter, .row--gutter--horizontal {
-    .#{$prefix}offset--s0 {
+  .#{$prefix}row-gutter, .#{$prefix}row-gutter-horizontal, .row-gutter, .row-gutter-horizontal {
+    .#{$prefix}o0 {
       margin-left: $gutter !important;
     }
     @include renderGridRulesWithGutter($prefix,  1);

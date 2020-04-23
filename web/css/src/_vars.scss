@@ -1,15 +1,23 @@
 // Customizable:
-$mediumSize: var(--rem);
 $smallSize: var(--padding);
+$mediumSize: var(--rem);
 $borderSize: var(--border-size);
 $border: var(--border);
 $borderRadius: var(--border-radius);
 
-//
+// Colors:
+// Primary theme
 $themeColor: var(--theme-color);
 $themeTextColor: var(--theme-text-color);
+// Important buttons
 $accentColor: var(--accent-color);
 $accentTextColor: var(--accent-text-color);
+// Hover above rows / options
+$hoverColor: var(--hover-color);
+$hoverTextColor: var(--hover-text-color);
+// Selected row / option
+$selectedColor: var(--selected-color);
+$selectedTextColor: var(--selected-text-color);
 
 $bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh));
 $bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2);
@@ -31,10 +39,15 @@ $xlBreakpoint: 1600;
     --border-size: 1px;
     --border: #{$borderSize} solid #aaa;
     --border-radius: 2px;
-    --theme-color: #rff;
+
+    --theme-color: #ff8403;
     --theme-text-color: #fff;
-    --accent-color: #00f;
+    --accent-color: #f00;
     --accent-text-color: #fff;
+    --hover-color: #ffb669;
+    --hover-text-color: #000;
+    --selected-color: #e97700;
+    --selected-text-color: #fff;
   }
 
   html {

@@ -1,3 +1,5 @@
+@use 'vars';
+
 $colorFnxOrange: #ff8403;
 
 $colorRed: #F44336;
@@ -28,85 +30,189 @@ $level2: $level1 * 2;
 $level3: $level1 * 3;
 $level4: $level1 * 4;
 
+@mixin renderSpecials() {
+  .bg-accent, .hover\:bg-accent:hover {
+    background-color: vars.$accentColor;
+  }
+  .text-accent, .hover\:text-accent:hover {
+    color: vars.$accentColor;
+  }
+  .accent, .hover\:accent:hover {
+    background-color: vars.$accentColor;
+    color: vars.$accentTextColor;
+  }
+  .bg-theme, .hover\:bg-theme:hover {
+    background-color: vars.$themeColor;
+  }
+  .text-theme, .hover\:text-theme:hover {
+    color: vars.$themeColor;
+  }
+  .theme, .hover\:theme:hover {
+    background-color: vars.$themeColor;
+    color: vars.$themeTextColor;
+  }
+  .bg-hover, .hover\:bg-hover:hover {
+    background-color: vars.$hoverColor;
+  }
+  .text-hover, .hover\:text-hover:hover {
+    color: vars.$hoverColor;
+  }
+  .hover, .hover\:hover:hover {
+    background-color: vars.$hoverColor;
+    color: vars.$hoverTextColor;
+  }
+  .bg-selected, .hover\:bg-selected:hover {
+    background-color: vars.$selectedColor;
+  }
+  .text-selected, .hover\:text-selected:hover {
+    color: vars.$selectedColor;
+  }
+  .selected, .hover\:selected:hover {
+    background-color: vars.$selectedColor;
+    color: vars.$selectedTextColor;
+  }
+}
+
 @mixin renderColorRules($hexa, $name) {
-  .bg--#{$name} {
+  .bg-#{$name} {
     background-color: $hexa;
-    &--l1 {
+    &-l1 {
       background-color: lighten($hexa, $level1);
     }
-    &--l2 {
+    &-l2 {
       background-color: lighten($hexa, $level2);
     }
-    &--l3 {
+    &-l3 {
       background-color: lighten($hexa, $level3);
     }
-    &--l4 {
+    &-l4 {
       background-color: lighten($hexa, $level4);
     }
-    &--d1 {
+    &-d1 {
       background-color: darken($hexa, $level1);
     }
-    &--d2 {
+    &-d2 {
       background-color: darken($hexa, $level2);
     }
-    &--d3 {
+    &-d3 {
       background-color: darken($hexa, $level3);
     }
-    &--d4 {
+    &-d4 {
       background-color: darken($hexa, $level4);
     }
   }
 
-  .text--#{$name} {
+  .hover\:bg-#{$name} {
+    &:hover {
+      background-color: $hexa;
+    }
+    &-l1:hover {
+      background-color: lighten($hexa, $level1);
+    }
+    &-l2:hover {
+      background-color: lighten($hexa, $level2);
+    }
+    &-l3:hover {
+      background-color: lighten($hexa, $level3);
+    }
+    &-l4:hover {
+      background-color: lighten($hexa, $level4);
+    }
+    &-d1:hover {
+      background-color: darken($hexa, $level1);
+    }
+    &-d2:hover {
+      background-color: darken($hexa, $level2);
+    }
+    &-d3:hover {
+      background-color: darken($hexa, $level3);
+    }
+    &-d4:hover {
+      background-color: darken($hexa, $level4);
+    }
+  }
+
+  .text-#{$name} {
     color: $hexa;
-    &--l1 {
+    &-l1 {
       color: lighten($hexa, $level1);
     }
-    &--l2 {
+    &-l2 {
       color: lighten($hexa, $level2);
     }
-    &--l3 {
+    &-l3 {
       color: lighten($hexa, $level3);
     }
-    &--l4 {
+    &-l4 {
       color: lighten($hexa, $level4);
     }
-    &--d1 {
+    &-d1 {
       color: darken($hexa, $level1);
     }
-    &--d2 {
+    &-d2 {
       color: darken($hexa, $level2);
     }
-    &--d3 {
+    &-d3 {
       color: darken($hexa, $level3);
     }
-    &--d4 {
+    &-d4 {
+      color: darken($hexa, $level4);
+    }
+  }
+
+  .hover\:text-#{$name} {
+    &:hover {
+      color: $hexa;
+    }
+    &-l1:hover {
+      color: lighten($hexa, $level1);
+    }
+    &-l2:hover {
+      color: lighten($hexa, $level2);
+    }
+    &-l3:hover {
+      color: lighten($hexa, $level3);
+    }
+    &-l4:hover {
+      color: lighten($hexa, $level4);
+    }
+    &-d1:hover {
+      color: darken($hexa, $level1);
+    }
+    &-d2:hover {
+      color: darken($hexa, $level2);
+    }
+    &-d3:hover {
+      color: darken($hexa, $level3);
+    }
+    &-d4:hover {
       color: darken($hexa, $level4);
     }
   }
 }
 
 @mixin render() {
-  @include renderColorRules(#000, black);
-  @include renderColorRules(#fff, white);
-  @include renderColorRules($colorFnxOrange, fnx);
-  @include renderColorRules($colorRed, red);
-  @include renderColorRules($colorPink, pink);
-  @include renderColorRules($colorPurple, purple);
-  @include renderColorRules($colorDeepPurple, deep-purple);
-  @include renderColorRules($colorIndigo, indigo);
-  @include renderColorRules($colorBlue, blue);
-  @include renderColorRules($colorLightBlue, light-blue);
-  @include renderColorRules($colorCyan, cyan);
-  @include renderColorRules($colorTeal, teal);
-  @include renderColorRules($colorGreen, green);
-  @include renderColorRules($colorLightGreen, light-green);
-  @include renderColorRules($colorLime, lime);
-  @include renderColorRules($colorYellow, yellow);
-  @include renderColorRules($colorAmber, amber);
-  @include renderColorRules($colorOrange, orange);
-  @include renderColorRules($colorDeepOrange, deep-orange);
-  @include renderColorRules($colorBrown, brown);
-  @include renderColorRules($colorGrey, grey);
-  @include renderColorRules($colorBlueGrey, blue-grey);
+  @include renderColorRules(#000, "black");
+  @include renderColorRules(#fff, "white");
+  @include renderColorRules($colorFnxOrange, "fnx");
+  @include renderColorRules($colorRed, "red");
+  @include renderColorRules($colorPink, "pink");
+  @include renderColorRules($colorPurple, "purple");
+  @include renderColorRules($colorDeepPurple, "deep-purple");
+  @include renderColorRules($colorIndigo, "indigo");
+  @include renderColorRules($colorBlue, "blue");
+  @include renderColorRules($colorLightBlue, "light-blue");
+  @include renderColorRules($colorCyan, "cyan");
+  @include renderColorRules($colorTeal, "teal");
+  @include renderColorRules($colorGreen, "green");
+  @include renderColorRules($colorLightGreen, "light-green");
+  @include renderColorRules($colorLime, "lime");
+  @include renderColorRules($colorYellow, "yellow");
+  @include renderColorRules($colorAmber, "amber");
+  @include renderColorRules($colorOrange, "orange");
+  @include renderColorRules($colorDeepOrange, "deep-orange");
+  @include renderColorRules($colorBrown, "brown");
+  @include renderColorRules($colorGrey, "grey");
+  @include renderColorRules($colorBlueGrey, "blue-grey");
+  @include renderSpecials();
 }

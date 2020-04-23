@@ -33,33 +33,33 @@ a {
   }
 }
 p a {
-  &:not(.icon):not(.btn):not(.btn--icon):not(.btn--fab):not(.icon--calc) {
+  &:not(.icon):not(.btn):not(.btn-icon):not(.btn-fab):not(.icon-calc) {
     text-decoration: underline;
   }
 }
 @mixin render($prefix) {
-  .#{$prefix}ff--monospace, .#{$prefix}monospace {
+  .#{$prefix}ff-monospace, .#{$prefix}monospace {
     font-family: monospace;
   }
-  .#{$prefix}fs--xxxl {
+  .#{$prefix}fs-xxxl {
     font-size: calc(3 * #{vars.$mediumSize});
   }
-  .#{$prefix}fs--xxl {
+  .#{$prefix}fs-xxl {
     font-size: calc(2 * #{vars.$mediumSize});
   }
-  .#{$prefix}fs--xl {
+  .#{$prefix}fs-xl {
     font-size: calc(1.5 * #{vars.$mediumSize});
   }
-  .#{$prefix}fs--l {
+  .#{$prefix}fs-l {
     font-size: calc(1.125 * #{vars.$mediumSize});
   }
-  .#{$prefix}fs--m {
+  .#{$prefix}fs-m {
     font-size: 1rem;
   }
-  .#{$prefix}fs--s {
+  .#{$prefix}fs-s {
     font-size: calc(0.75 * #{vars.$mediumSize});
   }
-  .#{$prefix}fs--xs {
+  .#{$prefix}fs-xs {
     font-size: calc(0.625 * #{vars.$mediumSize});
   }
   .#{$prefix}regular {
@@ -83,13 +83,13 @@ p a {
   .#{$prefix}strike, .#{$prefix}line-through {
     text-decoration: line-through;
   }
-  .#{$prefix}text--center {
+  .#{$prefix}text-center {
     text-align: center;
   }
-  .#{$prefix}text--right {
+  .#{$prefix}text-right {
     text-align: right;
   }
-  .#{$prefix}text--left {
+  .#{$prefix}text-left {
     text-align: left;
   }
 }
