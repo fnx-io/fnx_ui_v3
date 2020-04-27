@@ -1,4 +1,7 @@
 @use 'vars';
+@use 'functions';
+
+$colorBody: #eee;
 
 $colorFnxOrange: #ff8403;
 
@@ -74,120 +77,60 @@ $level4: $level1 * 4;
 }
 
 @mixin renderColorRules($hexa, $name) {
-  .bg-#{$name} {
+  @include functions.renderWithFlavores("bg-#{$name}") {
     background-color: $hexa;
-    &-l1 {
-      background-color: lighten($hexa, $level1);
-    }
-    &-l2 {
-      background-color: lighten($hexa, $level2);
-    }
-    &-l3 {
-      background-color: lighten($hexa, $level3);
-    }
-    &-l4 {
-      background-color: lighten($hexa, $level4);
-    }
-    &-d1 {
-      background-color: darken($hexa, $level1);
-    }
-    &-d2 {
-      background-color: darken($hexa, $level2);
-    }
-    &-d3 {
-      background-color: darken($hexa, $level3);
-    }
-    &-d4 {
-      background-color: darken($hexa, $level4);
-    }
   }
-
-  .hover\:bg-#{$name} {
-    &:hover {
-      background-color: $hexa;
-    }
-    &-l1:hover {
-      background-color: lighten($hexa, $level1);
-    }
-    &-l2:hover {
-      background-color: lighten($hexa, $level2);
-    }
-    &-l3:hover {
-      background-color: lighten($hexa, $level3);
-    }
-    &-l4:hover {
-      background-color: lighten($hexa, $level4);
-    }
-    &-d1:hover {
-      background-color: darken($hexa, $level1);
-    }
-    &-d2:hover {
-      background-color: darken($hexa, $level2);
-    }
-    &-d3:hover {
-      background-color: darken($hexa, $level3);
-    }
-    &-d4:hover {
-      background-color: darken($hexa, $level4);
-    }
+  @include functions.renderWithFlavores("bg-#{$name}-l1") {
+    background-color: lighten($hexa, $level1);
   }
-
-  .text-#{$name} {
+  @include functions.renderWithFlavores("bg-#{$name}-l2") {
+    background-color: lighten($hexa, $level2);
+  }
+  @include functions.renderWithFlavores("bg-#{$name}-l3") {
+    background-color: lighten($hexa, $level3);
+  }
+  @include functions.renderWithFlavores("bg-#{$name}-l4") {
+    background-color: lighten($hexa, $level4);
+  }
+  @include functions.renderWithFlavores("bg-#{$name}-d1") {
+    background-color: darken($hexa, $level1);
+  }
+  @include functions.renderWithFlavores("bg-#{$name}-d2") {
+    background-color: darken($hexa, $level2);
+  }
+  @include functions.renderWithFlavores("bg-#{$name}-d3") {
+    background-color: darken($hexa, $level3);
+  }
+  @include functions.renderWithFlavores("bg-#{$name}-d4") {
+    background-color: darken($hexa, $level4);
+  }
+  
+  @include functions.renderWithFlavores("text-#{$name}") {
     color: $hexa;
-    &-l1 {
-      color: lighten($hexa, $level1);
-    }
-    &-l2 {
-      color: lighten($hexa, $level2);
-    }
-    &-l3 {
-      color: lighten($hexa, $level3);
-    }
-    &-l4 {
-      color: lighten($hexa, $level4);
-    }
-    &-d1 {
-      color: darken($hexa, $level1);
-    }
-    &-d2 {
-      color: darken($hexa, $level2);
-    }
-    &-d3 {
-      color: darken($hexa, $level3);
-    }
-    &-d4 {
-      color: darken($hexa, $level4);
-    }
   }
-
-  .hover\:text-#{$name} {
-    &:hover {
-      color: $hexa;
-    }
-    &-l1:hover {
-      color: lighten($hexa, $level1);
-    }
-    &-l2:hover {
-      color: lighten($hexa, $level2);
-    }
-    &-l3:hover {
-      color: lighten($hexa, $level3);
-    }
-    &-l4:hover {
-      color: lighten($hexa, $level4);
-    }
-    &-d1:hover {
-      color: darken($hexa, $level1);
-    }
-    &-d2:hover {
-      color: darken($hexa, $level2);
-    }
-    &-d3:hover {
-      color: darken($hexa, $level3);
-    }
-    &-d4:hover {
-      color: darken($hexa, $level4);
-    }
+  @include functions.renderWithFlavores("text-#{$name}-l1") {
+    color: lighten($hexa, $level1);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-l2") {
+    color: lighten($hexa, $level2);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-l3") {
+    color: lighten($hexa, $level3);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-l4") {
+    color: lighten($hexa, $level4);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-d1") {
+    color: darken($hexa, $level1);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-d2") {
+    color: darken($hexa, $level2);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-d3") {
+    color: darken($hexa, $level3);
+  }
+  @include functions.renderWithFlavores("text-#{$name}-d4") {
+    color: darken($hexa, $level4);
   }
 }
 
@@ -215,4 +158,8 @@ $level4: $level1 * 4;
   @include renderColorRules($colorGrey, "grey");
   @include renderColorRules($colorBlueGrey, "blue-grey");
   @include renderSpecials();
+
+  html {
+    background-color: $colorBody;
+  }
 }

@@ -1,4 +1,6 @@
 @use 'vars';
+@use 'effects';
+@use 'colors';
 
 @mixin renderCharRules() {
   display: inline-block;
@@ -20,10 +22,8 @@
 @mixin renderItemRules() {
   display: inline-block;
   position: relative;
-  margin: 0;
   padding: vars.$smallSize vars.$smallSize;
   min-height: vars.$bigSize;
-  vertical-align: bottom;
   &.border {
       padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
       min-height: vars.$bigSize;
@@ -75,7 +75,69 @@
   .#{$prefix}item {
     @include renderItemRules();
   }
+  .#{$prefix}btn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    min-height: vars.$bigSize;
+    padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
+    border: #{vars.$border};
+    border-radius: vars.$borderRadius;
+    cursor: pointer;
+    background-color: colors.$colorBody;
+    @include effects.renderShadow(vars.$shadowSize/2);
+    &:hover {
+      @include effects.renderShadow(vars.$shadowSize);
+    }
+    &:active {
+      box-shadow: none !important;
+    }
+  }
+  .#{$prefix}btn-flat {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    min-height: vars.$bigSize;
+    padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
+    border: #{vars.$border};
+    border-color: transparent;
+    border-radius: vars.$borderRadius;
+    cursor: pointer;
+    background-color: colors.$colorBody;
+    box-shadow: none;
+    &:hover {
+      @include effects.renderShadow(vars.$shadowSize);
+      border: #{vars.$border};
+    }
+    &:active {
+      box-shadow: none !important;
+    }
+  }
+
+  .#{$prefix}item-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:100%;
+    & * {
+      flex-grow: 0;
+      flex-shrink: 0;
+      @include renderItemRules();
+      max-height: vars.$bigSize;
+      margin: 0;
+    }
+    & h1, & h2, & h3 {
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: vars.$bigSize;
+    }
+  }
 }
+
 /*
 
 .renderItemIcons() {

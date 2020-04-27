@@ -2,11 +2,21 @@
 
 <div class="row-gutter">
 
-    <p *ngFor="let s of shadows" class="c4 shadow{{s}}">shadow{{s}}</p>
+    <p class="c3 item border shadow-small">shadow-small</p>
+    <p class="c3 item border shadow">shadow</p>
+    <p class="c3 item border shadow-big">shadow-big</p>
+    <p class="c3 item border shadow-huge">shadow-huge</p>
 
-    <p *ngFor="let s of shadows" class="c4 shadow{{s}}-raising">shadow{{s}}-raising</p>
+    <p class="c3 item border hover:shadow-small">hover:shadow-small</p>
+    <p class="c3 item border hover:shadow">hover:shadow</p>
+    <p class="c3 item border hover:shadow-big">hover:shadow-big</p>
+    <p class="c3 item border hover:shadow-huge">hover:shadow-huge</p>
+
+    <p class="c3 item border shadow-small hover:shadow active:no-shadow ">fake button</p>
 
 </div>
+
+
 
 <div class="row-gutter">
 

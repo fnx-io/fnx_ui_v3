@@ -23,3 +23,17 @@
     #{$property}-bottom: #{$value};
   }
 }
+@mixin renderWithFlavores($name) {
+  .#{$name} {
+    @content;
+  }
+  .hover\:#{$name}:hover {
+    @content;
+  }
+  .active\:#{$name}:active, .active\:#{$name}:active:hover {
+    @content;
+  }
+  .focus\:#{$name}:focus {
+    @content;
+  }
+}

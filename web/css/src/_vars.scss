@@ -31,6 +31,8 @@ $sBreakpoint: 900;
 $lBreakpoint: 1200;
 $xlBreakpoint: 1600;
 
+$shadowSize: 2px;
+
 @mixin render() {
   :root {
     --rem: 16px;
@@ -50,8 +52,7 @@ $xlBreakpoint: 1600;
     --selected-text-color: #fff;
   }
 
-  html {
-    background-color: #eee;
+  html, .btn, .btn-flat {
     font-size: var(--rem);
     line-height: var(--lh);
   }

@@ -1,7 +1,8 @@
 @use 'colors';
 @use 'vars';
+@use 'functions';
 
-$shadowSize: 2px;
+
 
 @mixin focusOutline() {
   outline: 1px dotted vars.$accentColor !important;
@@ -15,63 +16,38 @@ $shadowSize: 2px;
 @mixin render() {
 
   * {
-    transition: box-shadow 0.3s, background-color 0.2s, outline 0.2s;
+    transition: box-shadow 0.2s, background-color 0.2s, outline 0.2s, border 0.2s;
     outline: none !important;
   }
-
   *:focus {
     @include focusOutline();
     z-index: 1;
   }
-
   .focused {
     @include focusOutline();
     z-index: 1;
   }
 
-  .embossed {
+  @include functions.renderWithFlavores("embossed") {
     box-shadow: inset -1px -2px 2px rgba(0,0,0,.1);
   }
-
-  .debossed {
+  @include functions.renderWithFlavores("debossed") {
     box-shadow: inset 1px 2px 2px rgba(0,0,0,.1);
   }
-
-  .hover\:embossed:hover {
-    box-shadow: inset -1px -2px 2px rgba(0,0,0,.1);
+  @include functions.renderWithFlavores("no-shadow") {
+    box-shadow: none;
   }
-
-  .hover\:debossed:hover {
-    box-shadow: inset 1px 2px 2px rgba(0,0,0,.1);
+  @include functions.renderWithFlavores("shadow-small") {
+    @include renderShadow(vars.$shadowSize/2);
   }
-
-  .shadow {
-    @include renderShadow($shadowSize);
-    &-raising {
-      @include renderShadow($shadowSize);
-      &:hover {
-        @include renderShadow(2 * $shadowSize);
-      }
-    }
+  @include functions.renderWithFlavores("shadow") {
+    @include renderShadow(vars.$shadowSize);
   }
-  .shadow-big {
-    @include renderShadow(2*$shadowSize);
-    &-raising {
-      @include renderShadow(2*$shadowSize);
-      &:hover {
-        @include renderShadow(3*$shadowSize);
-      }
-    }
+  @include functions.renderWithFlavores("shadow-big") {
+    @include renderShadow(vars.$shadowSize*2);
   }
-
-  .shadow-huge {
-    @include renderShadow(3*$shadowSize);
-    &-raising {
-      @include renderShadow(3*$shadowSize);
-      &:hover {
-        @include renderShadow(4*$shadowSize);
-      }
-    }
+  @include functions.renderWithFlavores("shadow-huge") {
+    @include renderShadow(vars.$shadowSize*3);
   }
 
 }

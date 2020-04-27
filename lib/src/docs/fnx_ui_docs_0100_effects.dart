@@ -8,6 +8,4 @@ import '../../fnx_ui.dart';
   templateUrl: 'fnx_ui_docs_0100_effects.html',
   directives: [fnxUiAllDirectives, coreDirectives, formDirectives],
 )
-class FnxUiDocs0100Effects {
-  List<String> shadows = ["", "-big", "-huge"];
-}
+class FnxUiDocs0100Effects {}
