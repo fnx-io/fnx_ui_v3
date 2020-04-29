@@ -1,92 +1,73 @@
 @use 'vars';
 @use 'effects';
 @use 'colors';
+@use 'icons';
 
-@mixin renderCharRules() {
-  display: inline-block;
-  width: vars.$bigSize;
-  min-height: vars.$bigSize;
-  line-height: vars.$bigSize;
-  text-align: center;
-}
-
-@mixin renderCharWithBorderRules() {
-  display: inline-block;
-  width: vars.$bigSize;
-  min-height: vars.$bigSize;
-  line-height: vars.$bigSize_withoutBorder;
-  text-align: center;
-  border-radius: vars.$borderRadius;
-}
-
-@mixin renderItemRules() {
-  display: inline-block;
-  position: relative;
-  padding: vars.$smallSize vars.$smallSize;
-  min-height: vars.$bigSize;
-  &.border {
-      padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
-      min-height: vars.$bigSize;
-      border-radius: vars.$borderRadius;
-  }
-  /*
-  & > a {
-    &:only-child {
-      display: inline-block;
-      margin: calc(-1 * #{vars.$smallSize}) calc(-1 * -#{vars.$mediumSize});
-      padding: vars.$smallSize vars.$mediumSize;
-    }
-  }
-  */
-}
-
-@mixin render($prefix) {
-
-  [data-prefix] {
-    position: relative;
-    padding-left: vars.$bigSize !important;
-    @include renderItemRules();
-    &:before {
-      position: absolute;
-      top:0;
-      left:0;
-      content: attr(data-prefix);
-      @include renderCharRules();
-    }
-  }
-  [data-suffix] {
-    position: relative;
-    padding-right: vars.$bigSize !important;
-    @include renderItemRules();
-    &:after {
-      position: absolute;
-      top:0;
-      right:0;
-      content: attr(data-suffix);
-      @include renderCharRules();
-    }
-  }
-  .#{$prefix}char {
-    @include renderCharRules();
-  }
-  [class*=border].#{$prefix}char {
-    @include renderCharWithBorderRules();
-  }
-  .#{$prefix}item {
-    @include renderItemRules();
-  }
-  .#{$prefix}btn {
+@mixin renderAll() {
+  // All these are "items"
+  .item, .btn, .btn-flat,.icon, .char, .item-row > *, button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     display: inline-block;
     position: relative;
-    min-height: vars.$bigSize;
     padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
-    border: #{vars.$border};
+    min-height: vars.$bigSize;
+    border: vars.$borderSize solid transparent;
+    border-radius: vars.$borderRadius;
+    text-decoration: none;
+    color: inherit;
+    &[data-prefix] {
+      padding-left: vars.$bigSize !important;
+      &:before {
+        position: absolute;
+        @include icons.mdIcon();
+        top: 0;
+        left: 0;
+        text-align: center;
+        line-height: vars.$bigSize;
+        width: vars.$bigSize;
+        height: vars.$bigSize;
+        content: attr(data-prefix);
+      }
+    }
+    &[data-suffix] {
+      padding-right: vars.$bigSize !important;
+      &:after {
+        position: absolute;
+        @include icons.mdIcon();
+        top: 0;
+        right: 0;
+        text-align: center;
+        line-height: vars.$bigSize;
+        width: vars.$bigSize;
+        height: vars.$bigSize;
+        content: attr(data-suffix);
+        //@include renderCharRules();
+      }
+    }
+  }
+  // perfect item square
+  .char, .icon {
+    text-align: center;
+    width: vars.$bigSize;
+    max-height: vars.$bigSize;
+    max-width: vars.$bigSize;
+  }
+  // material design icon in perfect square
+  .icon {
+    @include icons.mdIcon();
+    line-height: vars.$bigSize_withoutBorder !important;
+    padding: 0 !important;
+    vertical-align: middle;
+  }
+  .btn, .btn-flat, button {
     border-radius: vars.$borderRadius;
     cursor: pointer;
-    background-color: colors.$colorBody;
+    background-color: white;
+  }
+  .btn, button:not(.btn-flat) {
+    border-color: #{vars.$borderColor};
     @include effects.renderShadow(vars.$shadowSize/2);
     &:hover {
       @include effects.renderShadow(vars.$shadowSize);
@@ -95,47 +76,36 @@
       box-shadow: none !important;
     }
   }
-  .#{$prefix}btn-flat {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    display: inline-block;
-    position: relative;
-    min-height: vars.$bigSize;
-    padding: vars.$smallSize_withoutBorder vars.$smallSize_withoutBorder;
-    border: #{vars.$border};
-    border-color: transparent;
-    border-radius: vars.$borderRadius;
-    cursor: pointer;
-    background-color: colors.$colorBody;
-    box-shadow: none;
+  .btn-flat {
     &:hover {
+      border-color: #{vars.$borderColor};
       @include effects.renderShadow(vars.$shadowSize);
-      border: #{vars.$border};
     }
     &:active {
+      border-color: #{vars.$borderColor};
       box-shadow: none !important;
     }
   }
-
+}
+@mixin render($prefix) {
   .#{$prefix}item-row {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     width:100%;
-    & * {
+    & > * {
       flex-grow: 0;
       flex-shrink: 0;
-      @include renderItemRules();
       max-height: vars.$bigSize;
       margin: 0;
     }
-    & h1, & h2, & h3 {
+    & h1, & h2 {
       padding-top: 0;
       padding-bottom: 0;
       line-height: vars.$bigSize;
     }
   }
+
 }
 
 /*

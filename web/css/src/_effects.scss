@@ -2,8 +2,6 @@
 @use 'vars';
 @use 'functions';
 
-
-
 @mixin focusOutline() {
   outline: 1px dotted vars.$accentColor !important;
   outline-offset: 2px !important;
@@ -16,7 +14,7 @@
 @mixin render() {
 
   * {
-    transition: box-shadow 0.2s, background-color 0.2s, outline 0.2s, border 0.2s;
+    transition: box-shadow 0.2s, background-color 0.2s, outline 0.2s, border 0.2s, transform 0.2s;
     outline: none !important;
   }
   *:focus {
@@ -27,7 +25,9 @@
     @include focusOutline();
     z-index: 1;
   }
-
+  @include functions.renderWithFlavores("scale-up") {
+    transform: scale(1.1);
+  }
   @include functions.renderWithFlavores("embossed") {
     box-shadow: inset -1px -2px 2px rgba(0,0,0,.1);
   }

@@ -2,10 +2,11 @@
 $smallSize: var(--padding);
 $mediumSize: var(--rem);
 $borderSize: var(--border-size);
-$border: var(--border);
 $borderRadius: var(--border-radius);
 
 // Colors:
+// Border
+$borderColor: var(--border-color);
 // Primary theme
 $themeColor: var(--theme-color);
 $themeTextColor: var(--theme-text-color);
@@ -33,15 +34,16 @@ $xlBreakpoint: 1600;
 
 $shadowSize: 2px;
 
+$border: $borderSize solid $borderColor !important;
+
 @mixin render() {
   :root {
     --rem: 16px;
     --lh: 1.25;
     --padding: 8px;
     --border-size: 1px;
-    --border: #{$borderSize} solid #aaa;
     --border-radius: 2px;
-
+    --border-color: #aaa;
     --theme-color: #ff8403;
     --theme-text-color: #fff;
     --accent-color: #f00;
@@ -50,10 +52,5 @@ $shadowSize: 2px;
     --hover-text-color: #000;
     --selected-color: #e97700;
     --selected-text-color: #fff;
-  }
-
-  html, .btn, .btn-flat {
-    font-size: var(--rem);
-    line-height: var(--lh);
   }
 }

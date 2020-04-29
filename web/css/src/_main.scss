@@ -1,6 +1,8 @@
+@use 'reboot';
+
 @use 'vars';
 @use 'colors';
-@use 'reboot';
+@use 'icons';
 
 @use 'utils';
 @use 'typography';
@@ -14,9 +16,13 @@
 @use 'items';
 
 @mixin renderPrefixIndependent() {
+  @include reboot.render();
   @include vars.render();
   @include colors.render();
   @include effects.render();
+  @include typography.renderAll();
+  @include icons.render();
+  @include items.renderAll();
 }
 
 @mixin renderAll($prefix) {
