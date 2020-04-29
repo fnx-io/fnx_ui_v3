@@ -1,4 +1,5 @@
 @use 'vars';
+@use 'functions';
 
 @mixin renderAll() {
   html, .btn, .btn-flat, button {
@@ -32,6 +33,15 @@
   [disabled], .disabled {
     cursor: not-allowed;
     opacity: 0.8;
+  }
+  @include functions.renderWithFlavores("underline") {
+    text-decoration: underline;
+  }
+  @include functions.renderWithFlavores("line-through") {
+    text-decoration: line-through;
+  }
+  @include functions.renderWithFlavores("strike") {
+    text-decoration: line-through;
   }
 }
 

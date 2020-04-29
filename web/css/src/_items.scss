@@ -5,7 +5,7 @@
 
 @mixin renderAll() {
   // All these are "items"
-  .item, .btn, .btn-flat,.icon, .char, .item-row > *, button {
+  .item, .btn, .btn-flat,.icon, .char, .item-row > *, .item-column > *, button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -17,6 +17,10 @@
     border-radius: vars.$borderRadius;
     text-decoration: none;
     color: inherit;
+    & a {
+      text-decoration: none;
+      color: inherit;
+    }
     &[data-prefix] {
       padding-left: vars.$bigSize !important;
       &:before {
@@ -46,6 +50,9 @@
         //@include renderCharRules();
       }
     }
+  }
+  .item-row a:hover {
+    text-decoration: underline;
   }
   // perfect item square
   .char, .icon {
@@ -105,7 +112,34 @@
       line-height: vars.$bigSize;
     }
   }
-
+  .#{$prefix}item-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width:100%;
+    & > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+      max-height: vars.$bigSize;
+      margin: 0;
+    }
+    & h1, & h2 {
+      padding-top: 0;
+      padding-bottom: 0;
+      line-height: vars.$bigSize;
+    }
+  }
+  .#{$prefix}item-column {
+    display: block;
+    & > * {
+      display: block;
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+  ul.#{$prefix}item-column {
+    padding-left: 0;
+  }
 }
 
 /*

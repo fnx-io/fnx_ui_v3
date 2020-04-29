@@ -1,11 +1,18 @@
 <div class="fit flex-row">
-    <aside style="width: 15em">
-        <p *ngFor="let ch of chapters">
-            <a href="#{{ch.selector}}">{{ch.name}}</a>
+    <aside style="width: 15em" class="flex-column theme">
+        <p class="item-column expanded">
+            <a *ngFor="let ch of chapters"
+               class="theme hover:hover"
+               routerLink="{{ch.selector}}"
+               routerLinkActive="selected"
+                >{{ch.name}}</a>
         </p>
-
+        <p class="text-center text-white">
+            <h1 class="fs-xl monospace">fnx_ui</h1>
+            <span>by <a href="https://fnx.io/">fnx.io</a></span>
+        </p>
     </aside>
-    <main class="spacer">
+    <main class="spacer padding">
         <router-outlet [routes]="routes"></router-outlet>
     </main>
 </div>

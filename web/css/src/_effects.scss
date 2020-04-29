@@ -13,7 +13,7 @@
 
 @mixin render() {
 
-  * {
+  *, *:after, *:before {
     transition: box-shadow 0.2s, background-color 0.2s, outline 0.2s, border 0.2s, transform 0.2s;
     outline: none !important;
   }
@@ -49,5 +49,30 @@
   @include functions.renderWithFlavores("shadow-huge") {
     @include renderShadow(vars.$shadowSize*3);
   }
-
+  @include functions.renderWithFlavores("rotate-left") {
+    transform: rotateZ(-90deg);
+  }
+  @include functions.renderWithFlavores("rotate-right") {
+    transform: rotateZ(90deg);
+  }
+  @include functions.renderWithFlavores("after\\:rotate-left") {
+    &:after {
+      transform: rotateZ(-90deg);
+    }
+  }
+  @include functions.renderWithFlavores("after\\:rotate-right") {
+    &:after {
+      transform: rotateZ(90deg);
+    }
+  }
+  @include functions.renderWithFlavores("before\\:rotate-left") {
+    &:before {
+      transform: rotateZ(-90deg);
+    }
+  }
+  @include functions.renderWithFlavores("before\\:rotate-right") {
+    &:before {
+      transform: rotateZ(90deg);
+    }
+  }
 }

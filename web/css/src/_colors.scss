@@ -41,8 +41,8 @@ $level4: $level1 * 4;
     color: vars.$accentColor;
   }
   .accent, .hover\:accent:hover {
-    background-color: vars.$accentColor;
-    color: vars.$accentTextColor;
+    background-color: vars.$accentColor !important;
+    color: vars.$accentTextColor !important;
   }
   .bg-theme, .hover\:bg-theme:hover {
     background-color: vars.$themeColor;
@@ -51,8 +51,8 @@ $level4: $level1 * 4;
     color: vars.$themeColor;
   }
   .theme, .hover\:theme:hover {
-    background-color: vars.$themeColor;
-    color: vars.$themeTextColor;
+    background-color: vars.$themeColor !important;
+    color: vars.$themeTextColor !important;
   }
   .bg-hover, .hover\:bg-hover:hover {
     background-color: vars.$hoverColor;
@@ -61,8 +61,8 @@ $level4: $level1 * 4;
     color: vars.$hoverColor;
   }
   .hover, .hover\:hover:hover {
-    background-color: vars.$hoverColor;
-    color: vars.$hoverTextColor;
+    background-color: vars.$hoverColor !important;
+    color: vars.$hoverTextColor !important;
   }
   .bg-selected, .hover\:bg-selected:hover {
     background-color: vars.$selectedColor;
@@ -71,8 +71,15 @@ $level4: $level1 * 4;
     color: vars.$selectedColor;
   }
   .selected, .hover\:selected:hover {
-    background-color: vars.$selectedColor;
-    color: vars.$selectedTextColor;
+    background-color: vars.$selectedColor !important;
+    color: vars.$selectedTextColor !important;
+  }
+  a[class*="bg-"], [class*="bg-"] a, a[class*="text-"], [class*="text-"] a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
