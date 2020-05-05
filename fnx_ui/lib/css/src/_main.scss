@@ -1,0 +1,43 @@
+@use 'reboot';
+
+@use 'vars';
+@use 'colors';
+@use 'icons';
+
+@use 'utils';
+@use 'typography';
+@use 'effects';
+@use 'padding';
+@use 'margin';
+@use 'border';
+@use 'flex';
+@use 'grid';
+@use 'position';
+
+@use 'items';
+@use 'loader';
+@use 'tooltip';
+
+@mixin renderPrefixIndependent() {
+  @include reboot.render();
+  @include vars.render();
+  @include colors.render();
+  @include effects.render();
+  @include typography.render();
+  @include icons.render();
+  @include items.render();
+  @include tooltip.render();
+  @include loader.render();
+}
+
+@mixin renderAll($prefix) {
+  @include utils.renderWithPrefix($prefix);
+  @include typography.renderWithPrefix($prefix);
+  @include padding.renderWithPrefix($prefix);
+  @include margin.renderWithPrefix($prefix);
+  @include border.renderWithPrefix($prefix);
+  @include flex.renderWithPrefix($prefix);
+  @include grid.renderWithPrefix($prefix);
+  @include position.renderWithPrefix($prefix);
+  @include items.renderWithPrefix($prefix);
+}

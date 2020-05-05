@@ -1,0 +1,63 @@
+// Customizable:
+$smallSize: var(--padding);
+$mediumSize: var(--rem);
+$borderSize: var(--border-size);
+$borderRadius: var(--border-radius);
+
+// Colors:
+// Border
+$borderColor: var(--border-color);
+// Primary theme
+$themeColor: var(--theme-color);
+$themeTextColor: var(--theme-text-color);
+// Important buttons
+$accentColor: var(--accent-color);
+$accentTextColor: var(--accent-text-color);
+// Hover above rows / options
+$hoverColor: var(--hover-color);
+$hoverTextColor: var(--hover-text-color);
+// Selected row / option
+$selectedColor: var(--selected-color);
+$selectedTextColor: var(--selected-text-color);
+
+$tooltipColor: var(--tooltip-color);
+$tooltipTextColor: var(--tooltip-text-color);
+
+$bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh));
+$bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2);
+
+$smallSize_withoutBorder: calc(#{$smallSize} - #{$borderSize});
+$mediumSize_withoutBorder: calc(#{$mediumSize} - #{$borderSize});
+
+$xsBreakpoint: 600;
+$sBreakpoint: 900;
+// 'm' lives here
+$lBreakpoint: 1200;
+$xlBreakpoint: 1600;
+
+$shadowSize: 2px;
+
+$border: $borderSize solid $borderColor !important;
+
+@mixin render() {
+  :root {
+    --rem: 16px;
+    --lh: 1.25;
+    --padding: 8px;
+    --border-size: 1px;
+    --border-radius: 2px;
+    --border-color: #aaa;
+    --theme-color: #ff8403;
+    --theme-text-color: #fff;
+    --accent-color: #f00;
+    --accent-text-color: #fff;
+    --hover-color: #dd5500;
+    --hover-text-color: #fff;
+    --selected-color: #e96600;
+    --selected-text-color: #fff;
+    --tooltip-color: #444;
+    --tooltip-text-color: #fff;
+
+  }
+
+}

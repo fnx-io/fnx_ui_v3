@@ -1,0 +1,51 @@
+@use 'vars';
+
+@mixin render() {
+  .tooltip {
+    position: relative;
+    background: vars.$tooltipColor;
+    display: inline-block;
+    max-width: 30em;
+    padding: vars.$smallSize;
+    color: vars.$tooltipTextColor;
+    border-radius: vars.$borderRadius;
+    transition: none;
+    --loader-color: #{vars.$tooltipTextColor};
+  }
+  .tooltip:after {
+    transition: none;
+    border-style: solid;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: transparent;
+    border-width: 10px;
+  }
+
+  .tooltip.tooltip-bottom:after {
+    bottom: 100%;
+    left: 50%;
+    border-bottom-color: vars.$tooltipColor;
+    margin-left: -10px;
+  }
+  .tooltip.tooltip-left:after {
+    left: 100%;
+    top: 50%;
+    border-left-color: vars.$tooltipColor;
+    margin-top: -10px;
+  }
+  .tooltip.tooltip-top:after {
+    top: 100%;
+    left: 50%;
+    border-top-color: vars.$tooltipColor;
+    margin-left: -10px;
+  }
+  .tooltip.tooltip-right:after {
+    right: 100%;
+    top: 50%;
+    border-right-color: vars.$tooltipColor;
+    margin-top: -10px;
+  }
+}

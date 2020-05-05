@@ -1,0 +1,35 @@
+@use 'colors';
+@use 'vars';
+
+
+@mixin render() {
+
+  :root {
+    --loader-color: var(--theme-color);
+  }
+
+  .loader, .preloader {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    &:after {
+      content: " ";
+      display: block;
+      width: 0.78em;
+      height: 0.78em;
+      margin: 0.11em;
+      border-radius: 50%;
+      border: 0.09em solid var(--loader-color);
+      border-color: var(--loader-color) transparent var(--loader-color) transparent;
+      animation: loader-loading 1.2s linear infinite;
+    }
+  }
+  @keyframes loader-loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

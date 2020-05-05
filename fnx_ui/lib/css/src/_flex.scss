@@ -1,0 +1,64 @@
+@use 'vars';
+
+@mixin renderWithPrefix($prefix) {
+
+  .#{$prefix}flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    height:100%;
+    & > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+  .#{$prefix}flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding:0;
+    margin:0;
+    width:100%;
+    & > * {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+  }
+  .#{$prefix}flex-wrap {
+    flex-wrap: wrap;
+  }
+  .#{$prefix}flex-grow {
+    flex-grow: 1;
+  }
+  .#{$prefix}flex-grow-2 {
+    flex-grow: 2;
+  }
+  .#{$prefix}flex-grow-3 {
+    flex-grow: 3;
+  }
+  .#{$prefix}flex-grow-4 {
+    flex-grow: 4;
+  }
+  .#{$prefix}flex-shrink {
+    flex-shrink: 1;
+  }
+  .#{$prefix}flex-shrink-2 {
+    flex-shrink: 2;
+  }
+  .#{$prefix}flex-shrink-3 {
+    flex-shrink: 3;
+  }
+  .#{$prefix}flex-shrink-4 {
+    flex-shrink: 4;
+  }
+  .#{$prefix}spacer {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+  }
+  .#{$prefix}expanded {
+    flex-grow: 1 !important;
+    flex-shrink: 1 !important;
+  }
+}
