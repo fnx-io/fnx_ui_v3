@@ -12,16 +12,30 @@
     display: inline-block;
     width: 1em;
     height: 1em;
-    &:after {
+    position: relative;
+    vertical-align: middle;
+    box-sizing: content-box;
+    &:before, &:after {
+      box-sizing: border-box;
       content: " ";
       display: block;
-      width: 0.78em;
-      height: 0.78em;
-      margin: 0.11em;
+      position: absolute;
+      border-width: 0.07em;
+      border-style: solid;
+      border-color: var(--loader-color) var(--loader-color) transparent transparent;
       border-radius: 50%;
-      border: 0.09em solid var(--loader-color);
-      border-color: var(--loader-color) transparent var(--loader-color) transparent;
-      animation: loader-loading 1.2s linear infinite;
+    }
+    &:before {
+      width: 1em;
+      height: 1em;
+      margin: 0;
+      animation: loader-loading 2s linear infinite;
+    }
+    &:after {
+      width: 0.7em;
+      height: 0.7em;
+      margin: 0.15em;
+      animation: loader-loading-2 1.1s linear infinite;
     }
   }
   @keyframes loader-loading {
@@ -30,6 +44,14 @@
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+  @keyframes loader-loading-2 {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
     }
   }
 }

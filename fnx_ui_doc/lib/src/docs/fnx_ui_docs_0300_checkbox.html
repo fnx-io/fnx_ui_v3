@@ -1,0 +1,32 @@
+<h1>Checkbox</h1>
+
+<div>
+
+    <fnx-checkbox [(ngModel)]="checked"></fnx-checkbox>
+
+</div>
+
+<div>
+
+    <fnx-checkbox [(ngModel)]="checked" label="Lorem ipsum" [disabled]="true"></fnx-checkbox>
+
+</div>
+
+<div class="item-row">
+
+    <span>qwertyuiop</span>
+    <fnx-checkbox [(ngModel)]="checked" [disabled]="true"></fnx-checkbox>
+    <span>qwertyuiop</span>
+</div>
+
+<div class="item-row">
+
+    <span>qwertyuiop</span>
+    <fnx-checkbox [(ngModel)]="checked" label="Lorem ipsum"></fnx-checkbox>
+    <span>qwertyuiop</span>
+</div>
+
+
+
+
+<p>{{checked}}</p>

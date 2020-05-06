@@ -1,0 +1,14 @@
+@mixin render() {
+
+  .fit-to-start {
+    position: absolute !important;
+    top:0 !important;
+    left:0 !important;
+  }
+  .soft-hide {
+    opacity: 0.01 !important;
+    width: 1px !important;
+    overflow: hidden !important;
+  }
+
+}

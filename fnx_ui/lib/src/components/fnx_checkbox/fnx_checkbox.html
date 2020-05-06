@@ -1,0 +1,19 @@
+<label
+        attr.for="{{id}}" class="icon fit-to-start">{{icon}}</label>
+
+<input type="checkbox"
+       attr.id="{{id}}"
+       class="margin-big-left soft-hide"
+
+       [(ngModel)]="value"
+
+       (focus)="markAsTouched()"
+       (click)="markAsTouched()"
+
+       [disabled]="isDisabled || isReadonly"
+       [attr.tabindex]="(isReadonly || isDisabled) ? -1 : 0"
+
+><label attr.for="{{id}}"
+        (focus)="markAsTouched()"
+        (click)="markAsTouched()"
+        [innerHtml]="label" *ngIf="label != null"></label>

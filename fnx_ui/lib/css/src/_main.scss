@@ -14,6 +14,8 @@
 @use 'grid';
 @use 'position';
 
+@use 'internal';
+
 @use 'items';
 @use 'loader';
 @use 'tooltip';
@@ -21,6 +23,9 @@
 @mixin renderPrefixIndependent() {
   @include reboot.render();
   @include vars.render();
+
+  @include internal.render();
+
   @include colors.render();
   @include effects.render();
   @include typography.render();

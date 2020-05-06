@@ -17,6 +17,12 @@
     border-radius: vars.$borderRadius;
     text-decoration: none;
     color: inherit;
+    &:focus-within, &:focus {
+      @include effects.focusOutline();
+    }
+    &:focus-within *:focus {
+      outline: none !important;
+    }
     & a {
       text-decoration: none;
       color: inherit;

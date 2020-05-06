@@ -124,8 +124,10 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
     return _validatorChildren.firstWhere((val) => val.required, orElse: () => null) != null;
   }
 
+  @HostBinding("class.readonly")
   bool get isReadonly => (readonly ?? false) || (_parent?.isReadonly ?? false);
 
+  @HostBinding("class.disabled")
   bool get isDisabled => (disabled ?? false) || (_parent?.isDisabled ?? false);
 
   /// This component has some children, which should be part of this component

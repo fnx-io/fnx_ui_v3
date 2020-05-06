@@ -31,8 +31,14 @@
     font-size: calc(0.625 * #{vars.$mediumSize});
   }
   [disabled], .disabled {
-    cursor: not-allowed;
-    opacity: 0.8;
+    cursor: not-allowed !important;
+    opacity: 0.5;
+    * {
+      cursor: not-allowed !important;
+    }
+  }
+  label[for] {
+    cursor: pointer;
   }
   @include functions.renderWithFlavores("underline") {
     text-decoration: underline;
