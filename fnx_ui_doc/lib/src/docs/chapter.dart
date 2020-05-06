@@ -16,13 +16,13 @@ void main(List<String> args) {
 
   File('$filename.dart').writeAsStringSync("""import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
-
+import 'fnx_ui_docs_test_bed.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 
 @Component(
   selector: 'fnx-ui-docs-$number-${name.toLowerCase()}',
   templateUrl: '${filename}.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives],
+  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed],
 )
 class FnxUiDocs${number}${name} {}
   

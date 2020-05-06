@@ -1,6 +1,5 @@
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
-
 import 'package:fnx_ui/fnx_ui.dart';
 
 @Component(
@@ -9,5 +8,3 @@ import 'package:fnx_ui/fnx_ui.dart';
   directives: [fnxUiAllDirectives, coreDirectives, formDirectives],
 )
 class FnxUiDocs0510Loader {}
-  
-  

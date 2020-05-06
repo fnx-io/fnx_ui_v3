@@ -27,6 +27,21 @@
 </div>
 
 
+<fnx-ui-docs-test-bed #testBed title="Checkbox with a side label">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-checkbox [(ngModel)]="checked" label="Lorem ipsum"></fnx-checkbox>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>
+
+<fnx-ui-docs-test-bed #testBed title="Plain checkbox">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-checkbox [(ngModel)]="checked"></fnx-checkbox>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>
 
 
 <p>{{checked}}</p>
