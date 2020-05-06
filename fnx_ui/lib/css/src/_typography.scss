@@ -2,7 +2,7 @@
 @use 'functions';
 
 @mixin render() {
-  html, .btn, .btn-flat, button {
+  html, .btn, .btn-flat, button, * {
     font-size: var(--rem);
     line-height: var(--lh);
   }

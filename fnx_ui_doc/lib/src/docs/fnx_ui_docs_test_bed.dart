@@ -22,7 +22,16 @@ class FnxUiDocsTestBed {
   @Input()
   String title;
 
-  List<int> cases = [0, 1, 2];
+  List<int> cases = [0, 1, 2, 3, 4, 10, 11, 12];
 
-  String classFor(int c) => "c4";
+  String classFor(int c) {
+    switch (c) {
+      case 0:
+        return "c12";
+      case 1:
+        return "c12";
+      default:
+        return "s:c12 c4";
+    }
+  }
 }

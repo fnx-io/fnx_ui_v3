@@ -14,9 +14,11 @@
     height: 1em;
     position: relative;
     vertical-align: middle;
-    box-sizing: content-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: vars.$smallSize;
+    margin-right: vars.$smallSize;
     &:before, &:after {
-      box-sizing: border-box;
       content: " ";
       display: block;
       position: absolute;

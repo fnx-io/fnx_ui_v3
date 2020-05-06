@@ -16,18 +16,29 @@ void main(List<String> args) {
 
   File('$filename.dart').writeAsStringSync("""import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
-import 'fnx_ui_docs_test_bed.dart';
 import 'package:fnx_ui/fnx_ui.dart';
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_bed.dart';
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
+
 
 @Component(
   selector: 'fnx-ui-docs-$number-${name.toLowerCase()}',
   templateUrl: '${filename}.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed],
+  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
 )
 class FnxUiDocs${number}${name} {}
   
   """, flush: true);
-  File('$filename.html').writeAsStringSync('<h1>${name}</h1>', flush: true);
+  File('$filename.html').writeAsStringSync("""
+  <h1>${name}</h1>
+<fnx-ui-docs-test-bed #testBed title="$name">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        ${name}
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  """, flush: true);
 
   print("import 'package:fnx_ui_doc/src/docs/${filename}.template.dart' as c${number};");
   print('');

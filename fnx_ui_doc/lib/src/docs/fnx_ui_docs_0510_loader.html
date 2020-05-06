@@ -9,10 +9,10 @@
     sasasa
 </p>
 
-<h1>H1 <span class="loader"></span></h1>
+<fnx-ui-docs-test-bed #testBed title="Plain checkbox">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
 
-<p class="item-row">
-    <span class="btn">Btn</span>
-    <span class="loader"></span>
-    <span class="btn">Btn</span>
-</p>
+        <span class="loader"></span>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>
