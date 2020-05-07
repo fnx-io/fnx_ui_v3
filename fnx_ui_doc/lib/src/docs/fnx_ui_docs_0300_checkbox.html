@@ -27,6 +27,22 @@
 </div>
 
 
+<div class="item-row">
+
+    <span>qwertyuiop</span>
+    <fnx-checkbox [(ngModel)]="checked" class="border"></fnx-checkbox>
+    <span>qwertyuiop</span>
+</div>
+
+<div class="item-row">
+
+    <span>qwertyuiop</span>
+    <fnx-checkbox [(ngModel)]="checked"  class="border" label="Lorem ipsum"></fnx-checkbox>
+    <span>qwertyuiop</span>
+</div>
+
+
+
 <fnx-ui-docs-test-bed #testBed title="Checkbox with a side label">
     <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
 

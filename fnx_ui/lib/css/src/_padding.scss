@@ -6,6 +6,7 @@
   @include functions.renderTLBR($prefix, 'padding', 'padding', #{vars.$mediumSize});
   @include functions.renderTLBR($prefix, 'padding-big', 'padding', #{vars.$bigSize});
   @include functions.renderTLBR($prefix, 'padding-small', 'padding', #{vars.$smallSize});
+  @include functions.renderTLBR($prefix, 'padding-none', 'padding', 0);
 
   .#{$prefix}no-padding {
     padding: 0 !important;

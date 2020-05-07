@@ -6,6 +6,7 @@
   @include functions.renderTLBR($prefix, 'margin', 'margin', #{vars.$mediumSize});
   @include functions.renderTLBR($prefix, 'margin-big', 'margin', #{vars.$bigSize});
   @include functions.renderTLBR($prefix, 'margin-small', 'margin', #{vars.$smallSize});
+  @include functions.renderTLBR($prefix, 'margin-none', 'margin', 0);
 
   .#{$prefix}no-margin {
     margin: 0 !important;

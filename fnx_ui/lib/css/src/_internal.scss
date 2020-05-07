@@ -7,8 +7,10 @@
   }
   .soft-hide {
     opacity: 0.01 !important;
-    width: 1px !important;
+    width: 0.1px !important;
     overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
 }

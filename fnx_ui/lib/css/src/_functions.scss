@@ -3,16 +3,16 @@
     #{$property}: #{$value};
   }
   .#{$prefix}#{$name}-top {
-    #{$property}-top: #{$value};
+    #{$property}-top: #{$value} !important;
   }
   .#{$prefix}#{$name}-left {
-    #{$property}-left: #{$value};
+    #{$property}-left: #{$value} !important;
   }
   .#{$prefix}#{$name}-bottom {
-    #{$property}-bottom: #{$value};
+    #{$property}-bottom: #{$value} !important;
   }
   .#{$prefix}#{$name}-right {
-    #{$property}-right: #{$value};
+    #{$property}-right: #{$value} !important;
   }
   .#{$prefix}#{$name}-horizontal {
     #{$property}-right: #{$value};
