@@ -37,7 +37,7 @@ $xlBreakpoint: 1600;
 
 $shadowSize: 2px;
 
-$border: $borderSize solid $borderColor !important;
+$border: $borderSize solid $borderColor;
 
 @mixin render() {
   :root {
