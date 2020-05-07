@@ -4,6 +4,7 @@
 @mixin renderWithPrefix($prefix) {
 
   @include functions.renderTLBR($prefix, 'border', 'border', #{vars.$border});
+  @include functions.renderTLBR($prefix, 'border-none', 'border', "none");
 
   .round {
     border-radius: vars.$borderRadius;

@@ -1,0 +1,13 @@
+<input id="{{ id }}"
+       [(ngModel)]="value"
+       [attr.autocomplete]="autocomplete"
+       (keyup)="markAsTouched()"
+       [attr.placeholder]="placeholder"
+       class="border-none"
+
+       [readonly]="isReadonly"
+       [disabled]="isDisabled"
+       [attr.tabindex]="tabindex"
+
+       #input
+/>

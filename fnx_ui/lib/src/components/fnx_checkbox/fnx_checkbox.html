@@ -10,8 +10,9 @@
        (focus)="markAsTouched()"
        (click)="markAsTouched()"
 
-       [disabled]="isDisabled || isReadonly"
-       [attr.tabindex]="(isReadonly || isDisabled) ? -1 : 0"
+       [readonly]="isReadonly"
+       [disabled]="isDisabled"
+       [attr.tabindex]="tabindex"
 
 ><label attr.for="{{id}}"
         (focus)="markAsTouched()"

@@ -12,11 +12,13 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   String _id;
 
-  bool _required;
+  bool _required = false;
 
-  bool _readonly;
+  bool _readonly = false;
 
-  bool _disabled;
+  bool _disabled = false;
+
+  int _tabindex = null;
 
   String get id => _id ?? _fallbackId;
 
@@ -48,6 +50,15 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
   @Input()
   set disabled(bool value) {
     _disabled = value;
+  }
+
+  @Input()
+  set tabindex(int value) {
+    _tabindex = value;
+  }
+
+  int get tabindex {
+    return _tabindex ?? ((isReadonly || isDisabled) ? -1 : 0);
   }
 
   final List<FnxBaseComponent> _validatorChildren = [];
@@ -95,6 +106,7 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
   /// Component is invalid, and also was in interaction with the user,
   /// someone (fnx-input) should display an error message.
   ///
+  @HostBinding("class.error")
   bool get isTouchedAndInvalid {
     return isTouched && !isValid;
   }

@@ -5,7 +5,7 @@
 
 @mixin render() {
   // All these are "items"
-  .item, .btn, .btn-flat,.icon, .char, .item-row > *, .item-column > *, button {
+  .item, .btn, .btn-flat,.icon, .char, .item-row > *, .item-column > *, button, .item-input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -56,6 +56,11 @@
         //@include renderCharRules();
       }
     }
+  }
+  .item-input {
+    border: vars.$border;
+    border-radius: vars.$borderRadius;
+    box-shadow: inset 1px 2px 2px rgba(0,0,0,.1); // see effects.debossed
   }
   .item-row a:hover {
     text-decoration: underline;

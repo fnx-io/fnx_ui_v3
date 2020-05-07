@@ -10,13 +10,11 @@ import 'package:fnx_ui/api/base_component.dart';
 abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, OnDestroy, ControlValueAccessor<T> {
   FnxInputComponent(FnxBaseComponent _parent) : super(_parent);
 
+  @Input()
+  String autocomplete = "on";
+
   T _value;
-
   T get value => _value;
-
-  final StreamController<T> _valueChanged = StreamController<T>();
-  @Output()
-  Stream<T> get valueChange => _valueChanged.stream;
 
   @Input()
   set value(T v) {
@@ -27,6 +25,10 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
       notifyNgModel();
     }
   }
+
+  final StreamController<T> _valueChanged = StreamController<T>();
+  @Output()
+  Stream<T> get valueChange => _valueChanged.stream;
 
   void notifyNgModel() {
     if (_onChange != null) {
@@ -54,6 +56,8 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
 
   @override
   void writeValue(obj) {
+    print("Writing value $obj");
     _value = obj;
+    print("... value = $value");
   }
 }
