@@ -78,8 +78,10 @@ import 'package:fnx_ui/fnx_ui.dart';
   </div>
   """,
   styles: [
-    ".width10 ::ng-deep > * { width: 10em; display: block; }",
-    ".width100 ::ng-deep > * { width: 100%; display: block; }",
+    ".width10 * { width: 10em; display: block; }",
+    ".width100 * { width: 100%; display: block; }",
+    ".width10 ::ng-deep > * { width: 10em; }",
+    ".width100 ::ng-deep > * { width: 100%; }",
     ".custom10 { --rem: 12px; --padding: 2px }",
     ".custom11 { --rem: 20px; --padding: 10px }",
     ".custom12 { --border-size: 2px; --border-radius: 10px }",

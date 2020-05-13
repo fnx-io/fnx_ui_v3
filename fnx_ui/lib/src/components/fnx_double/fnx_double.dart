@@ -4,25 +4,37 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/text_input_component.dart';
+import 'package:fnx_ui/fnx_ui.dart';
 import 'package:fnx_ui/src/directives/fnx_focus/fnx_focus.dart';
+import 'package:intl/intl.dart';
 
 @Component(
-  selector: 'fnx-int',
-  templateUrl: 'fnx_int.html',
+  selector: 'fnx-double',
+  templateUrl: '../fnx_int/fnx_int.html',
   providers: const [
-    Provider(Focusable, useExisting: FnxInt, multi: false),
-    ExistingProvider.forToken(ngValueAccessor, FnxInt),
-    Provider(FnxBaseComponent, useExisting: FnxInt),
+    Provider(Focusable, useExisting: FnxDouble, multi: false),
+    ExistingProvider.forToken(ngValueAccessor, FnxDouble),
+    Provider(FnxBaseComponent, useExisting: FnxDouble),
   ],
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives],
 )
-class FnxInt extends FnxTextInputComponent<int> implements OnInit, OnDestroy, Focusable {
+class FnxDouble extends FnxTextInputComponent<double> implements OnInit, OnDestroy, Focusable {
   @Input()
   num min = null;
 
   @Input()
   num max = null;
+
+  String _format;
+
+  NumberFormat _numberFormat;
+
+  @Input()
+  set format(String value) {
+    _format = value;
+    _numberFormat = NumberFormat(_format, fnxUiConfig.locale);
+  }
 
   @Input()
   String placeholder = null;
@@ -33,19 +45,26 @@ class FnxInt extends FnxTextInputComponent<int> implements OnInit, OnDestroy, Fo
   @ViewChild("input")
   HtmlElement element;
 
-  FnxInt(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent);
-
-  @override
-  int stringToValue(String rawValue) {
-    if (rawValue == null) return null;
-    if (rawValue == null) return null;
-    return int.tryParse(rawValue);
+  FnxDouble(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent) {
+    format = "#,##0.00";
   }
 
   @override
-  String valueToString(int value) {
+  double stringToValue(String rawValue) {
+    if (rawValue == null) return null;
+    try {
+      double tmp = _numberFormat.parse(rawValue).toDouble();
+      // veletoc zajistujici, ze se hodnota orizne na pozadovany pocet desetinnych mist
+      return _numberFormat.parse(_numberFormat.format(tmp)).toDouble();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  @override
+  String valueToString(double value) {
     if (value == null) return null;
-    return value.toString();
+    return _numberFormat.format(value);
   }
 
   ///

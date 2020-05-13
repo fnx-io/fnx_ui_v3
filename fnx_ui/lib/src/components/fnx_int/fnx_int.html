@@ -1,13 +1,19 @@
-<input id="{{ id }}"
-       [(ngModel)]="value"
-       [attr.autocomplete]="autocomplete"
-       (keyup)="markAsTouched()"
-       [attr.placeholder]="placeholder"
-       class="border-none"
+<!-- Template is shared between multiple components -->
+<ng-content select="[prefix]"></ng-content>
+<input
+        id="{{ id }}"
+        class="border-none padding-none spacer max-width-100"
+        (focusout)="reformat()"
 
-       [readonly]="isReadonly"
-       [disabled]="isDisabled"
-       [attr.tabindex]="tabindex"
+        [(ngModel)]="rawValue"
+        [attr.autocomplete]="autocomplete"
+        (keyup)="markAsTouched()"
+        [attr.placeholder]="placeholder"
 
-       #input
+        [readonly]="isReadonly"
+        [disabled]="isDisabled"
+        [attr.tabindex]="tabindex"
+
+        #input
 />
+<ng-content select="[suffix]"></ng-content>

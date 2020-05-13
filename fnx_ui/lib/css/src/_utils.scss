@@ -42,16 +42,13 @@
   .#{$prefix}width-half {
     width: 50% !important;
   }
-  .#{$prefix}width-10 { width: 10% !important; }
-  .#{$prefix}width-20 { width: 20% !important; }
-  .#{$prefix}width-30 { width: 30% !important; }
-  .#{$prefix}width-40 { width: 40% !important; }
-  .#{$prefix}width-50 { width: 50% !important; }
-  .#{$prefix}width-60 { width: 60% !important; }
-  .#{$prefix}width-70 { width: 70% !important; }
-  .#{$prefix}width-80 { width: 80% !important; }
-  .#{$prefix}width-90 { width: 90% !important; }
-  .#{$prefix}width-100 { width: 100% !important; }
+
+  @for $i from 0 through 10 {
+    $w: $i*10;
+    .#{$prefix}width-#{$w} { width: $w*1% !important; }
+    .#{$prefix}max-width-#{$w} { max-width:  $w*1% !important; }
+    .#{$prefix}min-width-#{$w} { min-width:  $w*1% !important; }
+  }
 
   .#{$prefix}width-small {width: vars.$smallSize !important;}
   .#{$prefix}width-medium {width: vars.$mediumSize !important;}

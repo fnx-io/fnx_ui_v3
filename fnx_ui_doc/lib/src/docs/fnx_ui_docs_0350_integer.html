@@ -1,11 +1,27 @@
 <h1>Integer</h1>
 
-<fnx-int [(ngModel)]="value"></fnx-int>
+<p><fnx-int [(ngModel)]="value"></fnx-int></p>
+
+<p><fnx-int [(ngModel)]="value">
+    <span prefix>Please fill:</span>
+</fnx-int></p>
+
+<p><fnx-int [(ngModel)]="value">
+    <span prefix class="mi">android</span>
+    <span suffix>pieces</span>
+</fnx-int></p>
+
+<p><fnx-int [(ngModel)]="value" data-prefix="android" data-suffix="android">
+    <span prefix class="mi">android</span>
+    <span suffix>pieces</span>
+</fnx-int></p>
+
+<p>{{value}}</p>
 
 <fnx-ui-docs-test-bed #testBed title="Integer">
     <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
 
-
+        <fnx-int [(ngModel)]="value"></fnx-int>
 
     </fnx-ui-docs-test-case>
 </fnx-ui-docs-test-bed>  

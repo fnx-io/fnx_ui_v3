@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
+import 'package:meta/meta.dart';
 
 ///
 /// Ads support for "editable" components and ngModel binding.
@@ -14,9 +15,10 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
   String autocomplete = "on";
 
   T _value;
+
   T get value => _value;
 
-  @Input()
+  @mustCallSuper
   set value(T v) {
     if (v == '') v = null; // TODO: is it a good idea?
     if (v != _value) {
