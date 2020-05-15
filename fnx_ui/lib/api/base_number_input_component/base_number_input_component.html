@@ -4,6 +4,7 @@
         id="{{ id }}"
         class="border-none padding-none spacer max-width-100"
         (focusout)="reformat()"
+        (focusin)="reformat()"
 
         [(ngModel)]="rawValue"
         [attr.autocomplete]="autocomplete"

@@ -1,0 +1,24 @@
+<h1>Formatted-number</h1>
+
+<p><fnx-formatted-number [(ngModel)]="value" format="000 000 000"></fnx-formatted-number></p>
+
+<p><fnx-formatted-number [(ngModel)]="value">
+    <span prefix class="mi">android</span>
+    <span suffix>pieces</span>
+</fnx-formatted-number></p>
+
+<p><fnx-formatted-number [(ngModel)]="value" data-prefix="android" data-suffix="android">
+    <span prefix class="mi">android</span>
+    <span suffix>pieces</span>
+</fnx-formatted-number></p>
+
+<p>{{value}}</p>
+
+<fnx-ui-docs-test-bed #testBed title="formatted-number">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-formatted-number [(ngModel)]="value"></fnx-formatted-number>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>
+  

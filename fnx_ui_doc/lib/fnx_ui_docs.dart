@@ -17,6 +17,7 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart' as c020
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart' as c0370;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart' as c0510;
 
@@ -45,6 +46,7 @@ class FnxUiDocs {
     Chapter('Checkbox', c0300.FnxUiDocs0300CheckboxNgFactory),
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),
     Chapter('Double', c0360.FnxUiDocs0360DoubleNgFactory),
+    Chapter('FormattedNumber', c0370.FnxUiDocs0370FormattedNumberNgFactory),
     Chapter('Tooltip', c0500.FnxUiDocs0500TooltipNgFactory),
     Chapter('Loader', c0510.FnxUiDocs0510LoaderNgFactory),
   ];

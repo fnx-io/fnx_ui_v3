@@ -2,8 +2,9 @@
 
 <p><fnx-double [(ngModel)]="value"></fnx-double></p>
 
-<p><fnx-double [(ngModel)]="value">
-    <span prefix>Please fill:</span>
+
+<p><fnx-double [(ngModel)]="value2" [decimalPlaces]="5">
+    <span prefix>Please fill with 5 decimal places:</span>
 </fnx-double></p>
 
 <p><fnx-double [(ngModel)]="value">
@@ -24,5 +25,5 @@
         <fnx-double [(ngModel)]="value"></fnx-double>
 
     </fnx-ui-docs-test-case>
-</fnx-ui-docs-test-bed>  
+</fnx-ui-docs-test-bed>
   
