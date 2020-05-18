@@ -12,7 +12,3 @@ void consume(Event e) {
   e?.stopPropagation();
   e?.preventDefault();
 }
-
-FnxUiMessages _messages = FnxUiMessages();
-
-FnxUiMessages get messages => _messages;

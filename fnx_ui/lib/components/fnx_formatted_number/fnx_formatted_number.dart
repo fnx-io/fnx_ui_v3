@@ -3,7 +3,7 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/base_number_input_component/base_number_input_component.dart';
 import 'package:fnx_ui/fnx_ui.dart';
-import 'package:fnx_ui/src/directives/fnx_focus/fnx_focus.dart';
+import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:intl/intl.dart';
 
 ///
@@ -12,7 +12,7 @@ import 'package:intl/intl.dart';
 ///
 @Component(
   selector: 'fnx-formatted-number',
-  templateUrl: '../../../api/base_number_input_component/base_number_input_component.html',
+  templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
   providers: const [
     Provider(Focusable, useExisting: FnxFormattedNumber, multi: false),
     ExistingProvider.forToken(ngValueAccessor, FnxFormattedNumber),

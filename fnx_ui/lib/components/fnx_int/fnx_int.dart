@@ -2,11 +2,11 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/base_number_input_component/base_number_input_component.dart';
-import 'package:fnx_ui/src/directives/fnx_focus/fnx_focus.dart';
+import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 
 @Component(
   selector: 'fnx-int',
-  templateUrl: '../../../api/base_number_input_component/base_number_input_component.html',
+  templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
   providers: const [
     Provider(Focusable, useExisting: FnxInt, multi: false),
     ExistingProvider.forToken(ngValueAccessor, FnxInt),

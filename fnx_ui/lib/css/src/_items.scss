@@ -112,6 +112,9 @@
       box-shadow: none !important;
     }
   }
+  .component-error {
+    border-color: vars.$errorColor;
+  }
 }
 @mixin renderWithPrefix($prefix) {
   .#{$prefix}item-row {

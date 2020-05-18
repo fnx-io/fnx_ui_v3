@@ -1,8 +1,6 @@
 @use 'vars';
 @use 'functions';
 
-$colorBody: #eee;
-
 $colorFnxOrange: #ff8403;
 
 $colorRed: #F44336;
@@ -33,47 +31,29 @@ $level2: $level1 * 2;
 $level3: $level1 * 3;
 $level4: $level1 * 4;
 
+@mixin renderSpecial($name, $background, $text) {
+  .bg-#{$name}, .hover\:bg-#{$name}:hover {
+    background-color: $background;
+  }
+  .border-#{$name}, .hover\:border-#{$name}:hover {
+    border-color: $background;
+  }
+  .text-#{$name}, .hover\:text-#{$name}:hover {
+    color: $background;
+  }
+  .#{$name}, .hover\:#{$name}:hover {
+    background-color: $background !important;
+    color: $text !important;
+  }
+}
+
 @mixin renderSpecials() {
-  .bg-accent, .hover\:bg-accent:hover {
-    background-color: vars.$accentColor;
-  }
-  .text-accent, .hover\:text-accent:hover {
-    color: vars.$accentColor;
-  }
-  .accent, .hover\:accent:hover {
-    background-color: vars.$accentColor !important;
-    color: vars.$accentTextColor !important;
-  }
-  .bg-theme, .hover\:bg-theme:hover {
-    background-color: vars.$themeColor;
-  }
-  .text-theme, .hover\:text-theme:hover {
-    color: vars.$themeColor;
-  }
-  .theme, .hover\:theme:hover {
-    background-color: vars.$themeColor !important;
-    color: vars.$themeTextColor !important;
-  }
-  .bg-hover, .hover\:bg-hover:hover {
-    background-color: vars.$hoverColor;
-  }
-  .text-hover, .hover\:text-hover:hover {
-    color: vars.$hoverColor;
-  }
-  .hover, .hover\:hover:hover {
-    background-color: vars.$hoverColor !important;
-    color: vars.$hoverTextColor !important;
-  }
-  .bg-selected, .hover\:bg-selected:hover {
-    background-color: vars.$selectedColor;
-  }
-  .text-selected, .hover\:text-selected:hover {
-    color: vars.$selectedColor;
-  }
-  .selected, .hover\:selected:hover {
-    background-color: vars.$selectedColor !important;
-    color: vars.$selectedTextColor !important;
-  }
+  @include renderSpecial('accent',vars.$accentColor,vars.$accentTextColor);
+  @include renderSpecial('theme',vars.$themeColor,vars.$themeTextColor);
+  @include renderSpecial('hover',vars.$hoverColor,vars.$hoverTextColor);
+  @include renderSpecial('selected',vars.$selectedColor,vars.$selectedTextColor);
+  @include renderSpecial('error',vars.$errorColor,vars.$errorTextColor);
+
   a[class*="bg-"], [class*="bg-"] a, a[class*="text-"], [class*="text-"] a {
     color: inherit;
     text-decoration: none;
@@ -167,6 +147,6 @@ $level4: $level1 * 4;
   @include renderSpecials();
 
   html {
-    background-color: $colorBody;
+    background-color: vars.$colorBody;
   }
 }

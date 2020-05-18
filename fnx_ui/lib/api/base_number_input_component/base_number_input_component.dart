@@ -61,7 +61,9 @@ abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputCompon
   }
 
   void reformat() {
-    rawValue = valueToString(value);
+    if (hasValidValue) {
+      rawValue = valueToString(value);
+    }
   }
 
   @override
@@ -77,10 +79,13 @@ abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputCompon
   bool get hasValidValue {
     if (value == null) {
       if (required == true) return false;
-      // nothing is written in the input
+
       if (rawValue == null) return true;
+
       if (rawValue.trim().isEmpty) return true;
-      return true;
+
+      // there is something written here, but value is null
+      return false;
     }
 
     if (valueToString(value) != rawValue) return false;

@@ -67,6 +67,8 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
   FnxBaseComponent get parent => _parent;
   FnxBaseComponent(@SkipSelf() @Optional() this._parent);
 
+  FnxBaseComponent get child => _validatorChildren.isEmpty ? null : _validatorChildren.first;
+
   @override
   void ngOnInit() {
     _parent?.registerChild(this);
@@ -106,7 +108,7 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
   /// Component is invalid, and also was in interaction with the user,
   /// someone (fnx-input) should display an error message.
   ///
-  @HostBinding("class.error")
+  @HostBinding("class.component-error")
   bool get isTouchedAndInvalid {
     return isTouched && !isValid;
   }

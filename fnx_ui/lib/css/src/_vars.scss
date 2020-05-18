@@ -19,6 +19,11 @@ $hoverTextColor: var(--hover-text-color);
 // Selected row / option
 $selectedColor: var(--selected-color);
 $selectedTextColor: var(--selected-text-color);
+// Error
+$errorColor: var(--error-color);
+$errorTextColor: var(--error-text-color);
+
+$colorBody: var(--body-color);
 
 $tooltipColor: var(--tooltip-color);
 $tooltipTextColor: var(--tooltip-text-color);
@@ -47,16 +52,27 @@ $border: $borderSize solid $borderColor;
     --border-size: 1px;
     --border-radius: 2px;
     --border-color: #aaa;
+
     --theme-color: #ff8403;
     --theme-text-color: #fff;
+
     --accent-color: #f00;
     --accent-text-color: #fff;
+
     --hover-color: #dd5500;
     --hover-text-color: #fff;
+
     --selected-color: #e96600;
     --selected-text-color: #fff;
+
+    --error-color: #e00;
+    --error-text-color: #fff;
+
     --tooltip-color: #444;
     --tooltip-text-color: #fff;
+
+    --body-color: #eee;
+
   }
 
 }

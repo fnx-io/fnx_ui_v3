@@ -1,3 +1,5 @@
 ok: ok
 yes: yes
 no: no
+input:
+  notValid: Value is not valid

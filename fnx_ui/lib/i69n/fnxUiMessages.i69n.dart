@@ -38,6 +38,7 @@ class FnxUiMessages implements i69n.I69nMessageBundle {
   String get ok => "ok";
   String get yes => "yes";
   String get no => "no";
+  InputFnxUiMessages get input => InputFnxUiMessages(this);
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -51,6 +52,27 @@ class FnxUiMessages implements i69n.I69nMessageBundle {
         return yes;
       case 'no':
         return no;
+      case 'input':
+        return input;
+      default:
+        throw Exception('Message $key doesn\'t exist in $this');
+    }
+  }
+}
+
+class InputFnxUiMessages implements i69n.I69nMessageBundle {
+  final FnxUiMessages _parent;
+  const InputFnxUiMessages(this._parent);
+  String get notValid => "Value is not valid";
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'notValid':
+        return notValid;
       default:
         throw Exception('Message $key doesn\'t exist in $this');
     }

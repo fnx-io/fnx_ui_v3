@@ -1,0 +1,25 @@
+  <h1>Label</h1>
+
+<fnx-label label="Test input">
+    <fnx-int [(ngModel)]="value"></fnx-int>
+</fnx-label>
+  <fnx-label label="Test input 2 ">
+      <fnx-int [(ngModel)]="value">
+          <span prefix class="mi">android</span>
+          <span suffix>pieces</span>
+      </fnx-int>
+  </fnx-label>
+  <fnx-label label="Test input 3">
+      <span class="mi">android</span>
+      <fnx-int [(ngModel)]="value"></fnx-int>
+  </fnx-label>
+
+
+<fnx-ui-docs-test-bed #testBed title="Label">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        Label
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  
