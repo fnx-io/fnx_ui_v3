@@ -16,6 +16,7 @@ abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputCompon
   String placeholder = null;
 
   @HostBinding('class.item-input')
+  @HostBinding('class.bg-white')
   bool get hostIsItem => true;
 
   FnxBaseNumberInputComponent(FnxBaseComponent parent) : super(parent);

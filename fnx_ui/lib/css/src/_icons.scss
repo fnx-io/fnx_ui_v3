@@ -5,7 +5,7 @@
   font-weight: normal;
   font-style: normal;
   font-size: calc(var(--rem) * 1.5);
-  line-height: 1;
+  line-height: calc(var(--rem) * var(--lh));
   letter-spacing: normal;
   text-transform: none;
   display: inline-block;

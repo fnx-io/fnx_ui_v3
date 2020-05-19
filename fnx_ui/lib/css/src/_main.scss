@@ -16,6 +16,7 @@
 
 @use 'internal';
 
+@use 'scrollbar';
 @use 'items';
 @use 'loader';
 @use 'tooltip';
@@ -26,6 +27,7 @@
 
   @include internal.render();
 
+  @include scrollbar.render();
   @include colors.render();
   @include effects.render();
   @include typography.render();
