@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
@@ -6,7 +8,7 @@ import 'package:fnx_ui/fnx_ui.dart';
 @Component(
   selector: 'fnx-dropdown-menu',
   template: r'''
-  <fnx-dropdown [visible]="visible" (hide)="visible = false" class="item">
+  <fnx-dropdown [visible]="visible" (hide)="visible = false" class="item" [class.padding-none-left]="hasPrefix">
     <label [innerHtml]="label" master></label>
     <div class="bg-body border shadow">    
       <ng-content></ng-content>
@@ -25,9 +27,13 @@ import 'package:fnx_ui/fnx_ui.dart';
   ],
 )
 class FnxDropdownMenu extends FnxBaseComponent implements OnInit, OnDestroy {
-  FnxDropdownMenu(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent);
+  Element host;
+
+  FnxDropdownMenu(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent);
 
   bool visible = false;
+
+  bool get hasPrefix => host.dataset["prefix"] != null;
 
   @Input()
   String label;

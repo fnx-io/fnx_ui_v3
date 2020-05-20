@@ -5,7 +5,7 @@ import 'package:fnx_ui/fnx_ui.dart';
 @Component(
   selector: 'fnx-ui-docs-test-case',
   template: """
-  <div class='bg-white text-black padding border round debossed'>
+  <div class='bg-white text-black padding border round debossed' style='overflow: hidden'>
   
     <template #content>
       <ng-content></ng-content>

@@ -10,7 +10,7 @@ import 'package:fnx_ui/api/dropdown_tracker.dart';
   template: r'''
    <ng-content select="[master]"></ng-content>
    <div #dropdown *ngIf="visible??false"
-     class="fixed" style="z-index: 1"    
+     class="fixed anim-dropdown" style="z-index: 1"    
    ><ng-content></ng-content></div>
 ''',
   preserveWhitespace: false,

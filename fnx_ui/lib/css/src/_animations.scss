@@ -1,0 +1,44 @@
+@use 'colors';
+@use 'vars';
+@use 'functions';
+
+
+@mixin render() {
+
+  .anim-appear {
+    animation: animAppear 200ms;
+  }
+
+  @keyframes animAppear {
+    0% {
+      opacity: 0;
+      transform: scaleX(1.5) scaleY(0.6);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleX(1) scaleY(1);
+    }
+
+  }
+
+  .anim-dropdown {
+    animation: animDropdown 300ms;
+  }
+
+  @keyframes animDropdown {
+    0% {
+      opacity: 0;
+      transform: scaleY(0);
+    }
+    30% {
+      opacity: 0;
+      transform: scaleY(0.4) translateY(-40%);
+    }
+    100% {
+      opacity: 1;
+      transform: scaleY(1) translateY(0);
+    }
+
+  }
+
+}
