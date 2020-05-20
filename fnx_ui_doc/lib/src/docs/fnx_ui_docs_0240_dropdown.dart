@@ -10,5 +10,5 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
   directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
 )
 class FnxUiDocs0240Dropdown {
-  bool visible = true;
+  bool visible = false;
 }

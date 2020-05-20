@@ -8,12 +8,10 @@ import 'package:fnx_ui/api/dropdown_tracker.dart';
 @Component(
   selector: 'fnx-dropdown',
   template: r'''
-  <span #container>
-    <ng-content select="[master]"></ng-content>
-    <div #dropdown *ngIf="visible??false"
-      class="fixed"    
-    ><ng-content></ng-content></div>
-  </span>
+   <ng-content select="[master]"></ng-content>
+   <div #dropdown *ngIf="visible??false"
+     class="fixed" style="z-index: 1"    
+   ><ng-content></ng-content></div>
 ''',
   preserveWhitespace: false,
   visibility: Visibility.all,
@@ -25,7 +23,6 @@ import 'package:fnx_ui/api/dropdown_tracker.dart';
 class FnxDropdown implements OnInit, OnDestroy, AfterChanges, AfterViewChecked {
   DropdownTracker tracker;
 
-  @ViewChild("container")
   Element container;
 
   @ViewChild("dropdown")
@@ -40,6 +37,8 @@ class FnxDropdown implements OnInit, OnDestroy, AfterChanges, AfterViewChecked {
   StreamController _hide = new StreamController.broadcast();
   @Output()
   Stream get hide => _hide.stream;
+
+  FnxDropdown(this.container);
 
   @override
   void ngAfterChanges() {
