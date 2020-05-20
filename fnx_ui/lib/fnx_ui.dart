@@ -5,9 +5,10 @@ import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
 import 'package:fnx_ui/components/fnx_label/fnx_label.dart';
 import 'package:fnx_ui/components/fnx_tooltip/fnx_tooltip.dart';
 
+import 'components/fnx_dropdown/fnx_dropdown.dart';
 import 'i69n/fnxUiMessages.i69n.dart';
 
-const fnxUiAllDirectives = [FnxTooltip, FnxCheckbox, FnxInt, FnxDouble, FnxFormattedNumber, FnxLabel];
+const fnxUiAllDirectives = [FnxTooltip, FnxCheckbox, FnxInt, FnxDouble, FnxFormattedNumber, FnxLabel, FnxDropdown];
 
 final Configuration fnxUiConfig = Configuration();
 

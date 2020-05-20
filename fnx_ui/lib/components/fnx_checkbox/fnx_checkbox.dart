@@ -33,7 +33,7 @@ class FnxCheckbox extends FnxInputComponent<bool> {
   bool get hostIsChar => label == null;
 
   String get icon {
-    return value == true ? "check_box_outline_blank" : "check_box";
+    return value == true ? "check_box" : "check_box_outline_blank";
   }
 
   FnxCheckbox(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent);

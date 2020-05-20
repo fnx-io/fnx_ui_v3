@@ -1,0 +1,26 @@
+  <h1>Dropdown</h1>
+
+  <p><fnx-checkbox [(ngModel)]="visible" label="Dropdown visible?"></fnx-checkbox></p>
+
+  {{visible}}
+
+  <p>
+      This is a text
+      <fnx-dropdown [visible]="visible">
+          <span master> ANCHOR </span>
+          <div style="width: 20em; height: 20em;" class="bg-yellow">
+              This is a bare bone dropdown.
+          </div>
+      </fnx-dropdown>
+      and more text.
+  </p>
+
+
+<fnx-ui-docs-test-bed #testBed title="Dropdown">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        Dropdown
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  

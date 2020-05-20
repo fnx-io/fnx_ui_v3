@@ -14,6 +14,8 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0080_border.template.dart' as c0
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0090;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0100_effects.template.dart' as c0100;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart' as c0200;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
+
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
@@ -44,6 +46,7 @@ class FnxUiDocs {
     Chapter('Colors', c0090.FnxUiDocs0090ColorsNgFactory),
     Chapter('Effects', c0100.FnxUiDocs0100EffectsNgFactory),
     Chapter('Item', c0200.FnxUiDocs0200ItemNgFactory),
+    Chapter('Dropdown', c0240.FnxUiDocs0240DropdownNgFactory),
     Chapter('Label', c0250.FnxUiDocs0250LabelNgFactory),
     Chapter('Checkbox', c0300.FnxUiDocs0300CheckboxNgFactory),
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),

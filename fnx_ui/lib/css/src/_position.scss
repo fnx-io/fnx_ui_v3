@@ -18,5 +18,11 @@ body {
   .#{$prefix}relative {
     position: relative;
   }
+  .#{$prefix}fixed {
+    position: fixed;
+  }
+  .#{$prefix}absolute {
+    position: absolute;
+  }
 
 }
