@@ -7,6 +7,7 @@
 @use 'utils';
 @use 'typography';
 @use 'effects';
+@use 'table';
 @use 'animations';
 @use 'padding';
 @use 'margin';
@@ -25,12 +26,11 @@
 @mixin renderPrefixIndependent() {
   @include reboot.render();
   @include vars.render();
-
   @include internal.render();
-
   @include scrollbar.render();
   @include colors.render();
   @include effects.render();
+  @include table.render();
   @include animations.render();
   @include typography.render();
   @include icons.render();
@@ -38,7 +38,6 @@
   @include tooltip.render();
   @include loader.render();
 }
-
 @mixin renderAll($prefix) {
   @include utils.renderWithPrefix($prefix);
   @include typography.renderWithPrefix($prefix);

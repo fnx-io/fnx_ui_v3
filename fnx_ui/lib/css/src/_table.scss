@@ -1,0 +1,41 @@
+@use 'vars';
+@use 'functions';
+@use 'colors';
+
+@mixin render() {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    td, th {
+      padding: vars.$smallSize;
+      * {
+        --padding: 4px;
+      }
+    }
+    th {
+      background-color: vars.$themeColor;
+      color: vars.$themeTextColor;
+    }
+  }
+  .table {
+    &-compact {
+      --padding: 4px;
+    }
+    &-borders {
+      td, th {
+        border: vars.$border;
+      }
+    }
+    &-lines {
+      td, th {
+        border-top: vars.$border;
+        border-bottom: vars.$border;
+      }
+    }
+    &-stripes {
+      tr:nth-child(2n) {
+        background-color: #ddd;
+      }
+    }
+  }
+}

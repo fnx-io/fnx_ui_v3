@@ -13,6 +13,8 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0070_margin.template.dart' as c0
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0080_border.template.dart' as c0080;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0090;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0100_effects.template.dart' as c0100;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0110_table.template.dart' as c0110;
+
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart' as c0200;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
 
@@ -45,6 +47,7 @@ class FnxUiDocs {
     Chapter('Border', c0080.FnxUiDocs0080BorderNgFactory),
     Chapter('Colors', c0090.FnxUiDocs0090ColorsNgFactory),
     Chapter('Effects', c0100.FnxUiDocs0100EffectsNgFactory),
+    Chapter('Table', c0110.FnxUiDocs0110TableNgFactory),
     Chapter('Item', c0200.FnxUiDocs0200ItemNgFactory),
     Chapter('Dropdown', c0240.FnxUiDocs0240DropdownNgFactory),
     Chapter('Label', c0250.FnxUiDocs0250LabelNgFactory),

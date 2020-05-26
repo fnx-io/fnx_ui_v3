@@ -54,42 +54,45 @@ $level4: $level1 * 4;
   @include renderSpecial('selected',vars.$selectedColor,vars.$selectedTextColor);
   @include renderSpecial('error',vars.$errorColor,vars.$errorTextColor);
 
-  a[class*="bg-"], [class*="bg-"] a, a[class*="text-"], [class*="text-"] a {
+  a {
     color: inherit;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 
+@function textColor($color) {
+  @return if(lightness($color) < 0.5, #fff, #000)
+}
+@mixin renderBackground($hexa) {
+  background-color: $hexa !important;
+  color: textColor($hexa) !important;
+}
 @mixin renderColorRules($hexa, $name) {
   @include functions.renderWithFlavores("bg-#{$name}") {
-    background-color: $hexa;
+    @include renderBackground($hexa);
   }
   @include functions.renderWithFlavores("bg-#{$name}-l1") {
-    background-color: lighten($hexa, $level1);
+    @include renderBackground( lighten($hexa, $level1));
   }
   @include functions.renderWithFlavores("bg-#{$name}-l2") {
-    background-color: lighten($hexa, $level2);
+    @include renderBackground( lighten($hexa, $level2));
   }
   @include functions.renderWithFlavores("bg-#{$name}-l3") {
-    background-color: lighten($hexa, $level3);
+    @include renderBackground( lighten($hexa, $level3));
   }
   @include functions.renderWithFlavores("bg-#{$name}-l4") {
-    background-color: lighten($hexa, $level4);
+    @include renderBackground( lighten($hexa, $level4));
   }
   @include functions.renderWithFlavores("bg-#{$name}-d1") {
-    background-color: darken($hexa, $level1);
+    background-color: darken($hexa, $level1) !important;
   }
   @include functions.renderWithFlavores("bg-#{$name}-d2") {
-    background-color: darken($hexa, $level2);
+    background-color: darken($hexa, $level2) !important;
   }
   @include functions.renderWithFlavores("bg-#{$name}-d3") {
-    background-color: darken($hexa, $level3);
+    background-color: darken($hexa, $level3) !important;
   }
   @include functions.renderWithFlavores("bg-#{$name}-d4") {
-    background-color: darken($hexa, $level4);
+    background-color: darken($hexa, $level4) !important;
   }
   
   @include functions.renderWithFlavores("text-#{$name}") {

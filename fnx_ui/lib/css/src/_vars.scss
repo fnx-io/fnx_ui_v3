@@ -3,6 +3,9 @@ $smallSize: var(--padding);
 $mediumSize: var(--rem);
 $borderSize: var(--border-size);
 $borderRadius: var(--border-radius);
+$bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh));
+$bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2);
+
 
 // Colors:
 // Border
@@ -27,9 +30,6 @@ $colorBody: var(--body-color);
 
 $tooltipColor: var(--tooltip-color);
 $tooltipTextColor: var(--tooltip-text-color);
-
-$bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh));
-$bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2);
 
 $smallSize_withoutBorder: calc(#{$smallSize} - #{$borderSize});
 $mediumSize_withoutBorder: calc(#{$mediumSize} - #{$borderSize});
