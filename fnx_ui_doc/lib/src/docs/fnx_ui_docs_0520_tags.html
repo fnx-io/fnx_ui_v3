@@ -1,0 +1,30 @@
+<h1>Tags</h1>
+
+<p>
+
+    Nedavejte do tagu ITEMy.
+
+    <span class="tag">Ahoj</span>
+    &nbsp;
+    <span class="tag">A</span>
+    &nbsp;
+    <span class="tag"><span class="mi">android</span></span>
+    &nbsp;
+    <span class="tag"><span class="mi">android</span> huhle huhle</span>
+    &nbsp;
+    <span class="tag">huhle huhle</span>
+    &nbsp;
+    <span class="tag mi">android</span>
+    &nbsp;
+    <span class="tag">Lorem ipsum dolor sit amet</span>
+</p>
+
+
+<fnx-ui-docs-test-bed #testBed title="Tags">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <span class="tag"><a class="mi">close</a> huhle huhle</span>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  
