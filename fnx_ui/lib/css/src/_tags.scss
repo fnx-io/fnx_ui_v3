@@ -1,0 +1,14 @@
+@use 'vars';
+
+@mixin render() {
+
+  .tag {
+    background-color: vars.$themeColor;
+    padding: #{vars.$smallSize} calc(2 * #{vars.$smallSize});
+    border-radius: #{vars.$mediumSize};
+    & .icon {
+      width: auto;
+    }
+  }
+
+}

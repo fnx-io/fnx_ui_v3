@@ -43,6 +43,13 @@
     width: 50% !important;
   }
 
+  @for $i from 1 through 10 {
+    $w: calc( #{$i} * #{vars.$bigSize} );
+    .#{$prefix}width-#{$i}ch { width: $w !important; }
+    .#{$prefix}max-width-#{$i}ch { max-width:  $w !important; }
+    .#{$prefix}min-width-#{$i}ch { min-width:  $w !important; }
+  }
+
   @for $i from 0 through 10 {
     $w: $i*10;
     .#{$prefix}width-#{$w} { width: $w*1% !important; }

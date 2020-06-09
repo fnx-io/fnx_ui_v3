@@ -23,8 +23,12 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as 
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart' as c0370;
+
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart' as c0400;
+
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart' as c0510;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart' as c0520;
 
 // AngularDart info: https://angulardart.dev
 // Components info: https://angulardart.dev/components
@@ -57,6 +61,8 @@ class FnxUiDocs {
     Chapter('FormattedNumber', c0370.FnxUiDocs0370FormattedNumberNgFactory),
     Chapter('Tooltip', c0500.FnxUiDocs0500TooltipNgFactory),
     Chapter('Loader', c0510.FnxUiDocs0510LoaderNgFactory),
+    Chapter('Tags', c0520.FnxUiDocs0520TagsNgFactory),
+    Chapter('DatePicker', c0400.FnxUiDocs0400DatePickerNgFactory),
   ];
 
   List<RouteDefinition> routes;

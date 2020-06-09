@@ -22,6 +22,7 @@
 @use 'items';
 @use 'loader';
 @use 'tooltip';
+@use 'tags';
 
 @mixin renderPrefixIndependent() {
   @include reboot.render();
@@ -37,6 +38,7 @@
   @include items.render();
   @include tooltip.render();
   @include loader.render();
+  @include tags.render();
 }
 @mixin renderAll($prefix) {
   @include utils.renderWithPrefix($prefix);

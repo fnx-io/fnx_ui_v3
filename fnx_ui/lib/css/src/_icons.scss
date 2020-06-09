@@ -23,5 +23,6 @@
 @mixin render() {
   .mi {
     @include mdIcon();
+    vertical-align: middle;
   }
 }

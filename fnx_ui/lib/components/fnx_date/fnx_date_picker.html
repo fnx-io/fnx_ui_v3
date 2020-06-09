@@ -1,0 +1,70 @@
+<div class="flex-row">
+    <div class="width-7ch">
+        <header class="picker__header" (click)="$event.preventDefault()">
+        </header>
+        <table>
+            <thead>
+            <tr>
+                <th colspan="7">
+                    <span class="item-row">
+                        <a (click)="decMonth()" class="pointer icon hover:hover">first_page</a>
+                        <a (click)="showToday()" class="pointer expanded hover:hover text-center">{{year}}/{{month}}</a>
+                        <a (click)="incMonth()" class="pointer icon hover:hover">last_page</a>
+                    </span>
+                </th>
+            </tr>
+            </thead>
+            <tr>
+                <th><span class="char">Mo</span></th>
+                <th><span class="char">Tu</span></th>
+                <th><span class="char">We</span></th>
+                <th><span class="char">Th</span></th>
+                <th><span class="char">Fr</span></th>
+                <th><span class="char">Sa</span></th>
+                <th><span class="char">Su</span></th>
+            </tr>
+            <tr *ngFor="let week of days">
+                <td *ngFor="let day of week">
+                    <span
+                        class="circle pointer hover:hover char"
+                        [class.selected]="isSelected(year, month, day)"
+                        [class.border]="isToday(year, month, day)"
+                        (click)="pickDay(year, month, day, $event)"
+                        *ngIf="isDay(day)">{{day}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="width-7ch padding-big-top" (click)="killEvent($event)" *ngIf="dateTime">
+        <p class="flex-row margin-big-top">
+            <span class="spacer"></span>
+            <a (click)="incHour()" class="pointer icon hover:hover">keyboard_arrow_up</a>
+            <span class=""></span>
+            <a (click)="incMinute()" class="pointer icon hover:hover">keyboard_arrow_up</a>
+            <span class="spacer"></span>
+        </p>
+        <p class="flex-row">
+            <span class="spacer"></span>
+            <span class="padding">{{hour}}:{{minute}}</span>
+            <!--<fnx-text [(ngModel)]="timeToShow" style="width:100%" (focusout)="editingTime=null"></fnx-text>-->
+            <span class="spacer"></span>
+        </p>
+        <p class="flex-row">
+            <span class="spacer"></span>
+            <a (click)="decHour()" class="pointer icon hover:hover">keyboard_arrow_down</a>
+            <span class=""></span>
+            <a (click)="decMinute()" class="pointer icon hover:hover">keyboard_arrow_down</a>
+            <span class="spacer"></span>
+        </p>
+        <!--
+        <div class="picker__time__ampm input--checkgroup" [hidden]="hourFormat24">
+            <span class="check" (click)="setAm()">
+                <input type="radio" [checked]="isAm" name="ampm" id="{{id}}-am"><label attr.for="{{id}}-am">AM</label>
+            </span>
+            <span class="check" (click)="setPm()">
+                <input type="radio" [checked]="isPm" name="ampm" id="{{id}}-pm"><label attr.for="{{id}}-pm">PM</label>
+            </span>
+        </div>
+        -->
+    </div>
+</div>

@@ -9,5 +9,8 @@
   .round {
     border-radius: vars.$borderRadius;
   }
+  .circle {
+    border-radius: 50%;
+  }
 
 }
