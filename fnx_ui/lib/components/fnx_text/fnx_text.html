@@ -1,0 +1,18 @@
+<!-- Template is shared between multiple components -->
+<ng-content select="[prefix]"></ng-content>
+<input
+        id="{{ id }}"
+        class="border-none padding-none spacer max-width-100 bg-white"
+
+        [(ngModel)]="value"
+        [attr.autocomplete]="autocomplete"
+        (keyup)="markAsTouched()"
+        [attr.placeholder]="placeholder"
+
+        [readonly]="isReadonly"
+        [disabled]="isDisabled"
+        [attr.tabindex]="tabindex"
+
+        #input
+/>
+<ng-content select="[suffix]"></ng-content>

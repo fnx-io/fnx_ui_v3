@@ -6,11 +6,12 @@ import 'package:fnx_ui/components/fnx_dropdown_menu/fnx_dropdown_menu.dart';
 import 'package:fnx_ui/components/fnx_formatted_number/fnx_formatted_number.dart';
 import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
 import 'package:fnx_ui/components/fnx_label/fnx_label.dart';
+import 'package:fnx_ui/components/fnx_text/fnx_text.dart';
 import 'package:fnx_ui/components/fnx_tooltip/fnx_tooltip.dart';
 
 import 'i69n/fnxUiMessages.i69n.dart';
 
-const fnxUiAllDirectives = [FnxTooltip, FnxCheckbox, FnxInt, FnxDouble, FnxFormattedNumber, FnxLabel, FnxDropdown, FnxDropdownMenu, FnxDatePicker];
+const fnxUiAllDirectives = [FnxTooltip, FnxCheckbox, FnxInt, FnxDouble, FnxFormattedNumber, FnxLabel, FnxDropdown, FnxDropdownMenu, FnxDatePicker, FnxText];
 
 final Configuration fnxUiConfig = Configuration();
 

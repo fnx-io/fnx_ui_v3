@@ -23,15 +23,15 @@
     background: #aaa;
   }
   ::-webkit-scrollbar-track {
-    background: #eee;
-    border: 0px none #eee;
+    background: #ddd;
+    border: 0px none #ddd;
     border-radius: vars.$borderRadius;
   }
   ::-webkit-scrollbar-track:hover {
-    background: #ddd;
+    background: #ccc;
   }
   ::-webkit-scrollbar-track:active {
-    background: #ddd;
+    background: #ccc;
   }
   ::-webkit-scrollbar-corner {
     background: transparent;

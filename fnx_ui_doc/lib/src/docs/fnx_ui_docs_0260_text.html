@@ -1,0 +1,21 @@
+  <h1>Text</h1>
+
+
+  <p>Hello {{world}}!</p>
+
+
+  <p><fnx-text [(ngModel)]="email" type="email"></fnx-text> {{email}}</p>
+
+  <p><fnx-text [(ngModel)]="web" type="http"></fnx-text> {{web}} </p>
+
+  <p><fnx-text [(ngModel)]="web" type="web"></fnx-text> {{web}} </p>
+
+<fnx-ui-docs-test-bed #testBed title="Text">
+
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-text [(ngModel)]="world"></fnx-text>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  

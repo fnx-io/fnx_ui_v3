@@ -14,6 +14,9 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
   @Input()
   String autocomplete = "on";
 
+  @Input()
+  String placeholder = null;
+
   T _value;
 
   T get value => _value;
@@ -58,8 +61,6 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
 
   @override
   void writeValue(obj) {
-    print("Writing value $obj");
     _value = obj;
-    print("... value = $value");
   }
 }

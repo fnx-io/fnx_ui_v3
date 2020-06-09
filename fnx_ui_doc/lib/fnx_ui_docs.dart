@@ -14,18 +14,15 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0080_border.template.dart' as c0
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0090;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0100_effects.template.dart' as c0100;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0110_table.template.dart' as c0110;
-
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart' as c0200;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
-
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart' as c0260;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart' as c0370;
-
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart' as c0400;
-
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart' as c0510;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart' as c0520;
@@ -55,6 +52,7 @@ class FnxUiDocs {
     Chapter('Item', c0200.FnxUiDocs0200ItemNgFactory),
     Chapter('Dropdown', c0240.FnxUiDocs0240DropdownNgFactory),
     Chapter('Label', c0250.FnxUiDocs0250LabelNgFactory),
+    Chapter('Text', c0260.FnxUiDocs0260TextNgFactory),
     Chapter('Checkbox', c0300.FnxUiDocs0300CheckboxNgFactory),
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),
     Chapter('Double', c0360.FnxUiDocs0360DoubleNgFactory),

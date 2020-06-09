@@ -12,12 +12,9 @@ abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputCompon
   @Input()
   num max = null;
 
-  @Input()
-  String placeholder = null;
-
   @HostBinding('class.item-input')
   @HostBinding('class.bg-white')
-  bool get hostIsItem => true;
+  final bool hostIsItem = true;
 
   FnxBaseNumberInputComponent(FnxBaseComponent parent) : super(parent);
 
@@ -69,9 +66,7 @@ abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputCompon
 
   @override
   void focus() {
-    if (element != null) {
-      element.focus();
-    }
+    element?.focus();
   }
 
   ///
