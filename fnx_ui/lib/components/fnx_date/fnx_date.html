@@ -1,10 +1,42 @@
-<fnx-date-picker
+<fnx-dropdown [visible]="pickerVisible" class="max-width-100">
+    <span master>
+        <ng-content select="[prefix]"></ng-content>
+        <input
+                id="{{ id }}"
+                class="border-none padding-none spacer max-width-100 bg-white"
+                (focusout)="reformat()"
+                (focusin)="focusin()"
+
+                [(ngModel)]="rawValue"
+                [attr.autocomplete]="autocomplete"
+                (keyup)="markAsTouched()"
+                [attr.placeholder]="placeholder"
+
+                [readonly]="isReadonly"
+                [disabled]="isDisabled"
+                [attr.tabindex]="tabindex"
+
+                #input
+        />
+        <ng-content select="[suffix]"></ng-content>
+    </span>
+
+    <fnx-date-picker
+            tabIndex="0"
+            [selected]="valueAsList"
+            (picked)="datePicked($event)"
+            [dateTime]="dateTime" class="block margin-small-top shadow-small border"></fnx-date-picker>
+
+</fnx-dropdown>
+<!--
+
+< fn x-date-picker
         [value]="value"
         [open]="openDatePicker"
         [hourFormat24]="true"
         [dateTime]="dateTime"
         (datePicked)="datePicked($event)">
-    <input type="text" class="form-control spacer" [attr.id]="componentId"
+    <in put type="text" class="form-control spacer" [attr.id]="componentId"
            [ngModel]="dateStr"
            (ngModelChange)="onChangeInput($event)"
            [attr.tabindex]="(isReadonly || isDisabled) ? -1 : 0"
@@ -13,5 +45,6 @@
            (focus)="onFocus()"
            (blur)="onBlur()"
            (click)="ensurePickerOpened()"/>
-    <label class="icon" [attr.for]="componentId" style="margin-bottom: 0">date_range</label>
-</fnx-date-picker>
+    <l abel class="icon" [attr.for]="componentId" style="margin-bottom: 0">date_range</label>
+</ fn x-date-picker>
+-->

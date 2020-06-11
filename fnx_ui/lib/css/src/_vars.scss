@@ -3,8 +3,8 @@ $smallSize: var(--padding);
 $mediumSize: var(--rem);
 $borderSize: var(--border-size);
 $borderRadius: var(--border-radius);
-$bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh));
-$bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) - #{$borderSize}*2);
+$bigSize: calc(var(--padding)*2 + var(--rem) * var(--lh) + #{$borderSize}*2);
+$bigSize_withoutBorder: calc(var(--padding)*2 + var(--rem)*var(--lh) );
 
 
 // Colors:

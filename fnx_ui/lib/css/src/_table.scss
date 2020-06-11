@@ -8,9 +8,6 @@
     width: 100%;
     td, th {
       padding: vars.$smallSize;
-      * {
-        --padding: 4px;
-      }
     }
     th {
       background-color: vars.$themeColor;
@@ -36,6 +33,11 @@
       tr:nth-child(2n) {
         background-color: #ddd;
       }
+    }
+  }
+  table:not(.--system) {
+    td *, th * {
+      --padding: 4px;
     }
   }
 }

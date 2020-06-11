@@ -23,6 +23,7 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart' as c0370;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart' as c0400;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0410_date.template.dart' as c0410;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart' as c0510;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart' as c0520;
@@ -57,10 +58,11 @@ class FnxUiDocs {
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),
     Chapter('Double', c0360.FnxUiDocs0360DoubleNgFactory),
     Chapter('FormattedNumber', c0370.FnxUiDocs0370FormattedNumberNgFactory),
+    Chapter('DatePicker', c0400.FnxUiDocs0400DatePickerNgFactory),
+    Chapter('Date', c0410.FnxUiDocs0410DateNgFactory),
     Chapter('Tooltip', c0500.FnxUiDocs0500TooltipNgFactory),
     Chapter('Loader', c0510.FnxUiDocs0510LoaderNgFactory),
     Chapter('Tags', c0520.FnxUiDocs0520TagsNgFactory),
-    Chapter('DatePicker', c0400.FnxUiDocs0400DatePickerNgFactory),
   ];
 
   List<RouteDefinition> routes;

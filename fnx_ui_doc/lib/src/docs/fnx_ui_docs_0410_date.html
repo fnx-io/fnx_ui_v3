@@ -1,0 +1,18 @@
+  <h1>Date</h1>
+
+  <p>{{datum}}</p>
+
+  <p><fnx-date [(ngModel)]="datum" data-prefix="android" data-suffix="android">
+      <span prefix class="mi">android</span>
+      <span suffix>pieces</span>
+  </fnx-date></p>
+
+
+<fnx-ui-docs-test-bed #testBed title="Date">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-date [(ngModel)]="datum" [dateTime]="true"></fnx-date>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  
