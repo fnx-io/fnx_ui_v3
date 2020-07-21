@@ -8,7 +8,7 @@ import 'package:fnx_ui/components/fnx_date/fnx_date_picker.dart';
 import 'package:fnx_ui/components/fnx_dropdown/fnx_dropdown.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:fnx_ui/fnx_ui.dart';
-import 'package:fnx_ui/src/toolkit.dart';
+import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
@@ -113,7 +113,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
   void focusin() {
     reformat();
     pickerVisible = true;
-    firstClickAbove(host).then((_) => pickerVisible = false);
+    ui.firstClickAbove(host).then((_) => pickerVisible = false);
   }
 
   void datePicked(DateTime v) {

@@ -31,6 +31,9 @@ $colorBody: var(--body-color);
 $tooltipColor: var(--tooltip-color);
 $tooltipTextColor: var(--tooltip-text-color);
 
+$toastColor: var(--toast-color);
+$toastTextColor: var(--toast-text-color);
+
 $smallSize_withoutBorder: calc(#{$smallSize} - #{$borderSize});
 $mediumSize_withoutBorder: calc(#{$mediumSize} - #{$borderSize});
 
@@ -70,6 +73,9 @@ $border: $borderSize solid $borderColor;
 
     --tooltip-color: #444;
     --tooltip-text-color: #fff;
+
+    --toast-color: var(--tooltip-color);
+    --toast-text-color: var(--tooltip-text-color);
 
     --body-color: #eee;
 

@@ -1,0 +1,18 @@
+<div class="modal_wrapper flex-column" attr.id="{{id}}">
+    <div class="modal_space_before flex-grow"></div>
+    <div class="modal" [style.width]="width">
+        <a (click)="emitClose()" class="modal_close icon">close</a>
+        <div class="flex-column">
+            <header class="padding">
+                <ng-content select="[header]"></ng-content>
+            </header>
+            <main class="padding spacer">
+                <ng-content select="[main]"></ng-content>
+            </main>
+            <footer class="padding-left padding-right">
+                <ng-content select="[footer]"></ng-content>
+            </footer>
+        </div>
+    </div>
+    <div class="modal_space_after flex-grow-2"></div>
+</div>

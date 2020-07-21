@@ -35,10 +35,12 @@ String _cardinal(int count,
 
 class FnxUiMessages implements i69n.I69nMessageBundle {
   const FnxUiMessages();
-  String get ok => "ok";
-  String get yes => "yes";
-  String get no => "no";
+  String get ok => "OK";
+  String get yes => "Yes";
+  String get no => "No";
+  String get cancel => "Cancel";
   InputFnxUiMessages get input => InputFnxUiMessages(this);
+  AlertsFnxUiMessages get alerts => AlertsFnxUiMessages(this);
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -52,8 +54,12 @@ class FnxUiMessages implements i69n.I69nMessageBundle {
         return yes;
       case 'no':
         return no;
+      case 'cancel':
+        return cancel;
       case 'input':
         return input;
+      case 'alerts':
+        return alerts;
       default:
         throw Exception('Message $key doesn\'t exist in $this');
     }
@@ -73,6 +79,31 @@ class InputFnxUiMessages implements i69n.I69nMessageBundle {
     switch (key) {
       case 'notValid':
         return notValid;
+      default:
+        throw Exception('Message $key doesn\'t exist in $this');
+    }
+  }
+}
+
+class AlertsFnxUiMessages implements i69n.I69nMessageBundle {
+  final FnxUiMessages _parent;
+  const AlertsFnxUiMessages(this._parent);
+  String get alertHeadline => "Alert";
+  String get confirmHeadline => "Confirm";
+  String get inputHeadline => "Input";
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'alertHeadline':
+        return alertHeadline;
+      case 'confirmHeadline':
+        return confirmHeadline;
+      case 'inputHeadline':
+        return inputHeadline;
       default:
         throw Exception('Message $key doesn\'t exist in $this');
     }

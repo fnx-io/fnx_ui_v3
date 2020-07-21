@@ -25,6 +25,8 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.d
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart' as c0400;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0410_date.template.dart' as c0410;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0505_toast.template.dart' as c0505;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0507_modal.template.dart' as c0507;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart' as c0510;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart' as c0520;
 
@@ -61,6 +63,8 @@ class FnxUiDocs {
     Chapter('DatePicker', c0400.FnxUiDocs0400DatePickerNgFactory),
     Chapter('Date', c0410.FnxUiDocs0410DateNgFactory),
     Chapter('Tooltip', c0500.FnxUiDocs0500TooltipNgFactory),
+    Chapter('Toasts', c0505.FnxUiDocs0505ToastNgFactory),
+    Chapter('Modal', c0507.FnxUiDocs0507ModalNgFactory),
     Chapter('Loader', c0510.FnxUiDocs0510LoaderNgFactory),
     Chapter('Tags', c0520.FnxUiDocs0520TagsNgFactory),
   ];

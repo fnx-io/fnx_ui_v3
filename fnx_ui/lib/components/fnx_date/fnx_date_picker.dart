@@ -5,8 +5,8 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
-import 'package:fnx_ui/src/date.dart';
-import 'package:fnx_ui/src/toolkit.dart' as t;
+import 'package:fnx_ui/api/date.dart';
+import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:intl/intl.dart';
 
 @Component(
@@ -215,7 +215,7 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
   bool get isAm => AmPm.AM == amPm;
   bool get isPm => AmPm.PM == amPm;
 
-  Function killEvent = t.killEvent;
+  Function killEvent = ui.killEvent;
 
   /*
   void setPm() {

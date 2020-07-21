@@ -1,0 +1,75 @@
+@use 'vars';
+@use 'effects';
+
+@mixin render() {
+  
+  .toast__container {
+    position: fixed;
+    top: vars.$bigSize;
+    right: vars.$bigSize;
+    max-width: calc(100% - #{vars.$bigSize} * 2);
+    z-index: 10000;
+  }
+
+  @keyframes appearToast {
+    0% {
+      opacity: 0;
+      top: 50vh;
+    }
+    100% {
+      opacity: 1;
+      top: 0;
+    }
+  }
+  @keyframes hideToast {
+    0% {
+      opacity: 1;
+      max-height: 30vh;
+      padding-top: vars.$mediumSize;
+      padding-bottom: vars.$mediumSize;
+      margin-bottom: vars.$mediumSize;
+    }
+    50% {
+      padding-top: vars.$mediumSize;
+      padding-bottom: vars.$mediumSize;
+      margin-bottom: vars.$mediumSize;
+    }
+    100% {
+      opacity: 0;
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .toast {
+    position: relative;
+    background-color: vars.$toastColor;
+    color: vars.$toastTextColor;
+    @include effects.renderShadow(2 * vars.$shadowSize);
+    border-radius: vars.$borderRadius;
+    padding: vars.$mediumSize;
+    animation: appearToast 0.6s;
+    margin-bottom: vars.$mediumSize;
+    width: 30vw;
+    max-width: 100%;
+    min-width: 20em;
+    max-height: 30vh;
+
+    *:last-child {
+      margin-bottom: 0;
+    }
+
+    &.hide {
+      animation: hideToast 0.6s;
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+}

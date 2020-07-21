@@ -1,0 +1,12 @@
+  <h1>Modal</h1>
+
+  <p>
+      <button class="btn" (click)="visible = true">Toast</button>
+  </p>
+
+
+  <fnx-modal (close)="visible = false" *ngIf="visible == true">
+      <div header>Header</div>
+      <div main>Content</div>
+      <div footer>Header</div>
+  </fnx-modal>

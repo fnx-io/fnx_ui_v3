@@ -1,6 +1,10 @@
-ok: ok
-yes: yes
-no: no
+ok: OK
+yes: Yes
+no: No
+cancel: Cancel
 input:
   notValid: Value is not valid
-
+alerts:
+  alertHeadline: Alert
+  confirmHeadline: Confirm
+  inputHeadline: Input
