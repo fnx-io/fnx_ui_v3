@@ -15,6 +15,7 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0100_effects.template.dart' as c0100;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0110_table.template.dart' as c0110;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart' as c0200;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0210_panel.template.dart' as c0210;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart' as c0260;
@@ -53,6 +54,7 @@ class FnxUiDocs {
     Chapter('Effects', c0100.FnxUiDocs0100EffectsNgFactory),
     Chapter('Table', c0110.FnxUiDocs0110TableNgFactory),
     Chapter('Item', c0200.FnxUiDocs0200ItemNgFactory),
+    Chapter('Panel', c0210.FnxUiDocs0210PanelNgFactory),
     Chapter('Dropdown', c0240.FnxUiDocs0240DropdownNgFactory),
     Chapter('Label', c0250.FnxUiDocs0250LabelNgFactory),
     Chapter('Text', c0260.FnxUiDocs0260TextNgFactory),

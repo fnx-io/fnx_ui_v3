@@ -1,0 +1,17 @@
+<section class="panel"
+         [class.-closable]="closable"
+         [class.-open]="open">
+    <header class="theme panel_header" attr.id="{{id}}-header" (click)="open = !open">
+        <div class="flex-row">
+            <span class="icon" [class.rotate-right]="open" *ngIf="closable">
+                arrow_right</span>
+            <div [class.padding-small]="!noHeaderPadding" [class.padding-none-left]="closable" class="spacer">
+                <ng-content select="[header]"></ng-content>
+            </div>
+        </div>
+    </header>
+    <main class="panel_content">
+        <ng-content select="*"></ng-content>
+    </main>
+</section>
+

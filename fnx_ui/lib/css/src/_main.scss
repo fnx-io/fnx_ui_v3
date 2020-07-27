@@ -20,6 +20,7 @@
 
 @use 'scrollbar';
 @use 'items';
+@use 'blocks';
 @use 'loader';
 @use 'tooltip';
 @use 'toast';
@@ -38,6 +39,7 @@
   @include typography.render();
   @include icons.render();
   @include items.render();
+  @include blocks.render();
   @include tooltip.render();
   @include toast.render();
   @include loader.render();

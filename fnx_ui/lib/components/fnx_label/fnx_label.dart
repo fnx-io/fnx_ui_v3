@@ -12,11 +12,10 @@ import 'package:fnx_ui/fnx_ui.dart';
          [class.required]="hasRequiredChildren"
          [class.text-error]="isTouchedAndInvalid"
          (click)="markAsTouched()" [innerHtml]="label"></label>
-  <p class="item-row">
-    <ng-content></ng-content>
-  </p>
+  <ng-content></ng-content>
   <label *ngIf="isTouchedAndInvalid" class="text-error margin-small-top" [attr.for]="childId">{{ errorMessage }}</label>
 ''',
+  styles: [".item-row "],
   preserveWhitespace: false,
   visibility: Visibility.all,
   providers: [

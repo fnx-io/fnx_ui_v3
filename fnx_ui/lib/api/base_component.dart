@@ -22,7 +22,6 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   String get id => _id ?? _fallbackId;
 
-  @nonVirtual
   @Input()
   set id(String value) {
     _id = value;
@@ -30,7 +29,6 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   bool get required => _required;
 
-  @nonVirtual
   @Input()
   set required(bool value) {
     _required = value;
@@ -38,7 +36,6 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   bool get readonly => _readonly;
 
-  @nonVirtual
   @Input()
   set readonly(bool value) {
     _readonly = value;
@@ -46,7 +43,6 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   bool get disabled => _disabled;
 
-  @nonVirtual
   @Input()
   set disabled(bool value) {
     _disabled = value;
