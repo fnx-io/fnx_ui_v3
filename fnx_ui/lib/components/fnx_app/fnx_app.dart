@@ -66,7 +66,7 @@ class FnxApp implements OnInit {
       t.hide = true;
       _changeDetector.detectChanges();
     });
-    new Future.delayed(duration + const Duration(seconds: 1)).then((_) {
+    new Future.delayed(duration + Duration(seconds: 1)).then((_) {
       if (toasts.firstWhere((_ToastContent t) => t.hide == false, orElse: () => null) == null) {
         toasts.clear();
       }

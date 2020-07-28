@@ -1,3 +1,33 @@
+<div class="modal_wrapper flex-column " attr.id="{{id}}">
+
+    <div class="modal_space_before flex-grow flex-shrink "></div>
+
+    <section class="modal flex-column margin-auto bg-body " [style.width]="width">
+
+        <header class="modal_header theme" attr.id="{{id}}-header">
+            <div class="flex-row">
+                <div [class.padding-small]="!noHeaderPadding" [class.padding-none-right]="closable" class="spacer">
+                    <ng-content select="header,[header]"></ng-content>
+                </div>
+                <span class="icon pointer" [class.rotate-right]="open" *ngIf="closable" (click)="open = !open">close</span>
+            </div>
+        </header>
+
+        <main class="modal_content scroll spacer">
+            <ng-content select="main,[main]"></ng-content>
+        </main>
+
+        <footer [class.padding-small]="!noFooterPadding">
+            <ng-content select="footer,[footer]"></ng-content>
+        </footer>
+
+    </section>
+
+    <div class="modal_space_after  flex-grow-2 flex-shrink"></div>
+
+</div>
+
+<!--
 <div class="modal_wrapper flex-column" attr.id="{{id}}">
     <div class="modal_space_before flex-grow"></div>
     <div class="modal" [style.width]="width">
@@ -16,3 +46,4 @@
     </div>
     <div class="modal_space_after flex-grow-2"></div>
 </div>
+-->

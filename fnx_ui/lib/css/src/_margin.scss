@@ -12,12 +12,12 @@
     margin: 0 !important;
   }
   .#{$prefix}margin-auto, .#{$prefix}margin-auto-horizontal {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   .#{$prefix}margin-auto-vertical {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: auto !important;
+    margin-bottom: auto !important;
   }
 
 }

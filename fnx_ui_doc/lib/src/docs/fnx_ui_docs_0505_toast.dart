@@ -16,6 +16,6 @@ class FnxUiDocs0505Toast {
   FnxUiDocs0505Toast(this.app);
 
   void toast(String toast) {
-    app.toast(toast, duration: Duration(minutes: 1));
+    app.toast(toast, duration: Duration(seconds: 3));
   }
 }

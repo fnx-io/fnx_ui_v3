@@ -39,15 +39,15 @@ import 'package:fnx_ui/fnx_ui.dart';
     </template>
     
     <template [ngIf]='testCase==3'>
-      <h4>Width 10em</h4>
-      <div class='width10'>
+      <h4>Parent width 10em</h4>
+      <div style="width: 10em">
         <ng-container *ngTemplateOutlet='content'></ng-container>
       </div>
     </template>     
 
     <template [ngIf]='testCase==4'>
-      <h4>Width 100%</h4>
-      <div class='width100'>
+      <h4>Parent width 20em</h4>
+      <div style="width: 20em">
         <ng-container *ngTemplateOutlet='content'></ng-container>
       </div>
     </template>     

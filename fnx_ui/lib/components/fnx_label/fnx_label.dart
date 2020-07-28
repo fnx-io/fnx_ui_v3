@@ -15,7 +15,6 @@ import 'package:fnx_ui/fnx_ui.dart';
   <ng-content></ng-content>
   <label *ngIf="isTouchedAndInvalid" class="text-error margin-small-top" [attr.for]="childId">{{ errorMessage }}</label>
 ''',
-  styles: [".item-row "],
   preserveWhitespace: false,
   visibility: Visibility.all,
   providers: [

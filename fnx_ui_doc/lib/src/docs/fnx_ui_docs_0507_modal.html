@@ -1,12 +1,36 @@
   <h1>Modal</h1>
 
   <p>
-      <button class="btn" (click)="visible = true">Toast</button>
+      <button class="btn" (click)="modal.open()">Toast</button>
   </p>
 
 
-  <fnx-modal (close)="visible = false" *ngIf="visible == true">
-      <div header>Header</div>
-      <div main>Content</div>
-      <div footer>Header</div>
+  <fnx-modal (close)="modal.close()" *ngIf="modal.isOpen">
+      <h3 header>Header</h3>
+      <main>
+
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+          Contentd asrdfsadas dasdasdsa da sdasd asd asdasda<br>
+
+      </main>
+      <footer>Footer</footer>
   </fnx-modal>
+

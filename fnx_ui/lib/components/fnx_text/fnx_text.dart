@@ -10,7 +10,7 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 @Component(
   selector: 'fnx-text',
   templateUrl: 'fnx_text.html',
-  providers: const [
+  providers: [
     Provider(Focusable, useExisting: FnxText, multi: false),
     ExistingProvider.forToken(ngValueAccessor, FnxText),
     Provider(FnxBaseComponent, useExisting: FnxText),

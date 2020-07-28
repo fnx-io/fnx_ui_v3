@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:angular/angular.dart';
 
-import '../base_component.dart';
-
-class BaseClosableComponent extends FnxBaseComponent {
+class ClosableComponent {
   bool _open = true;
 
   bool get open => _open ?? true;
@@ -18,7 +16,7 @@ class BaseClosableComponent extends FnxBaseComponent {
     }
     _open = value ?? true;
     if (!open && _wasOpen) {
-      _close.add(true);
+      emitClose();
     }
   }
 
@@ -41,12 +39,11 @@ class BaseClosableComponent extends FnxBaseComponent {
     }
   }
 
-  StreamController<bool> _close = StreamController();
+  final StreamController<bool> _close = StreamController();
   @Output()
   Stream<bool> get close => _close.stream;
 
-  BaseClosableComponent(FnxBaseComponent parent) : super(parent);
-
-  @override
-  bool get hasValidValue => true;
+  void emitClose() {
+    _close.add(true);
+  }
 }

@@ -6,7 +6,7 @@
             <span class="icon" [class.rotate-right]="open" *ngIf="closable">
                 arrow_right</span>
             <div [class.padding-small]="!noHeaderPadding" [class.padding-none-left]="closable" class="spacer">
-                <ng-content select="[header]"></ng-content>
+                <ng-content select="header,[header]"></ng-content>
             </div>
         </div>
     </header>

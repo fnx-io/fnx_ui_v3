@@ -9,8 +9,7 @@ import 'package:fnx_ui/api/date.dart';
 import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:intl/intl.dart';
 
-@Component(
-    selector: 'fnx-date-picker', templateUrl: 'fnx_date_picker.html', preserveWhitespace: false, directives: const [coreDirectives, formDirectives, FnxInt], styleUrls: const ['fnx_date_picker.css'])
+@Component(selector: 'fnx-date-picker', templateUrl: 'fnx_date_picker.html', preserveWhitespace: false, directives: [coreDirectives, formDirectives, FnxInt], styleUrls: ['fnx_date_picker.css'])
 class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
   @Input()
   bool dateTime = false;

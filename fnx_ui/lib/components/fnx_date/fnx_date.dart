@@ -14,7 +14,7 @@ import 'package:meta/meta.dart';
 
 @Component(
   selector: 'fnx-date',
-  providers: const [
+  providers: [
     Provider(Focusable, useExisting: FnxDate, multi: false),
     ExistingProvider.forToken(ngValueAccessor, FnxDate),
     Provider(FnxBaseComponent, useExisting: FnxDate),

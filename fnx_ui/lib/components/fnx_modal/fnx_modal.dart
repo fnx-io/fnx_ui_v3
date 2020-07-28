@@ -6,8 +6,10 @@ import 'dart:html';
 
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
+import 'package:fnx_ui/api/mixins/closable_component.dart';
+import 'package:fnx_ui/api/mixins/footer.dart';
+import 'package:fnx_ui/api/mixins/header.dart';
 import 'package:fnx_ui/api/ui.dart' as ui;
-import 'package:logging/logging.dart';
 
 typedef bool _KeyListener(KeyboardEvent e);
 
@@ -33,38 +35,24 @@ typedef bool _KeyListener(KeyboardEvent e);
     formDirectives,
   ],
 )
-class FnxModal implements OnInit, OnDestroy {
-  static List<FnxModal> _stack = [];
-
-  final Logger log = Logger("FnxModal");
+class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestroy {
+  static final List<FnxModal> _stack = [];
 
   String id = ui.generateId('modal');
 
   ///
   /// Optional CSS width of this modal window. Possibly 90vw etc.
   @Input()
-  String width = null;
-
-  StreamController<bool> _close = new StreamController();
-
-  ///
-  /// Output. Catch it and hide this window, user clicked the "close" icon.
-  ///
-  @Output()
-  Stream<bool> get close => _close.stream;
+  String width = "";
 
   StreamSubscription<KeyboardEvent> keyDownSubscription;
-
-  void emitClose() {
-    _close.add(false);
-  }
 
   @override
   ngOnInit() {
     _stack.add(this);
     keyDownSubscription = ui.keyDownEvents.where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).where((KeyboardEvent e) => this == _stack.last).listen((KeyboardEvent e) {
+      if (!closable) return;
       if (_stack.isEmpty || _stack.last == this) {
-        print("Closing!");
         ui.killEvent(e);
         emitClose();
       }

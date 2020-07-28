@@ -2,8 +2,9 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'package:angular/angular.dart';
-import 'package:fnx_ui/api/base_closable_component/base_closable_component.dart';
 import 'package:fnx_ui/api/base_component.dart';
+import 'package:fnx_ui/api/mixins/closable_component.dart';
+import 'package:fnx_ui/api/mixins/header.dart';
 
 ///
 /// Nice "fieldset". It should have a header, defined with attribute 'header'. Like this:
@@ -17,18 +18,18 @@ import 'package:fnx_ui/api/base_component.dart';
 @Component(
     selector: 'fnx-panel',
     templateUrl: 'fnx_panel.html',
-    styles: const [":host {display: block;}"],
+    styles: [":host {display: block;}"],
     preserveWhitespace: false,
     directives: [
       coreDirectives,
     ],
-    providers: const [
-      const Provider(FnxBaseComponent, useExisting: FnxPanel, multi: false),
+    providers: [
+      Provider(FnxBaseComponent, useExisting: FnxPanel, multi: false),
     ],
     visibility: Visibility.all)
-class FnxPanel extends BaseClosableComponent implements OnInit, OnDestroy {
-  @Input()
-  bool noHeaderPadding = false;
-
+class FnxPanel extends FnxBaseComponent with ClosableComponent, Header implements OnInit, OnDestroy {
   FnxPanel(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent);
+
+  @override
+  bool get hasValidValue => true;
 }

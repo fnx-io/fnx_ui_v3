@@ -8,49 +8,20 @@
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
     background-color: rgba(0, 0, 0, 0.3);
     height: 100%;
     z-index: 1000;
-
-    .modal_space_before {
-      height: 10vh;
-    }
-    .modal_space_after {
-      height: 10vh;
-    }
+  }
+  .modal_space_before {
+    height: 10vh;
+  }
+  .modal_space_after {
+    height: 15vh;
   }
   .modal {
-    @include effects.renderShadow(2 * vars.$shadowSize);
-    border-radius: calc(#{vars.$borderRadius} * 2);
-    position: relative;
-    background-color: vars.$colorBody;
-
-    & > *, & > .layout-header, & > .layout-sidebar {
-      position: static;
-      max-height: 80vh;
-
-      & > header, .modal_header {
-        padding-right: calc(#{vars.$bigSize} * 1.3) !important;
-      }
-    }
-
-    width: 40em;
-    max-width: 96vw;
-    margin: 0 auto;
-
-    .modal_close {
-      position: absolute;
-      top: 0.2em;
-      right: 0.2em;
-      cursor: pointer;
-      z-index: 1;
-
-      &:hover {
-        @include effects.renderShadow(vars.$shadowSize);
-      }
-      &:active {
-        @include effects.renderShadow(0);
-      }
-    }
+    max-width: 90vw;
+    max-height: 75vh;
   }
+
 }
