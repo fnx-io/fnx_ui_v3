@@ -1,0 +1,41 @@
+@use '../../css/src/vars';
+
+:host {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    max-width: 100%;
+}
+.input__file {
+    flex-basis: 1px;
+    max-width: 100%;
+    width: 100%;
+    z-index: 0;
+}
+.input__file__dropzone {
+    color: red;
+    margin-right: vars.$smallSize;
+    flex-grow: 1;
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    max-height: vars.$bigSize;
+    text-overflow: ellipsis;
+    &.drag--here {
+
+    }
+}
+.input__file__browse {
+
+    position: relative;
+    flex-grow: 0 !important;
+    flex-shrink: 0;
+    overflow: hidden;
+    cursor: pointer;
+    input {
+        display: block;
+        overflow: hidden;
+        opacity: 0.01;
+        position: absolute;
+    }
+}
