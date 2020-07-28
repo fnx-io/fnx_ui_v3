@@ -1,0 +1,25 @@
+@use '../../css/src/vars';
+
+.panel {
+  border: vars.$border;
+  border-radius: vars.$borderRadius;
+
+  & {
+    .panel_content {
+      transition: max-height 0.3s cubic-bezier(.04,1.02,.26,1);
+      max-height: 0;
+      overflow: hidden;
+    }
+  }
+  &.-closable {
+    .panel_header {
+      cursor: pointer;
+    }
+  }
+  &.-open {
+    .panel_content {
+      transition: max-height 0.3s cubic-bezier(1,.03,1,.41);
+      max-height: 100em;
+    }
+  }
+}

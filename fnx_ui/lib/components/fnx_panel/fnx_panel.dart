@@ -19,6 +19,7 @@ import 'package:fnx_ui/api/mixins/header.dart';
     selector: 'fnx-panel',
     templateUrl: 'fnx_panel.html',
     styles: [":host {display: block;}"],
+    styleUrls: ["fnx_panel.css"],
     preserveWhitespace: false,
     directives: [
       coreDirectives,

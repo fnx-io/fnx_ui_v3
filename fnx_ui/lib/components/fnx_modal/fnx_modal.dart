@@ -29,6 +29,7 @@ typedef bool _KeyListener(KeyboardEvent e);
 @Component(
   selector: 'fnx-modal',
   templateUrl: 'fnx_modal.html',
+  styleUrls: ["fnx_modal.css"],
   preserveWhitespace: false,
   directives: [
     coreDirectives,
