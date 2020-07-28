@@ -210,7 +210,7 @@
   // for traditionally non-focusable elements with role="button"
   // see https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 
-  [role="button"] {
+  a,[role="button"] {
     cursor: pointer;
   }
 

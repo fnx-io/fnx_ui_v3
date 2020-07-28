@@ -22,6 +22,8 @@
   .modal {
     max-width: 90vw;
     max-height: 75vh;
+    border-radius: vars.$borderRadius;
+    overflow: hidden;
   }
 
 }

@@ -6,19 +6,32 @@
 @mixin render() {
 
   .anim-appear {
-    animation: animAppear 200ms;
+    animation: animAppear 200ms ease-in;
   }
 
   @keyframes animAppear {
     0% {
       opacity: 0;
-      transform: scaleX(1.5) scaleY(0.6);
+      transform: scaleX(1.3) scaleY(0.7) translateY(10vh);
     }
     100% {
       opacity: 1;
-      transform: scaleX(1) scaleY(1);
+      transform: scaleX(1) scaleY(1) translateY(0);
     }
 
+  }
+
+  .anim-appear-opacity {
+    animation: animAppearOpacity 200ms ease-in;
+  }
+
+  @keyframes animAppearOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   .anim-dropdown {
