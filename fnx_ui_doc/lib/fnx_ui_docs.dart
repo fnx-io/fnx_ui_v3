@@ -20,11 +20,12 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as 
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart' as c0260;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0270_textarea.template.dart' as c0270;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0380_file.template.dart' as c0380;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0310_select.template.dart' as c0310;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart' as c0370;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0380_file.template.dart' as c0380;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart' as c0400;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0410_date.template.dart' as c0410;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
@@ -62,6 +63,7 @@ class FnxUiDocs {
     Chapter('Text', c0260.FnxUiDocs0260TextNgFactory),
     Chapter('Textarea', c0270.FnxUiDocs0270TextareaNgFactory),
     Chapter('Checkbox', c0300.FnxUiDocs0300CheckboxNgFactory),
+    Chapter('Select', c0310.FnxUiDocs0310SelectNgFactory),
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),
     Chapter('Double', c0360.FnxUiDocs0360DoubleNgFactory),
     Chapter('File', c0380.FnxUiDocs0380FileNgFactory),

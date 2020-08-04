@@ -37,7 +37,7 @@ typedef bool _KeyListener(KeyboardEvent e);
   ],
 )
 class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestroy {
-  static final List<FnxModal> _stack = [];
+  static final List<Object> stack = [];
 
   String id = ui.generateId('modal');
 
@@ -50,10 +50,10 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
 
   @override
   ngOnInit() {
-    _stack.add(this);
-    keyDownSubscription = ui.keyDownEvents.where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).where((KeyboardEvent e) => this == _stack.last).listen((KeyboardEvent e) {
+    stack.add(this);
+    keyDownSubscription = ui.keyDownEvents.where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).where((KeyboardEvent e) => this == stack.last).listen((KeyboardEvent e) {
       if (!closable) return;
-      if (_stack.isEmpty || _stack.last == this) {
+      if (stack.isEmpty || stack.last == this) {
         ui.killEvent(e);
         emitClose();
       }
@@ -63,6 +63,6 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
   @override
   ngOnDestroy() {
     keyDownSubscription.cancel();
-    _stack.remove(this);
+    stack.remove(this);
   }
 }

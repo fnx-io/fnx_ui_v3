@@ -34,7 +34,7 @@ class FnxDropdown implements OnInit, OnDestroy, AfterChanges, AfterViewChecked {
   @Input()
   bool downOnly = false;
 
-  StreamController _hide = new StreamController.broadcast();
+  final StreamController _hide = new StreamController.broadcast();
   @Output()
   Stream get hide => _hide.stream;
 

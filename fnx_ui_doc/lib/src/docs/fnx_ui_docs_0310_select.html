@@ -1,0 +1,16 @@
+  <h1>Select</h1>
+<fnx-ui-docs-test-bed #testBed title="Select">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-select [(ngModel)]="value">
+
+            <fnx-option label="1" [value]="1"></fnx-option>
+            <fnx-option label="2" [value]="2"></fnx-option>
+            <fnx-option label="3" [value]="3"></fnx-option>
+            <fnx-option label="4" [value]="4"></fnx-option>
+
+        </fnx-select>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  

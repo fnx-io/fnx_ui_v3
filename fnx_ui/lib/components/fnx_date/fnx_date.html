@@ -1,4 +1,4 @@
-<fnx-dropdown [visible]="pickerVisible" class="max-width-100">
+<fnx-dropdown [visible]="pickerVisible" class="max-width-100" (hide)="pickerVisible = false">
     <span master>
         <ng-content select="[prefix]"></ng-content>
         <input
