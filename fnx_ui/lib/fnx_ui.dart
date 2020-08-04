@@ -17,6 +17,7 @@ import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
 import 'package:intl/intl.dart';
 
 import 'components/fnx_file/fnx_file.dart';
+import 'components/fnx_textarea/fnx_textarea.dart';
 
 const fnxUiAllDirectives = [
   FnxApp,
@@ -31,6 +32,7 @@ const fnxUiAllDirectives = [
   FnxDatePicker,
   FnxDate,
   FnxText,
+  FnxTextarea,
   FnxFile,
   FnxModal,
   FnxPanel,

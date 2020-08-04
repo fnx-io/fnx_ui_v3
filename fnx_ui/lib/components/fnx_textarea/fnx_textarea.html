@@ -1,0 +1,17 @@
+<!-- Template is shared between multiple components -->
+<ng-content select="[prefix]"></ng-content>
+<textarea
+        id="{{ id }}"
+        class="border-none padding-none spacer max-width-100 bg-white"
+
+        [(ngModel)]="value"
+        (keyup)="markAsTouched()"
+        [attr.placeholder]="placeholder"
+
+        [readonly]="isReadonly"
+        [disabled]="isDisabled"
+        [attr.tabindex]="tabindex"
+
+        #input
+></textarea>
+<ng-content select="[suffix]"></ng-content>

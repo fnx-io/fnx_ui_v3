@@ -10,8 +10,8 @@
 
 
 <a *ngIf="withDelete" class="input_file_delete btn icon margin-small-right"
-   [class.disabled]="!isEmpty"
-   [class.readonly]="!isReadonly"
+   [class.disabled]="isEmpty"
+   [class.readonly]="isReadonly"
    (click)="deleteFiles()">delete</a>
 
 <span class="input_file_browse btn" data-suffix="search"

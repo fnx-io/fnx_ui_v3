@@ -43,7 +43,7 @@
         </p>
         <p class="flex-row">
             <span class="spacer"></span>
-            <span class="padding">{{hour}}:{{minute}}</span>
+            <span class="padding">{{hour}}:{{minute.toString().padLeft(2,'0')}}</span>
             <!--<fnx-text [(ngModel)]="timeToShow" style="width:100%" (focusout)="editingTime=null"></fnx-text>-->
             <span class="spacer"></span>
         </p>

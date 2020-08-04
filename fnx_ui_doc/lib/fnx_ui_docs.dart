@@ -19,6 +19,7 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0210_panel.template.dart' as c02
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart' as c0260;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0270_textarea.template.dart' as c0270;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0380_file.template.dart' as c0380;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
@@ -59,6 +60,7 @@ class FnxUiDocs {
     Chapter('Dropdown', c0240.FnxUiDocs0240DropdownNgFactory),
     Chapter('Label', c0250.FnxUiDocs0250LabelNgFactory),
     Chapter('Text', c0260.FnxUiDocs0260TextNgFactory),
+    Chapter('Textarea', c0270.FnxUiDocs0270TextareaNgFactory),
     Chapter('Checkbox', c0300.FnxUiDocs0300CheckboxNgFactory),
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),
     Chapter('Double', c0360.FnxUiDocs0360DoubleNgFactory),

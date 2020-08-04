@@ -1,0 +1,23 @@
+  <h1>File</h1>
+
+  <p>
+      <fnx-file [withDelete]="true" [(ngModel)]="files"></fnx-file>
+  </p>
+  <p>
+      <fnx-file  [(ngModel)]="files" [multi]="true" ></fnx-file>
+  </p>
+  <p>
+      <fnx-file fileName="saved_file.pdf" [withDelete]="true" [(ngModel)]="files"></fnx-file>
+  </p>
+
+  <p>{{files}}</p>
+
+  <fnx-ui-docs-test-bed #testBed title="File">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-file [withDelete]="true"></fnx-file>
+
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>  
+  

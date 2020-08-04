@@ -111,12 +111,13 @@ class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy
   }
 
   bool get isEmpty {
+    if (fileName != null) return false;
     return value == null || (value is List && (value as List).isEmpty);
   }
 
   String get renderDescription {
-    if (isEmpty) return fnxUiConfig.messages.input.dropFileHere(multi);
     if (fileName != null) return fileName;
+    if (isEmpty) return fnxUiConfig.messages.input.dropFileHere(multi);
     if (value != null && value.length == 1) {
       return value[0].name;
     }
