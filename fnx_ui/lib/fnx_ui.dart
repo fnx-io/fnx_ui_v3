@@ -16,6 +16,8 @@ import 'package:fnx_ui/components/fnx_tooltip/fnx_tooltip.dart';
 import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
 import 'package:intl/intl.dart';
 
+import 'components/fnx_file/fnx_file.dart';
+
 const fnxUiAllDirectives = [
   FnxApp,
   FnxTooltip,
@@ -29,6 +31,7 @@ const fnxUiAllDirectives = [
   FnxDatePicker,
   FnxDate,
   FnxText,
+  FnxFile,
   FnxModal,
   FnxPanel,
   FnxPanelSmall

@@ -19,6 +19,7 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0210_panel.template.dart' as c02
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart' as c0260;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0380_file.template.dart' as c0380;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
@@ -61,6 +62,7 @@ class FnxUiDocs {
     Chapter('Checkbox', c0300.FnxUiDocs0300CheckboxNgFactory),
     Chapter('Integer', c0350.FnxUiDocs0350IntegerNgFactory),
     Chapter('Double', c0360.FnxUiDocs0360DoubleNgFactory),
+    Chapter('File', c0380.FnxUiDocs0380FileNgFactory),
     Chapter('FormattedNumber', c0370.FnxUiDocs0370FormattedNumberNgFactory),
     Chapter('DatePicker', c0400.FnxUiDocs0400DatePickerNgFactory),
     Chapter('Date', c0410.FnxUiDocs0410DateNgFactory),

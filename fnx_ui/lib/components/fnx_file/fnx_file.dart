@@ -6,6 +6,7 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/input_component.dart';
 import 'package:fnx_ui/fnx_ui.dart';
+import 'package:logging/logging.dart';
 
 const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxFile, multi: true);
 
@@ -17,20 +18,27 @@ const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExis
     CUSTOM_INPUT_FILE_VALUE_ACCESSOR,
     const Provider(FnxBaseComponent, useExisting: FnxFile, multi: false),
   ],
-  directives: [coreDirectives, formDirectives],
+  directives: [coreDirectives, formDirectives, fnxUiAllDirectives],
   preserveWhitespace: false,
 )
 class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy {
+  final Logger log = Logger("FnxFile");
+
   /// Is it possible to drag and drop multiple files?
   @Input()
   bool multi = false;
 
-  ///
+  @Input()
+  bool withDelete = false;
+
   /// Optional:
   /// If there is already a selected file in the model, use this attribute to provide file name or description.
   ///
   @Input()
   String fileName;
+
+  @HostBinding('class.item-row')
+  final bool hostIsItemRow = true;
 
   StreamController<List<File>> _files = StreamController<List<File>>();
   @Output()
@@ -73,6 +81,7 @@ class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy
   void onDrop(MouseEvent event) {
     event.preventDefault();
     event.stopImmediatePropagation();
+    log.info("Drop : ${event.dataTransfer}");
     if (isReadonly) return;
     processFiles(event.dataTransfer.files);
   }
@@ -85,11 +94,14 @@ class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy
     if (!multi && filesInput.length > 1) {
       return;
     }
+    log.info("Dropped files: $filesInput");
+
     if (multi) {
-      _files.add(filesInput);
+      value = filesInput;
     } else {
-      _files.add([filesInput[0]]);
+      value = [filesInput[0]];
     }
+    _files.add(value);
   }
 
   void deleteFiles() {
@@ -105,8 +117,8 @@ class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy
   String get renderDescription {
     if (isEmpty) return fnxUiConfig.messages.input.dropFileHere(multi);
     if (fileName != null) return fileName;
-    if (value is List && value.length == 1) {
-      return value[0].toString();
+    if (value != null && value.length == 1) {
+      return value[0].name;
     }
     if (value is List) {
       int count = value.length;

@@ -1,25 +1,30 @@
-<div class="input__file">
-  <span class="input__file__dropzone" [class.drag--here]="possibleDrop()" [class.readonly]="isReadonly"
-        (dragenter)="onDrag($event, true)"
-        (dragleave)="onDrag($event, false)"
-        (dragover)="onDragOver($event)"
-        (drop)="onDrop($event)">
+<span class="input_file_dropzone spacer item-input bg-white margin-small-right"
+      [class.-drop]="possibleDrop"
+      [class.readonly]="isReadonly"
+      (dragenter)="onDrag($event, true)"
+      (dragleave)="onDrag($event, false)"
+      (dragover)="onDragOver($event)"
+      (drop)="onDrop($event)">
       {{renderDescription}}
-  </span>
-    <a *ngIf="!isEmpty" class="input__file__delete btn icon margin--small--right" [style.visibility]="isReadonly ? 'hidden' : 'visible'" (click)="deleteFiles()">delete</a>
-    <span *ngIf="isEmpty" class="input__file__delete btn icon margin--small--right disabled" [style.visibility]="isReadonly ? 'hidden' : 'visible'" >delete</span>
-    <span class="input__file__browse btn" data-suffix="search"
-          (focus)="markAsTouched()"
-          (click)="markAsTouched()"
-          [class.error]="isTouchedAndInvalid()"
-          [style.visibility]="isReadonly ? 'hidden' : 'visible'"
-    >
+</span>
+
+
+<a *ngIf="withDelete" class="input_file_delete btn icon margin-small-right"
+   [class.disabled]="!isEmpty"
+   [class.readonly]="!isReadonly"
+   (click)="deleteFiles()">delete</a>
+
+<span class="input_file_browse btn" data-suffix="search"
+      (focus)="markAsTouched()"
+      (click)="markAsTouched()"
+      [class.error]="isTouchedAndInvalid"
+      [style.visibility]="isReadonly ? 'hidden' : 'visible'"
+>
       {{browseLabel}}
-      <input type="file" id="{{ componentId }}"
+      <input type="file" id="{{ id }}"
              (focus)="markAsTouched()"
              (click)="markAsTouched()"
              (change)="onFileSelected($event)"
              [multiple]="multi"
       >
-  </span>
-</div>
+</span>

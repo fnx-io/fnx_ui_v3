@@ -6,8 +6,8 @@ input:
   notValid: Value is not valid
   browse: Browse
   _files(int cnt): "${_plural(cnt, zero: 'files', one:'file', many:'files')}"
-  filesSelected(int cnt): "Selected $cnt ${_files(cnt)}"
-  dropFileHere(bool multi): "Drag and drop ${multi ? 'files' : 'file'} here"
+  filesSelected(int cnt): "$cnt ${_files(cnt)} selected"
+  dropFileHere(bool multi): "Drag and drop ${multi ? 'files' : 'a file'} here ..."
 alerts:
   alertHeadline: Alert
   confirmHeadline: Confirm

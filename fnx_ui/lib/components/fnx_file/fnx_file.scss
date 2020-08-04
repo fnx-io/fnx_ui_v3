@@ -1,18 +1,24 @@
 @use '../../css/src/vars';
 
 :host {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
+    display: inline-flex;
+    width: 25em;
     max-width: 100%;
+    padding: 0;
 }
-.input__file {
-    flex-basis: 1px;
-    max-width: 100%;
-    width: 100%;
-    z-index: 0;
+.input_file_dropzone {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 1em;
+    display: inline-block;
+    &.-drop {
+        border-style: dotted;
+        border-color: var(--accent-color);
+        box-shadow: none;
+    }
 }
-.input__file__dropzone {
+.dinput_file_dropzone {
     color: red;
     margin-right: vars.$smallSize;
     flex-grow: 1;
@@ -22,11 +28,9 @@
     max-height: vars.$bigSize;
     text-overflow: ellipsis;
     &.drag--here {
-
     }
 }
-.input__file__browse {
-
+.input_file_browse {
     position: relative;
     flex-grow: 0 !important;
     flex-shrink: 0;
@@ -37,5 +41,9 @@
         overflow: hidden;
         opacity: 0.01;
         position: absolute;
+        top:0;
+        left:0;
+        bottom: 0;
+        right: 0;
     }
 }
