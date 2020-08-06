@@ -35,12 +35,37 @@ String _cardinal(int count,
 
 class FnxUiMessages implements i69n.I69nMessageBundle {
   const FnxUiMessages();
+  ButtonFnxUiMessages get button => ButtonFnxUiMessages(this);
+  InputFnxUiMessages get input => InputFnxUiMessages(this);
+  AlertsFnxUiMessages get alerts => AlertsFnxUiMessages(this);
+  Object operator [](String key) {
+    var index = key.indexOf('.');
+    if (index > 0) {
+      return (this[key.substring(0, index)]
+          as i69n.I69nMessageBundle)[key.substring(index + 1)];
+    }
+    switch (key) {
+      case 'button':
+        return button;
+      case 'input':
+        return input;
+      case 'alerts':
+        return alerts;
+      default:
+        throw Exception('Message $key doesn\'t exist in $this');
+    }
+  }
+}
+
+class ButtonFnxUiMessages implements i69n.I69nMessageBundle {
+  final FnxUiMessages _parent;
+  const ButtonFnxUiMessages(this._parent);
   String get ok => "OK";
   String get yes => "Yes";
   String get no => "No";
   String get cancel => "Cancel";
-  InputFnxUiMessages get input => InputFnxUiMessages(this);
-  AlertsFnxUiMessages get alerts => AlertsFnxUiMessages(this);
+  String get submit => "Submit";
+  String get back => "Back";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -56,10 +81,10 @@ class FnxUiMessages implements i69n.I69nMessageBundle {
         return no;
       case 'cancel':
         return cancel;
-      case 'input':
-        return input;
-      case 'alerts':
-        return alerts;
+      case 'submit':
+        return submit;
+      case 'back':
+        return back;
       default:
         throw Exception('Message $key doesn\'t exist in $this');
     }
@@ -73,9 +98,9 @@ class InputFnxUiMessages implements i69n.I69nMessageBundle {
   String get browse => "Browse";
   String _files(int cnt) =>
       "${_plural(cnt, zero: 'files', one: 'file', many: 'files')}";
-  String filesSelected(int cnt) => "Selected $cnt ${_files(cnt)}";
+  String filesSelected(int cnt) => "$cnt ${_files(cnt)} selected";
   String dropFileHere(bool multi) =>
-      "Drag and drop ${multi ? 'files' : 'file'} here";
+      "Drag and drop ${multi ? 'files' : 'a file'} here ...";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {

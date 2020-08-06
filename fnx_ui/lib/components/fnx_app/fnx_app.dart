@@ -93,7 +93,7 @@ class FnxApp implements OnInit {
     _ModalContent m = new _ModalContent()
       ..headline = headline
       ..message = message
-      ..ok = messages.ok;
+      ..ok = messages.button.ok;
     return _modal(m);
   }
 
@@ -105,8 +105,8 @@ class FnxApp implements OnInit {
     _ModalContent m = new _ModalContent()
       ..headline = headline
       ..message = message
-      ..ok = messages.yes
-      ..cancel = messages.no;
+      ..ok = messages.button.yes
+      ..cancel = messages.button.no;
     return _modal<bool>(m);
   }
 
@@ -119,8 +119,8 @@ class FnxApp implements OnInit {
       ..headline = headline
       ..message = message
       ..input = "text"
-      ..ok = messages.ok
-      ..cancel = messages.cancel
+      ..ok = messages.button.ok
+      ..cancel = messages.button.cancel
       ..value = prefilledValue;
     return _modal(m);
   }

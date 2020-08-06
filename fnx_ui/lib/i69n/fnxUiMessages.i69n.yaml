@@ -1,7 +1,10 @@
-ok: OK
-yes: Yes
-no: No
-cancel: Cancel
+button:
+  ok: OK
+  yes: Yes
+  no: No
+  cancel: Cancel
+  submit: Submit
+  back: Back
 input:
   notValid: Value is not valid
   browse: Browse
