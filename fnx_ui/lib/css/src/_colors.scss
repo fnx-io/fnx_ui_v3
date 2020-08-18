@@ -150,9 +150,14 @@ $level4: $level1 * 4;
   @include renderSpecials();
 
   html {
-    background-color: vars.$colorBody;
+    background-color: vars.$bodyColor;
+    color: vars.$bodyTextColor;
   }
   .bg-body {
-    background-color: vars.$colorBody;
+    background-color: vars.$bodyColor;
+  }
+  .body {
+    background-color: vars.$bodyColor;
+    color: vars.$bodyTextColor;
   }
 }

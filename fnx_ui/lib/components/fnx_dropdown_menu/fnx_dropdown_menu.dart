@@ -10,7 +10,7 @@ import 'package:fnx_ui/fnx_ui.dart';
   template: r'''
   <fnx-dropdown [visible]="visible" (hide)="visible = false" class="item" [class.padding-none-left]="hasPrefix">
     <label [innerHtml]="label" master></label>
-    <div class="bg-body border shadow">    
+    <div class="body border shadow">    
       <ng-content></ng-content>
     </div>
   </fnx-dropdown>      

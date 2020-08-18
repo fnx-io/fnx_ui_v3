@@ -26,7 +26,8 @@ $selectedTextColor: var(--selected-text-color);
 $errorColor: var(--error-color);
 $errorTextColor: var(--error-text-color);
 
-$colorBody: var(--body-color);
+$bodyColor: var(--body-color);
+$bodyTextColor: var(--body-text-color);
 
 $tooltipColor: var(--tooltip-color);
 $tooltipTextColor: var(--tooltip-text-color);
@@ -78,6 +79,7 @@ $border: $borderSize solid $borderColor;
     --toast-text-color: var(--tooltip-text-color);
 
     --body-color: #eee;
+    --body-text-color: #000;
 
   }
 

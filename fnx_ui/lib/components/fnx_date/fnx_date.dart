@@ -4,11 +4,11 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/input_component.dart';
+import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:fnx_ui/components/fnx_date/fnx_date_picker.dart';
 import 'package:fnx_ui/components/fnx_dropdown/fnx_dropdown.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:fnx_ui/fnx_ui.dart';
-import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 
@@ -56,7 +56,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   List<DateTime> get valueAsList => value == null ? [] : [value];
 
-  String valueToString(DateTime value) {
+  String _valueToString(DateTime value) {
     if (value == null) return null;
     return format.format(value);
   }
@@ -82,26 +82,28 @@ class FnxDate extends FnxInputComponent<DateTime> {
   @mustCallSuper
   set value(DateTime v) {
     super.value = v;
-    _rawValue = v == null ? null : valueToString(v);
+    _rawValue = v == null ? null : _valueToString(v);
   }
 
   @override
-  void writeValue(obj) {
-    super.writeValue(obj);
-    if (obj == null) {
+  void writeValue(Object obj) {
+    super.writeValue(_toDate(obj));
+    if (value == null) {
       _rawValue = null;
     } else {
-      if (obj is DateTime) {
-        _rawValue = valueToString(obj);
-      } else {
-        _rawValue = obj?.toString();
-      }
+      _rawValue = _valueToString(value);
     }
+  }
+
+  DateTime _toDate(Object obj) {
+    if (obj == null) return null;
+    if (obj is DateTime) return obj;
+    return DateTime.parse(obj.toString());
   }
 
   void reformat() {
     if (hasValidValue) {
-      rawValue = valueToString(value);
+      rawValue = _valueToString(value);
     }
   }
 
@@ -136,7 +138,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
       return false;
     }
 
-    if (valueToString(value) != rawValue) return false;
+    if (_valueToString(value) != rawValue) return false;
 
     return true;
   }

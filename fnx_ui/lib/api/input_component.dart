@@ -60,7 +60,7 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
   }
 
   @override
-  void writeValue(obj) {
-    _value = obj;
+  void writeValue(Object obj) {
+    _value = obj as T;
   }
 }

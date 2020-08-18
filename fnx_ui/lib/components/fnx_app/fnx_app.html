@@ -7,13 +7,16 @@
 
         <h3 header>{{modal.headline}}</h3>
 
-        <p main>{{modal.message}}</p>
+        <div main class="padding">
+            <p>{{modal.message}}</p>
 
-        <fnx-input main errorMessage="Please provide requested value" *ngIf="modal.input != null">
-            <fnx-text [(ngModel)]="modal.value" [required]="true" autoFocus ></fnx-text>
-        </fnx-input>
+            <fnx-input errorMessage="Please provide requested value" *ngIf="modal.input != null">
+                <fnx-text [(ngModel)]="modal.value" [required]="true" autoFocus ></fnx-text>
+            </fnx-input>
 
-        <p footer class="buttonbar">
+        </div>
+
+        <div footer class="item-row">
             <button *ngIf="modal.cancel != null" class="btn" (click)="closeModal(modal.id, false)"
                     type="button"
                     data-prefix="clear">{{modal.cancel}}</button>
@@ -23,15 +26,17 @@
             <button
                 *ngIf="modal.input != null"
                 type="submit"
+                fnxAutofocus
                 class="btn bg--important" (click)="closeModal(modal.id, true)" data-prefix="check">{{modal.ok}}</button>
 
             <!-- We don't have input, we will request focus -->
             <button
                 *ngIf="modal.input == null" autoFocus
                 type="submit"
+                fnxAutofocus
                 class="btn bg--important" (click)="closeModal(modal.id, true)" data-prefix="check">{{modal.ok}}</button>
 
-        </p>
+        </div>
 
     </fnx-modal>
 

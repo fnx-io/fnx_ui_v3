@@ -14,7 +14,7 @@
 @mixin render() {
 
   *, *:after, *:before {
-    transition: box-shadow 0.2s, background-color 0.2s, outline 0.2s, border 0.2s, border-color 0.2s, transform 0.2s;
+    transition: box-shadow 0.2s, background-color 0.1s, color 0.1s, outline 0.2s, border 0.2s, border-color 0.2s, transform 0.2s;
     outline: none !important;
   }
   *:focus {
@@ -24,6 +24,10 @@
   .focused {
     @include focusOutline();
     z-index: 1;
+  }
+  .active:hover, .active-children > *:hover {
+    background-color: vars.$hoverColor;
+    color: vars.$hoverTextColor;
   }
   @include functions.renderWithFlavores("scale-up") {
     transform: scale(1.1);
