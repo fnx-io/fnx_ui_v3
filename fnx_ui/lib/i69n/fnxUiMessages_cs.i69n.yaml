@@ -1,0 +1,17 @@
+button:
+  ok: OK
+  yes: Ano
+  no: Ne
+  cancel: Zrušit
+  submit: Odeslat
+  back: Zpět
+input:
+  notValid: Hodnota není platná
+  browse: Procházet
+  _files(int cnt): "${_plural(cnt, zero: 'souborů', one:'soubor', few: 'soubory', many:'souborů')}"
+  filesSelected(int cnt): "Vybráno $cnt ${_files(cnt)}"
+  dropFileHere(bool multi): "${multi ? 'Soubory' : 'Soubor'} můžete přetáhnout sem ..."
+alerts:
+  alertHeadline: Upozornění
+  confirmHeadline: Potvrďte
+  inputHeadline: Zadejte

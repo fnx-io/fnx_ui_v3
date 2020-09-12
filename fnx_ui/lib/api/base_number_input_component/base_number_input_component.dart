@@ -84,8 +84,6 @@ abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputCompon
       return false;
     }
 
-    if (valueToString(value) != rawValue) return false;
-
     if (min == null && max == null) return true;
     if (min != null && value < min) return false;
     if (max != null && value > max) return false;

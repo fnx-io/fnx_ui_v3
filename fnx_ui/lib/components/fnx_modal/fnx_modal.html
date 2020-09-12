@@ -2,7 +2,7 @@
 
     <div class="modal_space_before flex-grow flex-shrink "></div>
 
-    <section class="modal anim-appear shadow-huge flex-column margin-auto bg-body " [style.width]="width">
+    <section class="modal anim-appear shadow-huge flex-column margin-auto bg-body " [style.width]="width" [style.max-width]="maxWidth">
 
         <header class="modal_header theme" attr.id="{{id}}-header">
             <div class="flex-row">
@@ -17,7 +17,7 @@
             <ng-content select="main,[main]"></ng-content>
         </main>
 
-        <footer [class.padding-small]="!noFooterPadding">
+        <footer [class.padding]="!noFooterPadding">
             <ng-content select="footer,[footer]"></ng-content>
         </footer>
 

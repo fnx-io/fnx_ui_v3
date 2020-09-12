@@ -46,6 +46,11 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
   @Input()
   String width = "";
 
+  ///
+  /// Optional CSS width of this modal window.
+  @Input()
+  String maxWidth = "90vw";
+
   StreamSubscription<KeyboardEvent> keyDownSubscription;
 
   @override

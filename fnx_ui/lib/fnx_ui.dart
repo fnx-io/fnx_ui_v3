@@ -1,3 +1,4 @@
+import 'package:fnx_ui/components/fnx-scroll-panel/fnx_scroll_panel.dart';
 import 'package:fnx_ui/components/fnx_app/fnx_app.dart';
 import 'package:fnx_ui/components/fnx_checkbox/fnx_checkbox.dart';
 import 'package:fnx_ui/components/fnx_date/fnx_date.dart';
@@ -10,7 +11,6 @@ import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
 import 'package:fnx_ui/components/fnx_label/fnx_label.dart';
 import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
 import 'package:fnx_ui/components/fnx_panel/fnx_panel.dart';
-import 'package:fnx_ui/components/fnx_panel_small/fnx_panel_small.dart';
 import 'package:fnx_ui/components/fnx_text/fnx_text.dart';
 import 'package:fnx_ui/components/fnx_tooltip/fnx_tooltip.dart';
 import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
@@ -21,6 +21,7 @@ import 'components/fnx_form/fnx_form.dart';
 import 'components/fnx_select/fnx_select.dart';
 import 'components/fnx_submit_bar/fnx_submit_bar.dart';
 import 'components/fnx_textarea/fnx_textarea.dart';
+import 'i69n/fnxUiMessages_cs.i69n.dart';
 
 const fnxUiAllDirectives = [
   FnxApp,
@@ -43,7 +44,7 @@ const fnxUiAllDirectives = [
   FnxFile,
   FnxModal,
   FnxPanel,
-  FnxPanelSmall
+  FnxScrollPanel,
 ];
 
 @Deprecated("Use fnxUiAllDirectives instead")
@@ -62,4 +63,5 @@ setFnxUiToCzech() {
   fnxUiConfig.locale = "cs_CZ";
   fnxUiConfig.dateFormat = DateFormat("dd. MM. yyyy", "cs_CZ");
   fnxUiConfig.dateTimeFormat = DateFormat("dd. MM. yyyy HH:mm", "cs_CZ");
+  fnxUiConfig.messages = FnxUiMessages_cs();
 }

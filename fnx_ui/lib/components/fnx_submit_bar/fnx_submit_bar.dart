@@ -43,6 +43,7 @@ import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
 </div>
 ''',
   preserveWhitespace: false,
+  styles: [":host {display: block;}"],
   directives: [
     coreDirectives,
     formDirectives,

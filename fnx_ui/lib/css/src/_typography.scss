@@ -2,8 +2,12 @@
 @use 'functions';
 
 @mixin render() {
-  html, .btn, .btn-flat, button, * {
+  html, .btn, .btn-flat, button {
     font-size: var(--rem);
+    line-height: var(--lh);
+  }
+  * {
+    font-size: inherit;
     line-height: var(--lh);
   }
   h1, h2, h3, h4, h5 {
@@ -37,18 +41,32 @@
       cursor: not-allowed !important;
     }
   }
+  header, [header], footer, [footer] {
+    *:only-child {
+      padding: 0; margin:0;
+    }
+  }
+  .nobr {
+    white-space: nowrap;
+  }
   label[for] {
     cursor: pointer;
   }
   @include functions.renderWithFlavores("underline") {
-    text-decoration: underline;
+    text-decoration: underline !important;
   }
   @include functions.renderWithFlavores("line-through") {
-    text-decoration: line-through;
+    text-decoration: line-through !important;
   }
   @include functions.renderWithFlavores("strike") {
-    text-decoration: line-through;
+    text-decoration: line-through !important;
   }
+  @include functions.renderWithFlavores("ellipsis") {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
 }
 
 @mixin renderWithPrefix($prefix) {

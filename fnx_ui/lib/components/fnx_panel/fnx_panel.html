@@ -5,7 +5,7 @@
         <div class="flex-row">
             <span class="icon" [class.rotate-right]="open" *ngIf="closable">
                 arrow_right</span>
-            <div [class.padding]="!noHeaderPadding" [class.padding-none-left]="closable" class="spacer">
+            <div [class.padding]="!noHeaderPadding" [class.padding-none-left]="closable" class="spacer" style="width: 1px">
                 <ng-content select="header,[header]"></ng-content>
             </div>
         </div>

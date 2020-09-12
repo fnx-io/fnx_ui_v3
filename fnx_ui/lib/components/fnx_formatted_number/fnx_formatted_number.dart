@@ -2,8 +2,8 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/base_number_input_component/base_number_input_component.dart';
-import 'package:fnx_ui/fnx_ui.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
+import 'package:fnx_ui/fnx_ui.dart';
 import 'package:intl/intl.dart';
 
 ///
@@ -38,9 +38,11 @@ class FnxFormattedNumber extends FnxBaseNumberInputComponent<double> implements 
 
   @override
   double stringToValue(String rawValue) {
+    print(rawValue);
     if (rawValue == null) return null;
     try {
       double tmp = _numberFormat.parse(rawValue).toDouble();
+      print(tmp);
       // veletoc zajistujici, ze se hodnota orizne na pozadovany pocet desetinnych mist
       return _numberFormat.parse(_numberFormat.format(tmp)).toDouble();
     } catch (e) {

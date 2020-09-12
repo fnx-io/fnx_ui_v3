@@ -16,9 +16,6 @@
     border: vars.$borderSize solid transparent;
     border-radius: vars.$borderRadius;
     text-decoration: none !important;
-    &:hover {
-      text-decoration: none !important;
-    }
     color: inherit;
     line-height: calc(var(--rem) * var(--lh));
     &:focus-within, &:focus {
