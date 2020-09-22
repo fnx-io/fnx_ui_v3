@@ -1,5 +1,5 @@
-<fnx-dropdown [visible]="pickerVisible" class="max-width-100" (hide)="pickerVisible = false">
-    <span master>
+<fnx-dropdown [visible]="pickerVisible" class="max-width-100 spacer" (hide)="pickerVisible = false">
+    <span master class="flex-row">
         <ng-content select="[prefix]"></ng-content>
         <input
                 id="{{ id }}"

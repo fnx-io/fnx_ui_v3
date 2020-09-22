@@ -65,6 +65,11 @@
     display: inline-flex;
     flex-wrap: nowrap;
     max-width: 100%;
+    min-width: 10em;
+    & > .spacer {
+      flex-basis: 1px;
+      width: 1px;
+    }
     & [prefix] {
       padding-right: vars.$smallSize;
     }

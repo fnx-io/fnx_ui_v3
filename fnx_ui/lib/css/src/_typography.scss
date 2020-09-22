@@ -42,7 +42,7 @@
     }
   }
   header, [header], footer, [footer] {
-    *:only-child {
+    & > *:only-child {
       padding: 0; margin:0;
     }
   }
