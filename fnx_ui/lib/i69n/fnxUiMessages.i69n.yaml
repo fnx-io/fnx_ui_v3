@@ -11,6 +11,10 @@ input:
   _files(int cnt): "${_plural(cnt, zero: 'files', one:'file', many:'files')}"
   filesSelected(int cnt): "$cnt ${_files(cnt)} selected"
   dropFileHere(bool multi): "Drag and drop ${multi ? 'files' : 'a file'} here ..."
+  selectionEmptyLabel: Please choose
+  optionsEmptyLabel: No options
+  optionsEmptySearchLabel: No options match yor search
+  filterPlaceholder: Search ...
 alerts:
   alertHeadline: Alert
   confirmHeadline: Confirm

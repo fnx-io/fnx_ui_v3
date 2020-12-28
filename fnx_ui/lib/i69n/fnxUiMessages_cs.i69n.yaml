@@ -11,6 +11,10 @@ input:
   _files(int cnt): "${_plural(cnt, zero: 'souborů', one:'soubor', few: 'soubory', many:'souborů')}"
   filesSelected(int cnt): "Vybráno $cnt ${_files(cnt)}"
   dropFileHere(bool multi): "${multi ? 'Soubory' : 'Soubor'} můžete přetáhnout sem ..."
+  selectionEmptyLabel: Vyberte prosím
+  optionsEmptyLabel: Možnosti jsou prázdné
+  optionsEmptySearchLabel: Možnosti neodpovídají hledání
+  filterPlaceholder: Hledejte ...
 alerts:
   alertHeadline: Upozornění
   confirmHeadline: Potvrďte

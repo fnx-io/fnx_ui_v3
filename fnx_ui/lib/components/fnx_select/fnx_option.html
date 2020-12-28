@@ -1,8 +1,6 @@
-<div class="item pointer"
+<div class="pointer"
      [id]="id"
      (click)="optionSelected($event)"
-     [class.selected]="selected && !highlighted"
-     [class.select__dropdown--selected]="highlighted"
      [attr.data-prefix]="selected ? 'done' : null"
      [hidden]="!visible">
     <template [ngIf]="label != null">{{label}}</template>

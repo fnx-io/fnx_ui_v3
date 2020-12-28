@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
+import 'package:angular/security.dart';
 
 ///
 /// One item to reorder must be a child of reorderContainerVertical.
@@ -72,9 +73,11 @@ class FnxTooltip implements OnInit, OnDestroy {
     // musi se do toho zahrnout i pripadny zoom
     double zoom = double.tryParse(itemElement.getComputedStyle().zoom) ?? 1;
 
-    parentBoundingBox = new Rectangle(parentBoundingBox.left * zoom, parentBoundingBox.top * zoom, parentBoundingBox.width * zoom, parentBoundingBox.height * zoom);
+    parentBoundingBox = new Rectangle(parentBoundingBox.left * zoom, parentBoundingBox.top * zoom + window.scrollY,
+        parentBoundingBox.width * zoom, parentBoundingBox.height * zoom);
 
-    Point center = new Point(parentBoundingBox.left + (parentBoundingBox.right - parentBoundingBox.left) / 2, parentBoundingBox.top + (parentBoundingBox.bottom - parentBoundingBox.top) / 2);
+    Point center = new Point(parentBoundingBox.left + (parentBoundingBox.right - parentBoundingBox.left) / 2,
+        parentBoundingBox.top + (parentBoundingBox.bottom - parentBoundingBox.top) / 2);
     if (center.x < window.innerWidth * 0.1) {
       // jsme hodne u kraje vlevo
       currentTooltip.classes.add("tooltip-right");
@@ -109,10 +112,12 @@ class FnxTooltip implements OnInit, OnDestroy {
     if (content == null) return;
     if (content is String) {
       currentTooltip.innerHtml = content;
+    } else if (content is SafeHtml) {
+      currentTooltip.setInnerHtml(content.toString(), treeSanitizer: NodeTreeSanitizer.trusted);
     } else if (content is Function) {
       setTooltipContent(content());
     } else if (content is Future) {
-      currentTooltip.innerHtml = '<span class="preloader"></span>';
+      currentTooltip.innerHtml = '<span class="loader"></span>';
       Object futureData = await content;
       setTooltipContent(futureData);
     }

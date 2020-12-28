@@ -102,6 +102,10 @@ class InputFnxUiMessages_cs extends InputFnxUiMessages {
   String filesSelected(int cnt) => "Vybráno $cnt ${_files(cnt)}";
   String dropFileHere(bool multi) =>
       "${multi ? 'Soubory' : 'Soubor'} můžete přetáhnout sem ...";
+  String get selectionEmptyLabel => "Vyberte prosím";
+  String get optionsEmptyLabel => "Možnosti jsou prázdné";
+  String get optionsEmptySearchLabel => "Možnosti neodpovídají hledání";
+  String get filterPlaceholder => "Hledejte ...";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -119,6 +123,14 @@ class InputFnxUiMessages_cs extends InputFnxUiMessages {
         return filesSelected;
       case 'dropFileHere':
         return dropFileHere;
+      case 'selectionEmptyLabel':
+        return selectionEmptyLabel;
+      case 'optionsEmptyLabel':
+        return optionsEmptyLabel;
+      case 'optionsEmptySearchLabel':
+        return optionsEmptySearchLabel;
+      case 'filterPlaceholder':
+        return filterPlaceholder;
       default:
         return super[key];
     }

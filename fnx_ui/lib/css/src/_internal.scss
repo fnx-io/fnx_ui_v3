@@ -11,6 +11,8 @@
     left: calc(-1 *  var(--border-size)) !important;
   }
   .soft-hide {
+    position: absolute;
+    left: -1000px;
     opacity: 0.01 !important;
     width: 0.1px !important;
     overflow: hidden !important;

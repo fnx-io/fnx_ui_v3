@@ -101,6 +101,10 @@ class InputFnxUiMessages implements i69n.I69nMessageBundle {
   String filesSelected(int cnt) => "$cnt ${_files(cnt)} selected";
   String dropFileHere(bool multi) =>
       "Drag and drop ${multi ? 'files' : 'a file'} here ...";
+  String get selectionEmptyLabel => "Please choose";
+  String get optionsEmptyLabel => "No options";
+  String get optionsEmptySearchLabel => "No options match yor search";
+  String get filterPlaceholder => "Search ...";
   Object operator [](String key) {
     var index = key.indexOf('.');
     if (index > 0) {
@@ -118,6 +122,14 @@ class InputFnxUiMessages implements i69n.I69nMessageBundle {
         return filesSelected;
       case 'dropFileHere':
         return dropFileHere;
+      case 'selectionEmptyLabel':
+        return selectionEmptyLabel;
+      case 'optionsEmptyLabel':
+        return optionsEmptyLabel;
+      case 'optionsEmptySearchLabel':
+        return optionsEmptySearchLabel;
+      case 'filterPlaceholder':
+        return filterPlaceholder;
       default:
         throw Exception('Message $key doesn\'t exist in $this');
     }

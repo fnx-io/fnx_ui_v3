@@ -9,6 +9,7 @@ import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:fnx_ui/components/fnx_dropdown/fnx_dropdown.dart';
 import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
+import 'package:fnx_ui/fnx_ui.dart';
 
 typedef String ValueDescriptionRenderer();
 
@@ -40,18 +41,16 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
   List<FnxOptionValue> options = [];
 
   @Input()
-  String selectionEmptyLabel = "111"; // GlobalMessages.selectSelectionEmptyLabel(); // "Select...";
+  String selectionEmptyLabel = fnxUiConfig.messages.input.selectionEmptyLabel;
 
   @Input()
-  String optionsEmptyLabel = "222";
-
-  ///GlobalMessages.selectOptionsEmptyLabel(); //"No options to choose from";
+  String optionsEmptyLabel = fnxUiConfig.messages.input.optionsEmptyLabel;
 
   @Input()
-  String optionsEmptySearchLabel = "333"; //GlobalMessages.selectOptionsEmptySearchLabel(); //"No option matches your search";
+  String optionsEmptySearchLabel = fnxUiConfig.messages.input.optionsEmptySearchLabel;
 
   @Input()
-  String filterPlaceholder = "444"; //GlobalMessages.selectFilterPlaceholder(); //"Search...";
+  String filterPlaceholder = fnxUiConfig.messages.input.filterPlaceholder;
 
   bool open = false;
 
@@ -238,7 +237,9 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
     Map<int, String> actions = {KeyCode.ENTER: 'SELECT', KeyCode.ESC: 'HIDE', KeyCode.UP: 'UP', KeyCode.DOWN: 'DOWN'};
     Set<int> supportedKeys = new Set.from(actions.keys);
 
-    Stream<KeyboardEvent> onlyWhenExpanded = stream.where((var event) => event is KeyboardEvent).map((event) => event as KeyboardEvent); //.where((event) => ui.isEventFromSubtree(event, select));
+    Stream<KeyboardEvent> onlyWhenExpanded = stream
+        .where((var event) => event is KeyboardEvent)
+        .map((event) => event as KeyboardEvent); //.where((event) => ui.isEventFromSubtree(event, select));
     Stream<KeyboardEvent> onlySupported = onlyWhenExpanded.where((event) => supportedKeys.contains(event.keyCode));
     Stream<KeyboardEvent> cancelled = onlySupported.map((event) {
       event.preventDefault();
@@ -361,6 +362,16 @@ class FnxOptionValue {
 class FnxOption implements OnInit, OnDestroy, AfterChanges {
   final String id = ui.generateId('o');
 
+  @HostBinding('class.selected')
+  bool get hasClassSelected => selected && !highlighted;
+
+  @HostBinding('class.select__dropdown--selected')
+  bool get hasClassHighlighted => highlighted;
+
+  @HostBinding('class.pointer')
+  @HostBinding('class.hover:hover')
+  static const bool hasClassPointer = true;
+
   FnxSelect parent;
 
   @Input()
@@ -406,7 +417,7 @@ class FnxOption implements OnInit, OnDestroy, AfterChanges {
     parent?.selectOption(value);
   }
 
-  get selected => parent != null && parent.isSelected(value);
+  bool get selected => parent != null && parent.isSelected(value);
 
   @override
   void ngAfterChanges() {

@@ -16,7 +16,7 @@
             <input id="{{id}}-search" type="text" autocomplete="off" [placeholder]="filterPlaceholder" [(ngModel)]="filter" autoFocus >
             <label attr.for="{{id}}-search" class="icon">search</label>
         </div>
-        <div class="item-column">
+        <div class="item-column border shadow-small">
             <ng-content></ng-content>
         </div>
         <p *ngIf="options.isEmpty" class="padding-small no-margin">

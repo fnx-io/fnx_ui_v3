@@ -7,9 +7,11 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/errors.dart';
 import 'package:fnx_ui/api/ui.dart' as ui;
+import 'package:fnx_ui/components/fnx_form/fnx_form.dart';
 import 'package:fnx_ui/components/fnx_label/fnx_label.dart';
 import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
 import 'package:fnx_ui/components/fnx_text/fnx_text.dart';
+import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
 import 'package:logging/logging.dart';
 
@@ -25,7 +27,7 @@ import '../../fnx_ui.dart';
   selector: 'fnx-app',
   templateUrl: 'fnx_app.html',
   preserveWhitespace: false,
-  directives: [coreDirectives, formDirectives, FnxModal, FnxLabel, FnxText],
+  directives: [coreDirectives, formDirectives, FnxModal, FnxLabel, FnxText, FnxForm, AutoFocus],
   visibility: Visibility.all,
 )
 class FnxApp implements OnInit {
@@ -43,7 +45,8 @@ class FnxApp implements OnInit {
       log.warning("There is no exception handler configured");
     }
     if (ex is! FnxExceptionHandler) {
-      log.warning("Configured exception handler is not FnxExceptionHandler, fnx_ui won't be able to show nice errors.\nConsider: provide(ExceptionHandler, useValue: new FnxExceptionHandler())");
+      log.warning(
+          "Configured exception handler is not FnxExceptionHandler, fnx_ui won't be able to show nice errors.\nConsider: provide(ExceptionHandler, useValue: new FnxExceptionHandler())");
     } else {
       (ex as FnxExceptionHandler).setShowErrorCallback(showError);
     }

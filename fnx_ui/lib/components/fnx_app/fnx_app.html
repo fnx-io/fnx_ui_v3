@@ -1,7 +1,7 @@
 <ng-content></ng-content>
 
 <!-- Modal windows -->
-<fnx-form  *ngFor="let modal of modalWindows.values" (submit)="closeModal(modal.id, true)">
+<fnx-form *ngFor="let modal of modalWindows.values" (submit)="closeModal(modal.id, true)">
 
     <fnx-modal [id]="modal.id" (close)="closeModal(modal.id, false)" maxWidth="40em">
 
@@ -11,7 +11,7 @@
             <div [innerHtml]="modal.message">modal.message</div>
 
             <fnx-input errorMessage="Please provide requested value" *ngIf="modal.input != null">
-                <fnx-text [(ngModel)]="modal.value" [required]="true" autoFocus ></fnx-text>
+                <fnx-text [(ngModel)]="modal.value" [required]="true" autoFocus style="width: 100%"></fnx-text>
             </fnx-input>
 
         </div>

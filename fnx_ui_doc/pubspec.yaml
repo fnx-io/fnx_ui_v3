@@ -7,19 +7,11 @@ environment:
   sdk: '>=2.7.0 <3.0.0'
 
 dependencies:
-  angular: ^6.0.0-alpha+1
-  angular_forms: ^2.1.4
-  angular_router: any
-  meta: any
-  i69n: ^1.1.0
   fnx_ui:
     path: ../fnx_ui/
 
 dev_dependencies:
-  angular_test: ^2.3.0
-  build_runner: ^1.6.0
-  build_test: ^0.10.8
-  build_web_compilers: ^2.3.0
-  pedantic: ^1.8.0
-  test: ^1.6.0
+  angular: ^6.0.1
   sass_builder: ^2.1.3
+  build_runner: ">=1.6.2 <2.0.0"
+  build_web_compilers: ">=2.12.0 <3.0.0"

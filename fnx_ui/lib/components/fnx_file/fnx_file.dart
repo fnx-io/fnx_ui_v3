@@ -82,6 +82,7 @@ class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy
     event.preventDefault();
     event.stopImmediatePropagation();
     log.info("Drop : ${event.dataTransfer}");
+    draggingOver = false;
     if (isReadonly) return;
     processFiles(event.dataTransfer.files);
   }
