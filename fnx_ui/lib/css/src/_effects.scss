@@ -12,9 +12,11 @@
 }
 
 @mixin render() {
-
-  *, *:after, *:before {
+  body {
     transition: box-shadow 0.2s, background-color 0.1s, color 0.1s, outline 0.2s, border 0.2s, border-color 0.2s, transform 0.2s;
+  }
+  *, *:after, *:before {
+    transition: inherit;
     outline: none !important;
   }
   *:focus {

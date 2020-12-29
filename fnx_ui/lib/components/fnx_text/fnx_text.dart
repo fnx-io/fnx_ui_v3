@@ -46,7 +46,8 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
     }
   }
 
-  static final RegExp _EMAIL_REGEXP = RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+  static final RegExp _EMAIL_REGEXP = RegExp(
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
   static final RegExp _HOST = RegExp(r"[a-zA-Z0-9.]+[a-zA-Z0-9]{2,}$");
 
   @override

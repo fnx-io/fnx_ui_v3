@@ -12,5 +12,14 @@
         </fnx-select>
 
     </fnx-ui-docs-test-case>
-</fnx-ui-docs-test-bed>  
-  
+</fnx-ui-docs-test-bed>
+
+  <fnx-ui-docs-test-bed #testBed title="Long select">
+
+      <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+          <fnx-select [(ngModel)]="valueLong">
+              <fnx-option *ngFor="let o of optionsLong" label="{{o}}" [value]="o"></fnx-option>
+          </fnx-select>
+      </fnx-ui-docs-test-case>
+
+  </fnx-ui-docs-test-bed>

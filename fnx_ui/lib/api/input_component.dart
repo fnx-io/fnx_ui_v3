@@ -17,6 +17,10 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
   @Input()
   String placeholder = null;
 
+  @HostBinding('style.min-width')
+  @Input()
+  String minWidth = "10em";
+
   T _value;
 
   T get value => _value;

@@ -18,6 +18,7 @@
     text-decoration: none !important;
     color: inherit;
     line-height: calc(var(--rem) * var(--lh));
+    max-width: 100%;
     &:focus-within, &:focus {
       @include effects.focusOutline();
     }
@@ -145,7 +146,7 @@
   .#{$prefix}item-column {
     display: block;
     & > * {
-      display: block;
+      //display: block; // kdyz to tu je, nefunguje Text
       width: 100%;
       border-radius: 0;
     }

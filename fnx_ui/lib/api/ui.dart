@@ -14,7 +14,8 @@ void consume(Event e) {
   e?.preventDefault();
 }
 
-Stream<KeyboardEvent> get keyDownEvents => document.on['keydown'].where((event) => event is KeyboardEvent).map((event) => event as KeyboardEvent);
+Stream<KeyboardEvent> keyDownEvents([Node e]) =>
+    (e ?? document).on['keydown'].where((event) => event is KeyboardEvent).map((event) => event as KeyboardEvent);
 
 StreamSubscription<Event> _resizeSubscription;
 
@@ -35,7 +36,7 @@ void killEvent(Event e) {
   e?.preventDefault();
 }
 
-Future firstClickAbove(Element e) {
+Future<MouseEvent> firstClickAbove(Element e) {
   return document.onClick.where((clicked) => (clicked.target is Element) && !isAncestorOf(e, clicked.target as Element)).first;
 }
 

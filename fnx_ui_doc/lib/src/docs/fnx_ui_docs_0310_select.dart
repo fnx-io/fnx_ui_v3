@@ -3,6 +3,7 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_bed.dart';
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
+import 'package:fnx_ui_doc/util.dart';
 
 @Component(
   selector: 'fnx-ui-docs-0310-select',
@@ -11,4 +12,7 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
 )
 class FnxUiDocs0310Select {
   int value = 3;
+
+  String valueLong;
+  List<String> optionsLong = randomLongStrings;
 }

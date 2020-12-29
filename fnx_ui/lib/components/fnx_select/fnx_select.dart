@@ -7,7 +7,7 @@ import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/input_component.dart';
 import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:fnx_ui/components/fnx_dropdown/fnx_dropdown.dart';
-import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
+import 'package:fnx_ui/components/fnx_text/fnx_text.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 
@@ -24,16 +24,28 @@ const CUSTOM_SELECT_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting
     const Provider(FnxBaseComponent, useExisting: FnxSelect, multi: false),
   ],
   preserveWhitespace: false,
-  directives: [coreDirectives, formDirectives, AutoFocus, FnxDropdown],
+  directives: [coreDirectives, formDirectives, AutoFocus, FnxDropdown, FnxText],
 )
 class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnInit, OnDestroy, Focusable {
+  @HostBinding('class.item')
+  @HostBinding('class.border')
+  @HostBinding('class.embossed')
+  static const bool hostIsItem = true;
+
   @Input()
   bool neverShowFilter = false;
+
   @Input()
   bool alwaysShowFilter = false;
 
   @Input()
   bool nullable = false;
+
+  @Input()
+  String maxHeight = "400px";
+
+  @Input()
+  String maxWidth = "400px";
 
   @Input()
   ValueDescriptionRenderer valueDescriptionRenderer;
@@ -66,12 +78,14 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
   @ContentChild(NgFormControl)
   NgFormControl state;
 
-  StreamSubscription<String> navigationActions;
+  StreamSubscription<String> navigationActionsSubscription;
 
   @ViewChild("select")
   HtmlElement select;
 
-  FnxSelect(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent) {}
+  HtmlElement host;
+
+  FnxSelect(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent) {}
 
   void toggleDropdown() {
     markAsTouched();
@@ -85,13 +99,11 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
   }
 
   void hideOptions() {
-    FnxModal.stack.remove(this);
     open = false;
     filter = null;
   }
 
   void showOptions() {
-    FnxModal.stack.add(this);
     open = true;
   }
 
@@ -233,24 +245,19 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
     }
   }
 
-  StreamSubscription<String> bindKeyHandler(Stream<Event> stream) {
-    Map<int, String> actions = {KeyCode.ENTER: 'SELECT', KeyCode.ESC: 'HIDE', KeyCode.UP: 'UP', KeyCode.DOWN: 'DOWN'};
+  void bindKeyHandler() {
+    Map<int, String> actions = {KeyCode.ENTER: 'SELECT', KeyCode.UP: 'UP', KeyCode.DOWN: 'DOWN'};
     Set<int> supportedKeys = new Set.from(actions.keys);
 
-    Stream<KeyboardEvent> onlyWhenExpanded = stream
-        .where((var event) => event is KeyboardEvent)
-        .map((event) => event as KeyboardEvent); //.where((event) => ui.isEventFromSubtree(event, select));
-    Stream<KeyboardEvent> onlySupported = onlyWhenExpanded.where((event) => supportedKeys.contains(event.keyCode));
-    Stream<KeyboardEvent> cancelled = onlySupported.map((event) {
+    var actionsStream = ui.keyDownEvents(host).where((event) => supportedKeys.contains(event.keyCode)).map((event) {
       event.preventDefault();
       if (dropDownVisible) {
         event.stopPropagation();
       }
       return event;
-    });
-    Stream<String> result = cancelled.map((event) => actions[event.keyCode]);
+    }).map((event) => actions[event.keyCode]);
 
-    return result.listen((var action) {
+    navigationActionsSubscription = actionsStream.listen((var action) {
       if (action == 'UP') {
         if (dropDownVisible) {
           selectNext(_highlighted, filteredOptions.reversed);
@@ -267,8 +274,6 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
         } else {
           if (_highlighted != null) doSelectOption(_highlighted.value);
         }
-      } else if (action == 'HIDE') {
-        hideOptions();
       }
     });
   }
@@ -299,14 +304,14 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
   ngOnInit() {
     super.ngOnInit();
     var self = this;
-    this.navigationActions = bindKeyHandler(ui.keyDownEvents);
+    bindKeyHandler();
   }
 
   @override
   ngOnDestroy() {
     super.ngOnDestroy();
-    navigationActions?.cancel();
-    navigationActions = null;
+    navigationActionsSubscription?.cancel();
+    navigationActionsSubscription = null;
   }
 
   @override
@@ -354,6 +359,7 @@ class FnxOptionValue {
   selector: 'fnx-option',
   templateUrl: 'fnx_option.html',
   preserveWhitespace: false,
+  styles: [":host {transition: none}"],
   directives: [
     coreDirectives,
     formDirectives,
@@ -365,7 +371,7 @@ class FnxOption implements OnInit, OnDestroy, AfterChanges {
   @HostBinding('class.selected')
   bool get hasClassSelected => selected && !highlighted;
 
-  @HostBinding('class.select__dropdown--selected')
+  @HostBinding('class.hover')
   bool get hasClassHighlighted => highlighted;
 
   @HostBinding('class.pointer')
@@ -386,6 +392,9 @@ class FnxOption implements OnInit, OnDestroy, AfterChanges {
   int _cacheHashCode = null;
 
   bool get highlighted => parent.isHighlighted(_myValue);
+
+  @HostBinding('style.display')
+  String get display => visible ? 'inline-block' : 'none';
 
   bool get visible {
     List<FnxOptionValue> opts = parent?.filteredOptions;

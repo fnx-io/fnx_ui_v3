@@ -9,7 +9,9 @@ import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/mixins/closable_component.dart';
 import 'package:fnx_ui/api/mixins/footer.dart';
 import 'package:fnx_ui/api/mixins/header.dart';
+import 'package:fnx_ui/api/mixins/modal_component.dart';
 import 'package:fnx_ui/api/ui.dart' as ui;
+import 'package:logging/logging.dart';
 
 typedef bool _KeyListener(KeyboardEvent e);
 
@@ -36,8 +38,14 @@ typedef bool _KeyListener(KeyboardEvent e);
     formDirectives,
   ],
 )
-class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestroy {
-  static final List<Object> stack = [];
+class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestroy, ModalComponent {
+  Element host;
+
+  FnxModal(this.host);
+
+  static final List<ModalComponent> _stack = [];
+
+  static final Logger _log = Logger("FnxModal");
 
   String id = ui.generateId('modal');
 
@@ -51,23 +59,63 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
   @Input()
   String maxWidth = "90vw";
 
-  StreamSubscription<KeyboardEvent> keyDownSubscription;
+  @override
+  void hideModalComponent() {
+    emitClose();
+  }
 
   @override
   ngOnInit() {
-    stack.add(this);
-    keyDownSubscription = ui.keyDownEvents.where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).where((KeyboardEvent e) => this == stack.last).listen((KeyboardEvent e) {
-      if (!closable) return;
-      if (stack.isEmpty || stack.last == this) {
-        ui.killEvent(e);
-        emitClose();
-      }
-    });
+    addModalComponent(this);
   }
 
   @override
   ngOnDestroy() {
-    keyDownSubscription.cancel();
-    stack.remove(this);
+    removeModalComponent(this);
   }
+
+  static StreamSubscription<KeyboardEvent> keyDownSubscription;
+
+  static void addModalComponent(ModalComponent component) {
+    _log.info("Adding modal to stack $component");
+    _stack.add(component);
+    if (keyDownSubscription != null) return;
+    keyDownSubscription = ui.keyDownEvents().where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).listen((event) {
+      _log.info("Incomming ESC");
+      // ESC events on document
+      if (_stack.isEmpty) return;
+      var c = _stack.last;
+      if (c.canHide) {
+        ui.killEvent(event);
+        _log.info("Hiding modal component $c");
+        c.hideModalComponent();
+      }
+    });
+    document.onClick.where((event) => event.target is Element).listen((event) {
+      // click on document
+      _log.info("Incomming click");
+      if (_stack.isEmpty) return;
+      _stack.forEach((c) {
+        if (ui.isAncestorOf(c.modalElement, event.target as Element)) {
+          // this is my click
+        } else {
+          if (c.canHide) {
+            _log.info("Hiding modal component $c");
+            c.hideModalComponent();
+          }
+        }
+      });
+    });
+  }
+
+  static void removeModalComponent(ModalComponent component) {
+    _log.info("Removing modal from stack $component");
+    _stack.remove(component);
+  }
+
+  @override
+  bool get canHide => closable ?? true;
+
+  @override
+  Element get modalElement => host;
 }

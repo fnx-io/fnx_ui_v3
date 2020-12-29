@@ -1,22 +1,25 @@
-<fnx-dropdown [visible]="open" class="max-width-100">
+<fnx-dropdown [visible]="open" class="max-width-100" (hide)="hideOptions()">
 
     <div master
          id="{{ id }}"
-         class="select"
+         class="pointer flex-row"
          [attr.tabindex]="(isReadonly || isDisabled) ? -1 : 0"
          (click)="toggleDropdown()"
          [attr.readonly]="isReadonly"
          [class.error]="isTouchedAndInvalid">
-        <span class="clickable pointer">{{ renderValueDescription() }}</span>
-
+        <span class="spacer ellipsis">{{ renderValueDescription() }}</span>
+        <span class="spacer"></span>
+        <span class="mi">arrow_drop_down</span>
     </div>
 
-    <div class="bg-white flex-column">
+    <div class="bg-white flex-column scroll border shadow-small" [style.max-height]="maxHeight" [style.max-width]="maxWidth">
         <div *ngIf="showFilter && dropDownVisible" class="input" (click)="$event.stopPropagation()">
-            <input id="{{id}}-search" type="text" autocomplete="off" [placeholder]="filterPlaceholder" [(ngModel)]="filter" autoFocus >
-            <label attr.for="{{id}}-search" class="icon">search</label>
+            <fnx-text id="{{id}}-search" [(ngModel)]="filter" [placeholder]="filterPlaceholder"
+                      minWidth="100%"
+                      data-suffix="search"
+                      autoFocus></fnx-text>
         </div>
-        <div class="item-column border shadow-small">
+        <div class="item-column">
             <ng-content></ng-content>
         </div>
         <p *ngIf="options.isEmpty" class="padding-small no-margin">
