@@ -18,7 +18,7 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   bool _disabled = false;
 
-  int _tabindex = null;
+  int _tabindex;
 
   String get id => _id ?? _fallbackId;
 

@@ -38,10 +38,10 @@ class AmPmHour {
 AmPmHour hour24ToAmPm(int hour) {
   if (hour == null) hour = 0;
   if (hour < 0) return null;
-  if (hour < 1) return new AmPmHour(12, AmPm.AM);
-  if (hour < 12) return new AmPmHour(hour, AmPm.AM);
-  if (hour == 12) return new AmPmHour(12, AmPm.PM);
-  if (hour < 24) return new AmPmHour(hour - 12, AmPm.PM);
+  if (hour < 1) return AmPmHour(12, AmPm.AM);
+  if (hour < 12) return AmPmHour(hour, AmPm.AM);
+  if (hour == 12) return AmPmHour(12, AmPm.PM);
+  if (hour < 24) return AmPmHour(hour - 12, AmPm.PM);
 
   return null;
 }
@@ -65,11 +65,11 @@ final String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ssZ";
 final String DATE_FORMAT = 'd.M.yyyy';
 final String DATETIME_FORMAT = 'd.M.yyyy HH:mm';
 
-final DateFormat dateFormat = new DateFormat(DATE_FORMAT);
-final DateFormat dateTimeFormat = new DateFormat(DATETIME_FORMAT);
+final DateFormat dateFormat = DateFormat(DATE_FORMAT);
+final DateFormat dateTimeFormat = DateFormat(DATETIME_FORMAT);
 
  */
-final DateFormat isoFormat = new DateFormat(ISO_FORMAT);
+final DateFormat isoFormat = DateFormat(ISO_FORMAT);
 
 /*
 /// From given input tries to parse a DateTime instance.
@@ -119,9 +119,9 @@ DateTime setHour(DateTime d, int hour) {
 
 DateTime dateFrom(int year, int month, int day, int hour, int minute, int second, int millisecond, bool utc) {
   if (utc) {
-    return new DateTime.utc(year, month, day, hour, minute, second, millisecond);
+    return DateTime.utc(year, month, day, hour, minute, second, millisecond);
   } else {
-    return new DateTime(year, month, day, hour, minute, second, millisecond);
+    return DateTime(year, month, day, hour, minute, second, millisecond);
   }
 }
 */
