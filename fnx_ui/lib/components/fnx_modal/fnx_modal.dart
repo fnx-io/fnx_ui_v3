@@ -76,8 +76,11 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
 
   static StreamSubscription<KeyboardEvent> keyDownSubscription;
 
+  static DateTime _lastChange = DateTime.now();
+
   static void addModalComponent(ModalComponent component) {
     _log.info("Adding modal to stack $component");
+    _lastChange = DateTime.now();
     _stack.add(component);
     if (keyDownSubscription != null) return;
     keyDownSubscription = ui.keyDownEvents().where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).listen((event) {
@@ -94,6 +97,10 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
     document.onClick.where((event) => event.target is Element).listen((event) {
       // click on document
       _log.info("Incomming click");
+      if (_lastChange.add(Duration(milliseconds: 100)).isAfter(DateTime.now())) {
+        // zmen aprisla priis brzy
+        return;
+      }
       if (_stack.isEmpty) return;
       _stack.forEach((c) {
         if (ui.isAncestorOf(c.modalElement, event.target as Element)) {
