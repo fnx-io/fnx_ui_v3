@@ -6,9 +6,10 @@
 
         [(ngModel)]="value"
         [attr.autocomplete]="autocomplete"
-        (keyup)="markAsTouched()"
+        (focusout)="markAsTouched()"
         [attr.placeholder]="placeholder"
         [attr.type]="htmlType"
+        [attr.name]="name"
 
         [readonly]="isReadonly"
         [disabled]="isDisabled"

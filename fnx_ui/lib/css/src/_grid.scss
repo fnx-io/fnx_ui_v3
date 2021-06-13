@@ -55,7 +55,7 @@ $gutter: var(--rem);
   }
   .#{$prefix}row-gutter, .#{$prefix}row-gutter-horizontal, .row-gutter, .row-gutter-horizontal {
     .#{$prefix}o0 {
-      margin-left: $gutter !important;
+      margin-left: calc( #{$gutter} / 2) !important;
     }
     @include renderGridRulesWithGutter($prefix,  1);
     @include renderGridRulesWithGutter($prefix,  2);

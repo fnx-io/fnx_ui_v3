@@ -21,9 +21,18 @@ abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, 
   @Input()
   String minWidth = "10em";
 
+  @Input()
+  set name(String value) {
+    _name = value;
+  }
+
   T _value;
 
   T get value => _value;
+
+  String get name => _name ?? "field$id";
+
+  String _name = null;
 
   @mustCallSuper
   set value(T v) {

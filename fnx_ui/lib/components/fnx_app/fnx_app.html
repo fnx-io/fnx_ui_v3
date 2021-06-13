@@ -52,12 +52,14 @@
 <!-- Uncaught exceptions -->
 <fnx-modal (close)="errorToShow = null" *ngIf="errorToShow != null">
     <h3 header>{{errorToShow.headline}}</h3>
-    <p main>{{errorToShow.message}}</p>
-    <ul main *ngIf="errorToShow.details.isNotEmpty">
-        <li *ngFor="let e of errorToShow.details">{{e}}</li>
-    </ul>
-    <p footer class="buttonbar">
+    <div main class="padding">
+        <p>{{errorToShow.message}}</p>
+        <ul *ngIf="errorToShow.details.isNotEmpty">
+            <li *ngFor="let e of errorToShow.details">{{e}}</li>
+        </ul>
+    </div>
+    <p footer class="item-row">
         <span class="spacer"></span>
-        <button class="btn bg--important" (click)="errorToShow = null">OK</button>
+        <button class="btn accent" (click)="errorToShow = null">OK</button>
     </p>
 </fnx-modal>

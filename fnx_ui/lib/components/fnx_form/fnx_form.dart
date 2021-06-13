@@ -35,6 +35,9 @@ class FnxForm extends FnxBaseComponent {
 
   List<String> errorMessages = [];
 
+  @Input()
+  String autocomplete;
+
   /// Handles submitting the underlying form event.
   /// Only propagates the submit event when this form is valid.
   /// Forces validation of all components inside this form.

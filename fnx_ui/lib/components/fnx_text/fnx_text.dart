@@ -112,7 +112,12 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
   }
 
   void assertType() {
-    if (type != "text" && type != "number" && type != "email" && type != "http" && type != "password" && type != "web") {
+    if (type != "text" &&
+        type != "number" &&
+        type != "email" &&
+        type != "http" &&
+        type != "password" &&
+        type != "web") {
       throw "The only possible types at this moment are 'text', 'email', 'http', 'web' and 'password'";
     }
   }
