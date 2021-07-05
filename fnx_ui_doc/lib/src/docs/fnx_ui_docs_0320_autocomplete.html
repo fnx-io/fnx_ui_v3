@@ -1,0 +1,14 @@
+<h1>Autocomplete</h1>
+
+<p>Selected value: {{value}}</p>
+
+<fnx-ui-docs-test-bed #testBed title="Autocomplete">
+    <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
+
+        <fnx-autocomplete [(ngModel)]="value"
+                          [optionsProvider]="optionsProvider"
+                          [defaultOptionProvider]="defaultOptionProvider"
+        ></fnx-autocomplete>
+
+    </fnx-ui-docs-test-case>
+</fnx-ui-docs-test-bed>

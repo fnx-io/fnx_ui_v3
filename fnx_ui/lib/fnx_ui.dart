@@ -1,5 +1,5 @@
-import 'package:fnx_ui/components/fnx-scroll-panel/fnx_scroll_panel.dart';
 import 'package:fnx_ui/components/fnx_app/fnx_app.dart';
+import 'package:fnx_ui/components/fnx_autocomplete/fnx_autocomplete.dart';
 import 'package:fnx_ui/components/fnx_checkbox/fnx_checkbox.dart';
 import 'package:fnx_ui/components/fnx_date/fnx_date.dart';
 import 'package:fnx_ui/components/fnx_date/fnx_date_picker.dart';
@@ -12,6 +12,7 @@ import 'package:fnx_ui/components/fnx_label/fnx_label.dart';
 import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
 import 'package:fnx_ui/components/fnx_panel/fnx_panel.dart';
 import 'package:fnx_ui/components/fnx_panel_small/fnx_panel_small.dart';
+import 'package:fnx_ui/components/fnx_scroll_panel/fnx_scroll_panel.dart';
 import 'package:fnx_ui/components/fnx_text/fnx_text.dart';
 import 'package:fnx_ui/components/fnx_tooltip/fnx_tooltip.dart';
 import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
@@ -47,6 +48,7 @@ const fnxUiAllDirectives = [
   FnxPanel,
   FnxPanelSmall,
   FnxScrollPanel,
+  FnxAutocomplete,
 ];
 
 @Deprecated("Use fnxUiAllDirectives instead")
