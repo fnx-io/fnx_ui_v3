@@ -87,8 +87,6 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
         }
 
         Uri u = Uri.parse(v);
-        print(u);
-        print(u.host);
         String scheme = u.scheme.toLowerCase();
         if (type == "http") {
           if (scheme != "http" && scheme != "https") return false;

@@ -136,7 +136,7 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
     return _highlighted == opt;
   }
 
-  void leaveText(Event e) {
+  void leaveText(_) {
     later(hideOptionsIfNoFocus);
   }
 

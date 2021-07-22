@@ -1,7 +1,7 @@
 <section class="panel"
          [class.-closable]="closable"
          [class.-open]="open">
-    <header class="panel_header bg-white-d3" attr.id="{{id}}-header" (click)="open = !open" [class.border-bottom]="open">
+    <header class="panel_header bg-white-d3" attr.id="{{id}}-header" (click)="toggleOpen($event)" [class.border-bottom]="open">
         <div class="flex-row">
             <span class="icon" [class.rotate-right]="open" *ngIf="closable">
                 arrow_right</span>

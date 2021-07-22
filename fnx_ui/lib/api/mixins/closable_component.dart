@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:html';
 
 import 'package:angular/angular.dart';
 
@@ -45,5 +46,11 @@ class ClosableComponent {
 
   void emitClose() {
     _close.add(true);
+  }
+
+  void toggleOpen(Event e) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+    open = !open;
   }
 }
