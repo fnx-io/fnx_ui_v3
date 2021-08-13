@@ -5,9 +5,11 @@
             <tr>
                 <th colspan="7">
                     <span class="item-row">
-                        <a (click)="decMonth()" class="pointer icon hover:hover">first_page</a>
+                        <a (click)="decYear()" class="pointer icon hover:hover">first_page</a>
+                        <a (click)="decMonth()" class="pointer icon hover:hover">chevron_left</a>
                         <a (click)="showToday()" class="pointer expanded hover:hover text-center">{{year}}/{{month}}</a>
-                        <a (click)="incMonth()" class="pointer icon hover:hover">last_page</a>
+                        <a (click)="incMonth()" class="pointer icon hover:hover">chevron_right</a>
+                        <a (click)="incYear()" class="pointer icon hover:hover">last_page</a>
                     </span>
                 </th>
             </tr>
@@ -22,14 +24,12 @@
                 <th><span class="char">Su</span></th>
             </tr>
             <tr *ngFor="let week of days">
-                <td *ngFor="let day of week">
-                    <span
-                        class="circle pointer hover:hover char"
-                        [class.selected]="isSelected(year, month, day)"
-                        [class.border]="isToday(year, month, day)"
-                        (click)="pickDay(year, month, day, $event)"
-                        *ngIf="isDay(day)">{{day}}</span>
-                </td>
+                <td *ngFor="let day of week"><span
+                            class="circle pointer hover:hover char"
+                            [class.selected]="isSelected(year, month, day)"
+                            [class.border]="isToday(year, month, day)"
+                            (click)="pickDay(year, month, day, $event)"
+                            *ngIf="isDay(day)">{{day}}</span><span class="circle char" *ngIf="!isDay(day)"> </span></td>
             </tr>
         </table>
     </div>

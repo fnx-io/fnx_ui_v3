@@ -59,13 +59,13 @@ final Configuration fnxUiConfig = Configuration();
 class Configuration {
   String locale = "en_US";
   FnxUiMessages messages = FnxUiMessages();
-  DateFormat dateFormat = DateFormat("MM/dd/yyyy", "en_US");
-  DateFormat dateTimeFormat = DateFormat("MM/dd/yyyy hh:mm a", "en_US");
+  DateFormat dateFormat = DateFormat("M/d/yyyy", "en_US");
+  DateFormat dateTimeFormat = DateFormat("M/d/yyyy hh:mm a", "en_US");
 }
 
 setFnxUiToCzech() {
   fnxUiConfig.locale = "cs_CZ";
-  fnxUiConfig.dateFormat = DateFormat("dd.MM.yyyy", "cs_CZ");
-  fnxUiConfig.dateTimeFormat = DateFormat("dd.MM.yyyy HH:mm", "cs_CZ");
+  fnxUiConfig.dateFormat = DateFormat("d.M.yyyy", "cs_CZ");
+  fnxUiConfig.dateTimeFormat = DateFormat("d.M.yyyy HH:mm", "cs_CZ");
   fnxUiConfig.messages = FnxUiMessages_cs();
 }

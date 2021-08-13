@@ -10,7 +10,6 @@ import 'package:fnx_ui/components/fnx_dropdown/fnx_dropdown.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 import 'package:intl/intl.dart';
-import 'package:meta/meta.dart';
 
 @Component(
   selector: 'fnx-date',
@@ -54,7 +53,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   DateFormat get format => dateTime ? fnxUiConfig.dateTimeFormat : fnxUiConfig.dateFormat;
 
-  List<DateTime> get valueAsList => value == null ? [] : [value];
+  List<DateTime> get valueAsList => (value == null) ? [] : [value];
 
   String _valueToString(DateTime value) {
     if (value == null) return null;
@@ -63,8 +62,11 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   DateTime stringToValue(String rawValue) {
     if (rawValue == null) return null;
+    print("Parse: $rawValue");
     try {
-      return format.parseLoose(rawValue.trim());
+      var d = format.parseLoose(rawValue.trim().replaceAll("  ", " ").replaceAll(". ", "."));
+      print("result = $d");
+      return d;
     } catch (e) {
       return null;
     }
@@ -79,7 +81,6 @@ class FnxDate extends FnxInputComponent<DateTime> {
   }
 
   @Input()
-  @mustCallSuper
   set value(DateTime v) {
     super.value = v;
     _rawValue = v == null ? null : _valueToString(v);
@@ -126,6 +127,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
   ///
   /// Is this a valid number within min/max limits?
   ///
+  @override
   bool get hasValidValue {
     if (value == null) {
       if (required == true) return false;

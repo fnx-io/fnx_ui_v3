@@ -118,6 +118,7 @@ class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestr
   static void removeModalComponent(ModalComponent component) {
     _log.info("Removing modal from stack $component");
     _stack.remove(component);
+    _lastChange = DateTime.now();
   }
 
   @override

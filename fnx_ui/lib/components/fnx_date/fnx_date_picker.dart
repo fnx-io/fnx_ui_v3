@@ -4,9 +4,9 @@ import 'dart:html';
 import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
-import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
 import 'package:fnx_ui/api/date.dart';
 import 'package:fnx_ui/api/ui.dart' as ui;
+import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
 import 'package:intl/intl.dart';
 
 @Component(selector: 'fnx-date-picker', templateUrl: 'fnx_date_picker.html', preserveWhitespace: false, directives: [coreDirectives, formDirectives, FnxInt], styleUrls: ['fnx_date_picker.css'])
@@ -29,6 +29,15 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
   bool hourFormat24 = false;
 
   @Input()
+  set value(DateTime value) {
+    bool change = _value != value;
+    _value = value;
+    if (_value != null && change) {
+      initPickerModel();
+    }
+  }
+
+  @Input()
   set selected(List<DateTime> value) {
     _selected = value;
     if (_value == null && _selected != null && _selected.isNotEmpty) {
@@ -42,12 +51,12 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
     initPicker();
   }
 
-  int get year => _value.year;
-  int get month => _value.month;
-  int get day => _value.day;
+  int get year => _value?.year ?? 1900;
+  int get month => _value?.month ?? 1;
+  int get day => _value?.day ?? 1;
 
-  int get hour => _value.hour;
-  int get minute => _value.minute;
+  int get hour => _value?.hour ?? 12;
+  int get minute => _value?.minute ?? 0;
 
   String editingTime = null;
 
@@ -113,6 +122,9 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
           }
         }
       }
+    }
+    if (result.length < 6) {
+      result.add([]);
     }
     days = result;
   }
