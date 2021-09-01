@@ -69,3 +69,11 @@ setFnxUiToCzech() {
   fnxUiConfig.dateTimeFormat = DateFormat("d.M.yyyy HH:mm", "cs_CZ");
   fnxUiConfig.messages = FnxUiMessages_cs();
 }
+
+setFnxUiToEnglish() {
+  fnxUiConfig.locale = "en_US";
+  fnxUiConfig.messages = FnxUiMessages();
+  fnxUiConfig.dateFormat = DateFormat("M/d/yyyy", "en_US");
+  fnxUiConfig.dateTimeFormat = DateFormat("M/d/yyyy hh:mm a", "en_US");
+}
+

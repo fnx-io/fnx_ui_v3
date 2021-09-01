@@ -1,6 +1,5 @@
 <div class="pointer item"
      [id]="id"
-     (click)="optionSelected($event)"
      [attr.data-prefix]="selected ? 'done' : null">
     <template [ngIf]="label != null">{{label}}</template>
     <template [ngIf]="label == null"><ng-content></ng-content></template>

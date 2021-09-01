@@ -104,6 +104,7 @@ class FnxSelect extends FnxInputComponent implements ControlValueAccessor, OnIni
   }
 
   void showOptions() {
+    if (isReadonly || isDisabled) return;
     open = true;
   }
 
@@ -420,6 +421,7 @@ class FnxOption implements OnInit, OnDestroy, AfterChanges {
     parent.options.remove(_myValue);
   }
 
+  @HostListener("click")
   void optionSelected(Event event) {
     event?.preventDefault();
     event?.stopPropagation();

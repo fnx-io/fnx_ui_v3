@@ -42,7 +42,9 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   Element host;
 
-  FnxDate(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent);
+  FnxDate(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent) {
+    //print("KOKOKOK");
+  }
 
   String _rawValue = null;
 
@@ -56,16 +58,17 @@ class FnxDate extends FnxInputComponent<DateTime> {
   List<DateTime> get valueAsList => (value == null) ? [] : [value];
 
   String _valueToString(DateTime value) {
+    //print("Value to string $value");
     if (value == null) return null;
-    return format.format(value);
+    return format.format(value.toLocal());
   }
 
   DateTime stringToValue(String rawValue) {
     if (rawValue == null) return null;
-    print("Parse: $rawValue");
+    //print("Parse: $rawValue");
     try {
-      var d = format.parseLoose(rawValue.trim().replaceAll("  ", " ").replaceAll(". ", "."));
-      print("result = $d");
+      var d = format.parseLoose(rawValue.trim().replaceAll("  ", " ").replaceAll(". ", "."))?.toLocal();
+      //print("result = $d");
       return d;
     } catch (e) {
       return null;
@@ -75,6 +78,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
   bool get hasFocus => document.activeElement == element;
 
   set rawValue(String v) {
+    //print("Setting rawValue = $v");
     _rawValue = v;
     var parsed = stringToValue(v);
     super.value = parsed;
@@ -82,12 +86,14 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   @Input()
   set value(DateTime v) {
+    //print("Setting value $v");
     super.value = v;
     _rawValue = v == null ? null : _valueToString(v);
   }
 
   @override
   void writeValue(Object obj) {
+    //print("Write value $obj");
     super.writeValue(_toDate(obj));
     if (value == null) {
       _rawValue = null;
@@ -97,12 +103,14 @@ class FnxDate extends FnxInputComponent<DateTime> {
   }
 
   DateTime _toDate(Object obj) {
+    //print("ToDate $obj");
     if (obj == null) return null;
-    if (obj is DateTime) return obj;
-    return DateTime.parse(obj.toString());
+    if (obj is DateTime) return obj.toLocal();
+    return DateTime.parse(obj.toString()).toLocal();
   }
 
   void reformat() {
+    //print("REformat $value");
     if (hasValidValue) {
       rawValue = _valueToString(value);
     }
@@ -115,13 +123,21 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   void focusin() {
     reformat();
-    pickerVisible = true;
-    ui.firstClickAbove(host).then((_) => pickerVisible = false);
   }
 
   void datePicked(DateTime v) {
+    //print("Date picked: $v");
     value = v;
     pickerVisible = false;
+  }
+
+  void clickOnIcon() {
+    if (pickerVisible) {
+      pickerVisible = false;
+    } else {
+      pickerVisible = true;
+      ui.firstClickAbove(host).then((_) => pickerVisible = false);
+    }
   }
 
   ///
@@ -129,6 +145,7 @@ class FnxDate extends FnxInputComponent<DateTime> {
   ///
   @override
   bool get hasValidValue {
+    //print("VAlid ? $value");
     if (value == null) {
       if (required == true) return false;
 
