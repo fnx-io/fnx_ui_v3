@@ -20,6 +20,7 @@ import 'package:intl/intl.dart';
 
 import 'components/fnx_file/fnx_file.dart';
 import 'components/fnx_form/fnx_form.dart';
+import 'components/fnx_image_crop/fnx_image_crop.dart';
 import 'components/fnx_select/fnx_select.dart';
 import 'components/fnx_submit_bar/fnx_submit_bar.dart';
 import 'components/fnx_textarea/fnx_textarea.dart';
@@ -49,6 +50,7 @@ const fnxUiAllDirectives = [
   FnxPanelSmall,
   FnxScrollPanel,
   FnxAutocomplete,
+  FnxImageCrop
 ];
 
 @Deprecated("Use fnxUiAllDirectives instead")
@@ -76,4 +78,3 @@ setFnxUiToEnglish() {
   fnxUiConfig.dateFormat = DateFormat("M/d/yyyy", "en_US");
   fnxUiConfig.dateTimeFormat = DateFormat("M/d/yyyy hh:mm a", "en_US");
 }
-
