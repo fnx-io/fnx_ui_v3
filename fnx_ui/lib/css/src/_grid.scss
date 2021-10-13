@@ -1,11 +1,13 @@
+@use "sass:math";
+
 $gutter: var(--rem);
 
 @mixin renderGridRules($prefix, $cols) {
   & > .#{$prefix}c#{$cols} {
-    width: (99.9% / 12) * $cols;
+    width: math.div(99.9%, 12) * $cols;
   }
   & > .#{$prefix}o#{$cols} {
-    margin-left: (99.9% / 12) * $cols;
+    margin-left: math.div(99.9%, 12) * $cols;
   }
 }
 @mixin renderGridRulesWithGutter($prefix, $cols) {

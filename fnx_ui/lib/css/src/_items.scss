@@ -102,7 +102,7 @@
   }
   .btn, button:not(.btn-flat) {
     border-color: #{vars.$borderColor};
-    @include effects.renderShadow(vars.$shadowSize/2);
+    @include effects.renderShadow(vars.$shadowSize*0.5);
     &:hover {
       @include effects.renderShadow(vars.$shadowSize);
     }

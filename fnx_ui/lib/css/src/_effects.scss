@@ -44,7 +44,7 @@
     box-shadow: none;
   }
   @include functions.renderWithFlavores("shadow-small") {
-    @include renderShadow(vars.$shadowSize/2);
+    @include renderShadow(vars.$shadowSize*0.5);
   }
   @include functions.renderWithFlavores("shadow") {
     @include renderShadow(vars.$shadowSize);
