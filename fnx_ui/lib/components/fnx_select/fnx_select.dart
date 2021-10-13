@@ -13,15 +13,15 @@ import 'package:fnx_ui/fnx_ui.dart';
 
 typedef String ValueDescriptionRenderer();
 
-const CUSTOM_SELECT_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxSelect, multi: true);
+const CUSTOM_SELECT_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxSelect);
 
 @Component(
   selector: 'fnx-select',
   templateUrl: 'fnx_select.html',
   providers: const [
     CUSTOM_SELECT_VALUE_ACCESSOR,
-    const Provider(Focusable, useExisting: FnxSelect, multi: false),
-    const Provider(FnxBaseComponent, useExisting: FnxSelect, multi: false),
+    const Provider(Focusable, useExisting: FnxSelect),
+    const Provider(FnxBaseComponent, useExisting: FnxSelect),
   ],
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives, AutoFocus, FnxDropdown, FnxText],

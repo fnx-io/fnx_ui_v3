@@ -28,7 +28,7 @@ import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
   selector: 'fnx-submit-bar',
   template: r'''
 <div class="item-row" [class.opacity--07]="isDisabled">
-  <a *ngIf="back" href="#" class="btn " (click)="goBack($event)" data-prefix="arrow_back">{{ goBackLabel }}</a>
+  <a *ngIf="back" href="#" class="btn " (click)="goBack($event)" [attr.data-prefix]="'arrow_back'">{{ goBackLabel }}</a>
   <ng-content></ng-content>
   <span class="spacer"></span>
   <span *ngIf="isDisabledByWork" class="loader"></span>

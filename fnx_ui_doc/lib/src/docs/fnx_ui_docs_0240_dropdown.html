@@ -16,16 +16,16 @@
   </p>
 -->
   <p class="item-column">
-      <fnx-dropdown-menu label="This is label one" data-prefix="android">
+      <fnx-dropdown-menu label="This is label one" [attr.data-prefix]="'android'">
           <div class="item-column" style="width: 20em; max-height: 20em">
               <a href="/">one</a>
               <a href="/">two</a>
           </div>
       </fnx-dropdown-menu>
-      <fnx-dropdown-menu label="This is a label two" data-prefix="android">
+      <fnx-dropdown-menu label="This is a label two" [attr.data-prefix]="'android'">
           <div class="item-column" style="width: 20em; max-height: 20em">
-              <a href="/" data-prefix="android">one</a>
-              <fnx-dropdown-menu label="This is a label two.two" data-prefix="android">
+              <a href="/" [attr.data-prefix]="'android'">one</a>
+              <fnx-dropdown-menu label="This is a label two.two" [attr.data-prefix]="'android'">
                   <div class="item-column" style="width: 20em; max-height: 20em">
                       <a href="/">one</a>
                       <a href="/">two</a>
@@ -39,7 +39,7 @@
 <fnx-ui-docs-test-bed #testBed title="Dropdown">
     <fnx-ui-docs-test-case *ngFor="let c of testBed.cases" [testCase]="c" [class]="testBed.classFor(c)">
 
-        <fnx-dropdown-menu label="This is label" data-prefix="android">
+        <fnx-dropdown-menu label="This is label" [attr.data-prefix]="'android'">
             <div class="item-column" style="width: 20em; max-height: 20em">
                 <a href="/">one</a>
                 <a href="/">two</a>

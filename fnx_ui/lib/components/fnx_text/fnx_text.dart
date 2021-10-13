@@ -11,7 +11,7 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
   selector: 'fnx-text',
   templateUrl: 'fnx_text.html',
   providers: [
-    Provider(Focusable, useExisting: FnxText, multi: false),
+    Provider(Focusable, useExisting: FnxText),
     ExistingProvider.forToken(ngValueAccessor, FnxText),
     Provider(FnxBaseComponent, useExisting: FnxText),
   ],
@@ -46,8 +46,8 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
     }
   }
 
-  static final RegExp _EMAIL_REGEXP = RegExp(
-      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+  static final RegExp _EMAIL_REGEXP =
+      RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
   static final RegExp _HOST = RegExp(r"[a-zA-Z0-9.]+[a-zA-Z0-9]{2,}$");
 
   @override
@@ -110,12 +110,7 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
   }
 
   void assertType() {
-    if (type != "text" &&
-        type != "number" &&
-        type != "email" &&
-        type != "http" &&
-        type != "password" &&
-        type != "web") {
+    if (type != "text" && type != "number" && type != "email" && type != "http" && type != "password" && type != "web") {
       throw "The only possible types at this moment are 'text', 'email', 'http', 'web' and 'password'";
     }
   }

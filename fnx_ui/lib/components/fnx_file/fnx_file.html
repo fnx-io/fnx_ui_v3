@@ -14,7 +14,7 @@
    [class.readonly]="isReadonly"
    (click)="deleteFiles()">delete</a>
 
-<span class="input_file_browse btn" data-suffix="search"
+<span class="input_file_browse btn" [attr.data-suffix]="'search'"
       (focus)="markAsTouched()"
       (click)="markAsTouched()"
       [class.error]="isTouchedAndInvalid"

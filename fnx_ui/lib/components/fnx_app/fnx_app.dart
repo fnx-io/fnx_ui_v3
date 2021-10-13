@@ -11,6 +11,7 @@ import 'package:fnx_ui/components/fnx_form/fnx_form.dart';
 import 'package:fnx_ui/components/fnx_label/fnx_label.dart';
 import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
 import 'package:fnx_ui/components/fnx_text/fnx_text.dart';
+import 'package:fnx_ui/components/fnx_tooltip/fnx_tooltip.dart';
 import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:fnx_ui/i69n/fnxUiMessages.i69n.dart';
 import 'package:logging/logging.dart';
@@ -27,7 +28,7 @@ import '../../fnx_ui.dart';
   selector: 'fnx-app',
   templateUrl: 'fnx_app.html',
   preserveWhitespace: false,
-  directives: [coreDirectives, formDirectives, FnxModal, FnxLabel, FnxText, FnxForm, AutoFocus],
+  directives: [coreDirectives, formDirectives, FnxModal, FnxLabel, FnxText, FnxForm, AutoFocus, FnxTooltip],
   visibility: Visibility.all,
 )
 class FnxApp implements OnInit {

@@ -15,7 +15,7 @@ typedef FutureOr<String> FormValidatorFunction();
     selector: 'fnx-form',
     templateUrl: 'fnx_form.html',
     providers: [
-      Provider(FnxBaseComponent, useExisting: FnxForm, multi: false),
+      Provider(FnxBaseComponent, useExisting: FnxForm),
     ],
     visibility: Visibility.all)
 class FnxForm extends FnxBaseComponent {

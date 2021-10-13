@@ -1,5 +1,4 @@
 <form (submit)="submitForm($event)"
-      [attr.autocomplete]="autocomplete"
-      onsubmit="return (event.preventDefault() || event.stopPropagation()) && false">
+      [attr.autocomplete]="autocomplete">
     <ng-content></ng-content>
 </form>

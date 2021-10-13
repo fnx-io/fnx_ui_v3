@@ -10,16 +10,16 @@
         <div main class="padding">
             <div [innerHtml]="modal.message">modal.message</div>
 
-            <fnx-input errorMessage="Please provide requested value" *ngIf="modal.input != null">
-                <fnx-text [(ngModel)]="modal.value" [required]="true" autoFocus style="width: 100%"></fnx-text>
-            </fnx-input>
+            <fnx-label errorMessage="Please provide requested value" *ngIf="modal.input != null">
+                <fnx-text [(ngModel)]="modal.value" [required]="true" fnxAutofocus style="width: 100%"></fnx-text>
+            </fnx-label>
 
         </div>
 
         <div footer class="item-row">
             <button *ngIf="modal.cancel != null" class="btn" (click)="closeModal(modal.id, false)"
                     type="button"
-                    data-prefix="clear">{{modal.cancel}}</button>
+                    [attr.data-prefix]="'clear'">{{modal.cancel}}</button>
             <span class="spacer"></span>
 
             <!-- We have input, it will request focus -->
@@ -27,14 +27,14 @@
                 *ngIf="modal.input != null"
                 type="submit"
                 fnxAutofocus
-                class="btn bg--important" (click)="closeModal(modal.id, true)" data-prefix="check">{{modal.ok}}</button>
+                class="btn bg--important" (click)="closeModal(modal.id, true)" [attr.data-prefix]="'check'">{{modal.ok}}</button>
 
             <!-- We don't have input, we will request focus -->
             <button
                 *ngIf="modal.input == null" autoFocus
                 type="submit"
                 fnxAutofocus
-                class="btn bg--important" (click)="closeModal(modal.id, true)" data-prefix="check">{{modal.ok}}</button>
+                class="btn bg--important" (click)="closeModal(modal.id, true)" [attr.data-prefix]="'check'">{{modal.ok}}</button>
 
         </div>
 

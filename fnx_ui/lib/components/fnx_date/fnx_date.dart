@@ -14,7 +14,7 @@ import 'package:intl/intl.dart';
 @Component(
   selector: 'fnx-date',
   providers: [
-    Provider(Focusable, useExisting: FnxDate, multi: false),
+    Provider(Focusable, useExisting: FnxDate),
     ExistingProvider.forToken(ngValueAccessor, FnxDate),
     Provider(FnxBaseComponent, useExisting: FnxDate),
   ],

@@ -25,7 +25,7 @@ import 'package:fnx_ui/api/mixins/header.dart';
       coreDirectives,
     ],
     providers: [
-      Provider(FnxBaseComponent, useExisting: FnxPanelSmall, multi: false),
+      Provider(FnxBaseComponent, useExisting: FnxPanelSmall),
     ],
     visibility: Visibility.all)
 class FnxPanelSmall extends FnxBaseComponent with ClosableComponent, Header implements OnInit, OnDestroy {

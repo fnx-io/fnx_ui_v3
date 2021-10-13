@@ -8,7 +8,7 @@ import 'package:fnx_ui/api/input_component.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 import 'package:logging/logging.dart';
 
-const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxFile, multi: true);
+const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxFile);
 
 @Component(
   selector: 'fnx-file',
@@ -16,7 +16,7 @@ const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExis
   styleUrls: ["fnx_file.css"],
   providers: const [
     CUSTOM_INPUT_FILE_VALUE_ACCESSOR,
-    const Provider(FnxBaseComponent, useExisting: FnxFile, multi: false),
+    const Provider(FnxBaseComponent, useExisting: FnxFile),
   ],
   directives: [coreDirectives, formDirectives, fnxUiAllDirectives],
   preserveWhitespace: false,

@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:html';
 
 import 'package:angular/angular.dart';
-import 'package:angular/core.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/debouncer.dart';
@@ -17,15 +16,15 @@ import 'package:logging/logging.dart';
 typedef OptionsProvider<T> = Future<List<Pair<T>>> Function(String filledText);
 typedef DefaultOptionProvider<T> = Future<Pair<T>> Function(dynamic initialValue);
 
-const CUSTOM_AUTOCOMPLETE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxAutocomplete, multi: true);
+const CUSTOM_AUTOCOMPLETE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxAutocomplete);
 
 @Component(
   selector: 'fnx-autocomplete',
   templateUrl: 'fnx_autocomplete.html',
   providers: const [
     CUSTOM_AUTOCOMPLETE_VALUE_ACCESSOR,
-    const Provider(Focusable, useExisting: FnxAutocomplete, multi: false),
-    const Provider(FnxBaseComponent, useExisting: FnxAutocomplete, multi: false),
+    const Provider(Focusable, useExisting: FnxAutocomplete),
+    const Provider(FnxBaseComponent, useExisting: FnxAutocomplete),
   ],
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives, AutoFocus, FnxDropdown, FnxText],
@@ -93,9 +92,7 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
   }
 
   FnxAutocomplete(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent) {
-    filledTextChangedSubscription = filledTextChanged.stream
-        .transform<String>(FnxStreamDebouncer(new Duration(milliseconds: 50)))
-        .listen(loadFreshOptions);
+    filledTextChangedSubscription = filledTextChanged.stream.transform<String>(FnxStreamDebouncer(new Duration(milliseconds: 50))).listen(loadFreshOptions);
   }
 
   void writeValue(obj) {

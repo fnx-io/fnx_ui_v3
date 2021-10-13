@@ -16,7 +16,7 @@
         <div *ngIf="showFilter && dropDownVisible" class="input" (click)="$event.stopPropagation()">
             <fnx-text id="{{id}}-search" [(ngModel)]="filter" [placeholder]="filterPlaceholder"
                       minWidth="100%"
-                      data-suffix="search"
+                      [attr.data-suffix]="'search'"
                       autoFocus></fnx-text>
         </div>
         <div class="flex-column spacer scroll">

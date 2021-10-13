@@ -11,7 +11,7 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
   selector: 'fnx-textarea',
   templateUrl: 'fnx_textarea.html',
   providers: [
-    Provider(Focusable, useExisting: FnxTextarea, multi: false),
+    Provider(Focusable, useExisting: FnxTextarea),
     ExistingProvider.forToken(ngValueAccessor, FnxTextarea),
     Provider(FnxBaseComponent, useExisting: FnxTextarea),
   ],

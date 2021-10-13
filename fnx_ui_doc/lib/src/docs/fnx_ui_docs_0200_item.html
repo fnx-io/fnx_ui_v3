@@ -47,11 +47,11 @@
 
 <p style="max-width: 50em" class="margin-bottom">
   button btn:
-  <button data-prefix="build" data-suffix="build">android</button>
+  <button [attr.data-prefix]="'build'" [attr.data-suffix]="'build'">android</button>
   span btn:
-  <span class="item border" data-prefix="build">android</span>
+  <span class="item border" [attr.data-prefix]="'build'">android</span>
   span icon:
-  <span class="item border" data-suffix="build">android</span>
+  <span class="item border" [attr.data-suffix]="'build'">android</span>
 </p>
 
 
@@ -66,7 +66,7 @@
 <span class="item expanded">item</span>
 <h4>item</h4>
 <span class="item border">item</span>
-<button data-prefix="build" data-suffix="build">android</button>
+<button [attr.data-prefix]="'build'" [attr.data-suffix]="'build'">android</button>
 <a href="sss">sss</a>
 <a href="sss">sss</a>
 </p>

@@ -8,7 +8,7 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
   selector: 'fnx-int',
   templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
   providers: [
-    Provider(Focusable, useExisting: FnxInt, multi: false),
+    Provider(Focusable, useExisting: FnxInt),
     ExistingProvider.forToken(ngValueAccessor, FnxInt),
     Provider(FnxBaseComponent, useExisting: FnxInt),
   ],

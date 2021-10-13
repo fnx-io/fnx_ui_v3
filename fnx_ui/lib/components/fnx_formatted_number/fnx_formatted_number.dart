@@ -14,7 +14,7 @@ import 'package:intl/intl.dart';
   selector: 'fnx-formatted-number',
   templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
   providers: [
-    Provider(Focusable, useExisting: FnxFormattedNumber, multi: false),
+    Provider(Focusable, useExisting: FnxFormattedNumber),
     ExistingProvider.forToken(ngValueAccessor, FnxFormattedNumber),
     Provider(FnxBaseComponent, useExisting: FnxFormattedNumber),
   ],

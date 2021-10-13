@@ -14,7 +14,7 @@ abstract class Focusable {
   void focus();
 }
 
-@Directive(selector: "[autoFocus],[fnxFocus],")
+@Directive(selector: "[autoFocus],[fnxAutofocus]")
 class AutoFocus implements OnInit {
   HtmlElement element;
   Focusable focusable;
