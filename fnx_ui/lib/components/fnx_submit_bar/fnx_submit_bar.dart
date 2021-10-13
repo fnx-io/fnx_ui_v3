@@ -99,11 +99,14 @@ class FnxSubmitBar implements DoCheck {
       _startedWorking = null;
     }
     _checkWorkingStatus();
-    Timer(Duration(milliseconds: _visualWorkingTimeoutMilis + 1), _checkWorkingStatus);
+    Timer(Duration(milliseconds: _visualWorkingTimeoutMilis + 1),
+        _checkWorkingStatus);
   }
 
-  bool get isDisabled => form?.disabled == true || form?.readonly == true || _longWorking;
-  bool get isDisabledByWork => !(form?.disabled == true || form?.readonly == true) && _longWorking;
+  bool get isDisabled =>
+      form?.disabled == true || form?.readonly == true || _longWorking;
+  bool get isDisabledByWork =>
+      !(form?.disabled == true || form?.readonly == true) && _longWorking;
 
   FnxForm get form => _form;
 
@@ -113,7 +116,8 @@ class FnxSubmitBar implements DoCheck {
 
   FnxSubmitBar(@Optional() this._form) {
     if (_form == null) {
-      throw new Exception("To use fnx-submit-bar, please wrap your form into <fnx-form></fnx-form> component!");
+      throw new Exception(
+          "To use fnx-submit-bar, please wrap your form into <fnx-form></fnx-form> component!");
     }
   }
 
@@ -138,7 +142,9 @@ class FnxSubmitBar implements DoCheck {
     if (_startedWorking == null) {
       _longWorking = false;
     } else {
-      if (_startedWorking.add(Duration(milliseconds: _visualWorkingTimeoutMilis)).isBefore(DateTime.now())) {
+      if (_startedWorking
+          .add(Duration(milliseconds: _visualWorkingTimeoutMilis))
+          .isBefore(DateTime.now())) {
         // it's working for a long time!
         _longWorking = true;
       }
@@ -154,7 +160,10 @@ class FnxSubmitBar implements DoCheck {
       ui.killEvent(e);
       return;
     }
-    if (_lastSubmit != null && _lastSubmit.add(Duration(milliseconds: _doubleClickPreventionMilis)).isAfter(DateTime.now())) {
+    if (_lastSubmit != null &&
+        _lastSubmit
+            .add(Duration(milliseconds: _doubleClickPreventionMilis))
+            .isAfter(DateTime.now())) {
       // too soon
       ui.killEvent(e);
       return;

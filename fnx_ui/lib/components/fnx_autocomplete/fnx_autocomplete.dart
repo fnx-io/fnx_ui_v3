@@ -14,9 +14,11 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 import 'package:logging/logging.dart';
 
 typedef OptionsProvider<T> = Future<List<Pair<T>>> Function(String filledText);
-typedef DefaultOptionProvider<T> = Future<Pair<T>> Function(dynamic initialValue);
+typedef DefaultOptionProvider<T> = Future<Pair<T>> Function(
+    dynamic initialValue);
 
-const CUSTOM_AUTOCOMPLETE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxAutocomplete);
+const CUSTOM_AUTOCOMPLETE_VALUE_ACCESSOR =
+    const Provider(ngValueAccessor, useExisting: FnxAutocomplete);
 
 @Component(
   selector: 'fnx-autocomplete',
@@ -29,7 +31,8 @@ const CUSTOM_AUTOCOMPLETE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useEx
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives, AutoFocus, FnxDropdown, FnxText],
 )
-class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAccessor<T>, OnInit, OnDestroy, Focusable {
+class FnxAutocomplete<T> extends FnxInputComponent<T>
+    implements ControlValueAccessor<T>, OnInit, OnDestroy, Focusable {
   final Logger log = Logger("FnxScrollPanel");
 
   @HostBinding('class.no-padding')
@@ -91,8 +94,11 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
     }
   }
 
-  FnxAutocomplete(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent) {
-    filledTextChangedSubscription = filledTextChanged.stream.transform<String>(FnxStreamDebouncer(new Duration(milliseconds: 50))).listen(loadFreshOptions);
+  FnxAutocomplete(@SkipSelf() @Optional() FnxBaseComponent parent, this.host)
+      : super(parent) {
+    filledTextChangedSubscription = filledTextChanged.stream
+        .transform<String>(FnxStreamDebouncer(new Duration(milliseconds: 50)))
+        .listen(loadFreshOptions);
   }
 
   void writeValue(obj) {
@@ -101,7 +107,8 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
     _text = null;
     if (value == null) return;
     if (loadedOptions != null || loadedOptions.isNotEmpty) {
-      Pair p = loadedOptions.firstWhere((Pair p) => p.value == obj, orElse: () => null);
+      Pair p = loadedOptions.firstWhere((Pair p) => p.value == obj,
+          orElse: () => null);
       if (p != null) {
         _text = p.label;
       }
@@ -115,7 +122,9 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
     log.fine("Hiding options");
     open = false;
     if (value != null) {
-      _text = options.firstWhere((Pair p) => p.value == value, orElse: () => null)?.label;
+      _text = options
+          .firstWhere((Pair p) => p.value == value, orElse: () => null)
+          ?.label;
     } else {
       _text = '';
     }
@@ -161,10 +170,17 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
   Pair<T> _highlighted = null;
 
   void bindKeyHandler() {
-    var actions = <int, String>{KeyCode.ENTER: 'SELECT', KeyCode.UP: 'UP', KeyCode.DOWN: 'DOWN'};
+    var actions = <int, String>{
+      KeyCode.ENTER: 'SELECT',
+      KeyCode.UP: 'UP',
+      KeyCode.DOWN: 'DOWN'
+    };
     var supportedKeys = Set<int>.from(actions.keys);
 
-    var actionsStream = ui.keyDownEvents(host).where((event) => supportedKeys.contains(event.keyCode)).map((event) {
+    var actionsStream = ui
+        .keyDownEvents(host)
+        .where((event) => supportedKeys.contains(event.keyCode))
+        .map((event) {
       event.preventDefault();
       if (dropDownVisible) {
         event.stopPropagation();
@@ -293,7 +309,8 @@ class FnxAutocomplete<T> extends FnxInputComponent<T> implements ControlValueAcc
     }
 
     if (value != null) {
-      if (options.firstWhere((p) => p.value == value, orElse: () => null) == null) {
+      if (options.firstWhere((p) => p.value == value, orElse: () => null) ==
+          null) {
         value = null;
       }
     }

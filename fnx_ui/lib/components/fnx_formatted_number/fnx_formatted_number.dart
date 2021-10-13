@@ -12,7 +12,8 @@ import 'package:intl/intl.dart';
 ///
 @Component(
   selector: 'fnx-formatted-number',
-  templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
+  templateUrl:
+      '../../api/base_number_input_component/base_number_input_component.html',
   providers: [
     Provider(Focusable, useExisting: FnxFormattedNumber),
     ExistingProvider.forToken(ngValueAccessor, FnxFormattedNumber),
@@ -21,7 +22,8 @@ import 'package:intl/intl.dart';
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives],
 )
-class FnxFormattedNumber extends FnxBaseNumberInputComponent<double> implements OnInit, OnDestroy, Focusable {
+class FnxFormattedNumber extends FnxBaseNumberInputComponent<double>
+    implements OnInit, OnDestroy, Focusable {
   String _format;
 
   NumberFormat _numberFormat;
@@ -32,7 +34,8 @@ class FnxFormattedNumber extends FnxBaseNumberInputComponent<double> implements 
     _numberFormat = NumberFormat(_format, fnxUiConfig.locale);
   }
 
-  FnxFormattedNumber(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent) {
+  FnxFormattedNumber(@SkipSelf() @Optional() FnxBaseComponent parent)
+      : super(parent) {
     format = "#,##0.00";
   }
 

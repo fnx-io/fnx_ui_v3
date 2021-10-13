@@ -28,7 +28,16 @@ import '../../fnx_ui.dart';
   selector: 'fnx-app',
   templateUrl: 'fnx_app.html',
   preserveWhitespace: false,
-  directives: [coreDirectives, formDirectives, FnxModal, FnxLabel, FnxText, FnxForm, AutoFocus, FnxTooltip],
+  directives: [
+    coreDirectives,
+    formDirectives,
+    FnxModal,
+    FnxLabel,
+    FnxText,
+    FnxForm,
+    AutoFocus,
+    FnxTooltip
+  ],
   visibility: Visibility.all,
 )
 class FnxApp implements OnInit {
@@ -61,7 +70,9 @@ class FnxApp implements OnInit {
   ///
   /// Shows simple 'flash message': 'User created', 'Record deleted', etc.
   ///
-  void toast(String text, {Duration duration: const Duration(milliseconds: 4000), String cssClass: ""}) {
+  void toast(String text,
+      {Duration duration: const Duration(milliseconds: 4000),
+      String cssClass: ""}) {
     _ToastContent t = new _ToastContent()
       ..cssClass = cssClass
       ..message = text;
@@ -71,7 +82,9 @@ class FnxApp implements OnInit {
       _changeDetector.detectChanges();
     });
     new Future.delayed(duration + Duration(seconds: 1)).then((_) {
-      if (toasts.firstWhere((_ToastContent t) => t.hide == false, orElse: () => null) == null) {
+      if (toasts.firstWhere((_ToastContent t) => t.hide == false,
+              orElse: () => null) ==
+          null) {
         toasts.clear();
       }
     });
@@ -117,7 +130,8 @@ class FnxApp implements OnInit {
   ///
   /// Plain old window.input style dialog. Nonblocking.
   ///
-  Future<Object> input(String message, {String headline: null, String prefilledValue: null}) {
+  Future<Object> input(String message,
+      {String headline: null, String prefilledValue: null}) {
     headline = headline ?? messages.alerts.inputHeadline;
     _ModalContent m = new _ModalContent()
       ..headline = headline

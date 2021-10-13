@@ -18,7 +18,8 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives],
 )
-class FnxTextarea extends FnxInputComponent<String> implements OnInit, OnDestroy, Focusable {
+class FnxTextarea extends FnxInputComponent<String>
+    implements OnInit, OnDestroy, Focusable {
   @HostBinding('class.item-input')
   @HostBinding('class.bg-white')
   final bool hostIsItem = true;

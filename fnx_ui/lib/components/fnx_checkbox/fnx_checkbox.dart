@@ -36,7 +36,8 @@ class FnxCheckbox extends FnxInputComponent<bool> {
     return value == true ? "check_box" : "check_box_outline_blank";
   }
 
-  FnxCheckbox(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent);
+  FnxCheckbox(@SkipSelf() @Optional() FnxBaseComponent parent, this.host)
+      : super(parent);
 
   @HostListener('click')
   void toggle(Event event) {

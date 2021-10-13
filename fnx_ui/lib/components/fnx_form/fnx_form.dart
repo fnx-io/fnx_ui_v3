@@ -27,7 +27,8 @@ class FnxForm extends FnxBaseComponent {
   @Output()
   Stream<Event> get submit => _submit.stream;
 
-  final StreamController<BeforeFormSubmitEvent> _beforeSubmit = StreamController();
+  final StreamController<BeforeFormSubmitEvent> _beforeSubmit =
+      StreamController();
   @Output()
   Stream<BeforeFormSubmitEvent> get beforeSubmit => _beforeSubmit.stream;
 

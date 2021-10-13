@@ -8,7 +8,8 @@ import 'package:intl/intl.dart';
 
 @Component(
   selector: 'fnx-double',
-  templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
+  templateUrl:
+      '../../api/base_number_input_component/base_number_input_component.html',
   providers: [
     ExistingProvider(Focusable, FnxDouble),
     ExistingProvider(FnxBaseComponent, FnxDouble),
@@ -17,7 +18,8 @@ import 'package:intl/intl.dart';
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives],
 )
-class FnxDouble extends FnxBaseNumberInputComponent<double> implements OnInit, OnDestroy, Focusable {
+class FnxDouble extends FnxBaseNumberInputComponent<double>
+    implements OnInit, OnDestroy, Focusable {
   int _decimalPlaces;
 
   NumberFormat _printFormat;
@@ -30,8 +32,10 @@ class FnxDouble extends FnxBaseNumberInputComponent<double> implements OnInit, O
       _printFormat = NumberFormat("#,##0", fnxUiConfig.locale);
       _editFormat = NumberFormat("0", fnxUiConfig.locale);
     } else {
-      _printFormat = NumberFormat("#,##0.${'0' * _decimalPlaces}", fnxUiConfig.locale);
-      _editFormat = NumberFormat("0.${'0' * _decimalPlaces}", fnxUiConfig.locale);
+      _printFormat =
+          NumberFormat("#,##0.${'0' * _decimalPlaces}", fnxUiConfig.locale);
+      _editFormat =
+          NumberFormat("0.${'0' * _decimalPlaces}", fnxUiConfig.locale);
     }
   }
 

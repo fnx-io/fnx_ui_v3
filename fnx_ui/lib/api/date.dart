@@ -21,7 +21,9 @@ class AmPmHour {
     if (identical(this, other)) {
       return true;
     }
-    return other is AmPmHour && this.hour == other.hour && this.amPm == other.amPm;
+    return other is AmPmHour &&
+        this.hour == other.hour &&
+        this.amPm == other.amPm;
   }
 
   @override

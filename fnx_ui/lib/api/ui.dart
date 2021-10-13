@@ -14,14 +14,22 @@ void consume(Event e) {
   e?.preventDefault();
 }
 
-Stream<KeyboardEvent> keyDownEvents([Node e]) =>
-    (e ?? document).on['keydown'].where((event) => event is KeyboardEvent).map((event) => event as KeyboardEvent);
+Stream<KeyboardEvent> keyDownEvents([Node e]) => (e ?? document)
+    .on['keydown']
+    .where((event) => event is KeyboardEvent)
+    .map((event) => event as KeyboardEvent);
 
 StreamSubscription<Event> _resizeSubscription;
 
-StreamController<Event> _resizeEvents = StreamController<Event>.broadcast(onListen: () {
+StreamController<Event> _resizeEvents =
+    StreamController<Event>.broadcast(onListen: () {
   _resizeSubscription?.cancel();
-  _resizeSubscription = StreamGroup.merge([window.onMouseWheel, window.onResize, window.onScroll, window.onMouseMove]).listen((Event e) {
+  _resizeSubscription = StreamGroup.merge([
+    window.onMouseWheel,
+    window.onResize,
+    window.onScroll,
+    window.onMouseMove
+  ]).listen((Event e) {
     _resizeEvents.add(e);
   });
 }, onCancel: () {
@@ -37,7 +45,11 @@ void killEvent(Event e) {
 }
 
 Future<MouseEvent> firstClickAbove(Element e) {
-  return document.onClick.where((clicked) => (clicked.target is Element) && !isAncestorOf(e, clicked.target as Element)).first;
+  return document.onClick
+      .where((clicked) =>
+          (clicked.target is Element) &&
+          !isAncestorOf(e, clicked.target as Element))
+      .first;
 }
 
 bool isAncestorOf(Element ancestor, Element element) {

@@ -23,7 +23,13 @@ import 'package:fnx_ui/components/fnx_modal/fnx_modal.dart';
     formDirectives,
   ],
 )
-class FnxDropdown implements OnInit, OnDestroy, AfterChanges, AfterViewChecked, ModalComponent {
+class FnxDropdown
+    implements
+        OnInit,
+        OnDestroy,
+        AfterChanges,
+        AfterViewChecked,
+        ModalComponent {
   DropdownTracker tracker;
 
   Element host;

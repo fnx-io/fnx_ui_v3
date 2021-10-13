@@ -42,7 +42,8 @@ class FnxDate extends FnxInputComponent<DateTime> {
 
   Element host;
 
-  FnxDate(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent) {
+  FnxDate(@SkipSelf() @Optional() FnxBaseComponent parent, this.host)
+      : super(parent) {
     //print("KOKOKOK");
   }
 
@@ -53,7 +54,8 @@ class FnxDate extends FnxInputComponent<DateTime> {
   @ViewChild("input")
   InputElement element;
 
-  DateFormat get format => dateTime ? fnxUiConfig.dateTimeFormat : fnxUiConfig.dateFormat;
+  DateFormat get format =>
+      dateTime ? fnxUiConfig.dateTimeFormat : fnxUiConfig.dateFormat;
 
   List<DateTime> get valueAsList => (value == null) ? [] : [value];
 
@@ -67,7 +69,10 @@ class FnxDate extends FnxInputComponent<DateTime> {
     if (rawValue == null) return null;
     //print("Parse: $rawValue");
     try {
-      var d = format.parseLoose(rawValue.trim().replaceAll("  ", " ").replaceAll(". ", "."))?.toLocal();
+      var d = format
+          .parseLoose(
+              rawValue.trim().replaceAll("  ", " ").replaceAll(". ", "."))
+          ?.toLocal();
       //print("result = $d");
       return d;
     } catch (e) {

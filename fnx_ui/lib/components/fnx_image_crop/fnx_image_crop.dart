@@ -74,7 +74,9 @@ class FnxImageCrop implements OnInit, AfterChanges, OnDestroy {
 
   @override
   ngOnInit() {
-    _resizeSubscription = ui.resizeEvents.transform(FnxStreamDebouncer(Duration(milliseconds: 100))).listen(updateMask);
+    _resizeSubscription = ui.resizeEvents
+        .transform(FnxStreamDebouncer(Duration(milliseconds: 100)))
+        .listen(updateMask);
     updateMask();
     loadImageDimensions();
   }
@@ -111,7 +113,10 @@ class FnxImageCrop implements OnInit, AfterChanges, OnDestroy {
   }
 
   void updateImage() {
-    if (mask == null || img == null || imgSourceWidth == 0 || imgSourceHeight == 0) return;
+    if (mask == null ||
+        img == null ||
+        imgSourceWidth == 0 ||
+        imgSourceHeight == 0) return;
 
     imgWidth = imgSourceWidth;
     imgHeight = imgSourceHeight;
@@ -195,7 +200,8 @@ class FnxImageCrop implements OnInit, AfterChanges, OnDestroy {
     }
     // scale
     if (_lastTouch.touches.length == 2 && event.touches.length == 2) {
-      num distOrig = _lastTouch.touches[0].client.distanceTo(_lastTouch.touches[1].client);
+      num distOrig =
+          _lastTouch.touches[0].client.distanceTo(_lastTouch.touches[1].client);
       num distNow = event.touches[0].client.distanceTo(event.touches[1].client);
       var scale = distNow.toDouble() / distOrig.toDouble();
       var center = getCenter();
@@ -222,9 +228,11 @@ class FnxImageCrop implements OnInit, AfterChanges, OnDestroy {
 
   void trimOffsetToBoundaries() {
     if (imgOffsetY > 0) imgOffsetY = 0.0;
-    if (maskHeight - imgOffsetY > imgHeight) imgOffsetY = (maskHeight - imgHeight).toDouble();
+    if (maskHeight - imgOffsetY > imgHeight)
+      imgOffsetY = (maskHeight - imgHeight).toDouble();
     if (imgOffsetX > 0) imgOffsetX = 0.0;
-    if (maskWidth - imgOffsetX > imgWidth) imgOffsetX = (maskWidth - imgWidth).toDouble();
+    if (maskWidth - imgOffsetX > imgWidth)
+      imgOffsetX = (maskWidth - imgWidth).toDouble();
   }
 
   void zoomIn(Event event) {

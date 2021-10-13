@@ -7,7 +7,13 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
 @Component(
   selector: 'fnx-ui-docs-0360-double',
   templateUrl: 'fnx_ui_docs_0360_double.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    FnxUiDocsTestBed,
+    FnxUiDocsTestCase
+  ],
 )
 class FnxUiDocs0360Double {
   double value = 212331.7;

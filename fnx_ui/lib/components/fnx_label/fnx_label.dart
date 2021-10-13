@@ -32,7 +32,8 @@ class FnxLabel extends FnxBaseComponent implements OnInit, OnDestroy {
   String label;
 
   String _errorMessage;
-  String get errorMessage => _errorMessage ?? fnxUiConfig.messages.input.notValid;
+  String get errorMessage =>
+      _errorMessage ?? fnxUiConfig.messages.input.notValid;
 
   @Input()
   set errorMessage(String value) {

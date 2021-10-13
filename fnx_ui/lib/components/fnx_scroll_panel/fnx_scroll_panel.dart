@@ -34,7 +34,10 @@ import 'package:logging/logging.dart';
 </div>
 ''',
   preserveWhitespace: false,
-  styles: [":host {display: block; position: relative;}", ".scroll-panel-container { overflow-y: auto; }"],
+  styles: [
+    ":host {display: block; position: relative;}",
+    ".scroll-panel-container { overflow-y: auto; }"
+  ],
   directives: [
     coreDirectives,
     formDirectives,
@@ -76,7 +79,8 @@ class FnxScrollPanel implements OnInit {
     Stream<int> eventStream = _debounceCtrl.stream;
     // debounce the stream of load events if we have some duration
     if (debounceMs != null && debounceMs > 0) {
-      FnxStreamDebouncer<int> debouncer = FnxStreamDebouncer<int>(Duration(milliseconds: debounceMs));
+      FnxStreamDebouncer<int> debouncer =
+          FnxStreamDebouncer<int>(Duration(milliseconds: debounceMs));
       eventStream = eventStream.transform(debouncer);
     }
     eventStream.listen((_) => doEmit());

@@ -8,7 +8,8 @@ import 'package:fnx_ui/api/input_component.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 import 'package:logging/logging.dart';
 
-const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExisting: FnxFile);
+const CUSTOM_INPUT_FILE_VALUE_ACCESSOR =
+    const Provider(ngValueAccessor, useExisting: FnxFile);
 
 @Component(
   selector: 'fnx-file',
@@ -21,7 +22,8 @@ const CUSTOM_INPUT_FILE_VALUE_ACCESSOR = const Provider(ngValueAccessor, useExis
   directives: [coreDirectives, formDirectives, fnxUiAllDirectives],
   preserveWhitespace: false,
 )
-class FnxFile extends FnxInputComponent<List<File>> implements OnInit, OnDestroy {
+class FnxFile extends FnxInputComponent<List<File>>
+    implements OnInit, OnDestroy {
   final Logger log = Logger("FnxFile");
 
   /// Is it possible to drag and drop multiple files?

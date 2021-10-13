@@ -28,8 +28,11 @@ import 'package:fnx_ui/api/mixins/header.dart';
       Provider(FnxBaseComponent, useExisting: FnxPanelSmall),
     ],
     visibility: Visibility.all)
-class FnxPanelSmall extends FnxBaseComponent with ClosableComponent, Header implements OnInit, OnDestroy {
-  FnxPanelSmall(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent);
+class FnxPanelSmall extends FnxBaseComponent
+    with ClosableComponent, Header
+    implements OnInit, OnDestroy {
+  FnxPanelSmall(@SkipSelf() @Optional() FnxBaseComponent parent)
+      : super(parent);
 
   @override
   bool get hasValidValue => true;

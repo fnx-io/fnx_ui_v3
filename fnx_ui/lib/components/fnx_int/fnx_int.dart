@@ -6,7 +6,8 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
 
 @Component(
   selector: 'fnx-int',
-  templateUrl: '../../api/base_number_input_component/base_number_input_component.html',
+  templateUrl:
+      '../../api/base_number_input_component/base_number_input_component.html',
   providers: [
     Provider(Focusable, useExisting: FnxInt),
     ExistingProvider.forToken(ngValueAccessor, FnxInt),
@@ -15,7 +16,8 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives],
 )
-class FnxInt extends FnxBaseNumberInputComponent<int> implements OnInit, OnDestroy, Focusable {
+class FnxInt extends FnxBaseNumberInputComponent<int>
+    implements OnInit, OnDestroy, Focusable {
   FnxInt(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent);
 
   @override

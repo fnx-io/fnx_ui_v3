@@ -7,7 +7,13 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
 @Component(
   selector: 'fnx-ui-docs-0400-datepicker',
   templateUrl: 'fnx_ui_docs_0400_datepicker.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    FnxUiDocsTestBed,
+    FnxUiDocsTestCase
+  ],
 )
 class FnxUiDocs0400DatePicker {
   List<DateTime> dates = [];

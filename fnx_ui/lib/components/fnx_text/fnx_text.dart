@@ -18,7 +18,8 @@ import 'package:fnx_ui/directives/fnx_focus/fnx_focus.dart';
   preserveWhitespace: false,
   directives: [coreDirectives, formDirectives],
 )
-class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Focusable {
+class FnxText extends FnxInputComponent<String>
+    implements OnInit, OnDestroy, Focusable {
   @HostBinding('class.item-input')
   @HostBinding('class.bg-white')
   final bool hostIsItem = true;
@@ -46,8 +47,8 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
     }
   }
 
-  static final RegExp _EMAIL_REGEXP =
-      RegExp(r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
+  static final RegExp _EMAIL_REGEXP = RegExp(
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$");
   static final RegExp _HOST = RegExp(r"[a-zA-Z0-9.]+[a-zA-Z0-9]{2,}$");
 
   @override
@@ -79,7 +80,9 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
       // TODO: this parsing might be expensive, we should cache results
       try {
         if (type == "web" && v != null) {
-          if (v.startsWith("http:") || v.startsWith("https:") || v.startsWith("//")) {
+          if (v.startsWith("http:") ||
+              v.startsWith("https:") ||
+              v.startsWith("//")) {
             // ok
           } else {
             v = "//$v";
@@ -110,7 +113,12 @@ class FnxText extends FnxInputComponent<String> implements OnInit, OnDestroy, Fo
   }
 
   void assertType() {
-    if (type != "text" && type != "number" && type != "email" && type != "http" && type != "password" && type != "web") {
+    if (type != "text" &&
+        type != "number" &&
+        type != "email" &&
+        type != "http" &&
+        type != "password" &&
+        type != "web") {
       throw "The only possible types at this moment are 'text', 'email', 'http', 'web' and 'password'";
     }
   }

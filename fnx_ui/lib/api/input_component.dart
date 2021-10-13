@@ -8,7 +8,8 @@ import 'package:meta/meta.dart';
 ///
 /// Ads support for "editable" components and ngModel binding.
 ///
-abstract class FnxInputComponent<T> extends FnxBaseComponent implements OnInit, OnDestroy, ControlValueAccessor<T> {
+abstract class FnxInputComponent<T> extends FnxBaseComponent
+    implements OnInit, OnDestroy, ControlValueAccessor<T> {
   FnxInputComponent(FnxBaseComponent _parent) : super(_parent);
 
   @Input()

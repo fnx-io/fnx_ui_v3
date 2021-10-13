@@ -32,7 +32,8 @@ class FnxStreamDebouncer<T> extends StreamTransformerBase<T, T> {
 
   Duration _duration;
 
-  FnxStreamDebouncer(Duration duration, {bool sync: false, this.cancelOnError}) {
+  FnxStreamDebouncer(Duration duration,
+      {bool sync: false, this.cancelOnError}) {
     this._duration = duration;
 
     _controller = StreamController<T>(
@@ -47,7 +48,8 @@ class FnxStreamDebouncer<T> extends StreamTransformerBase<T, T> {
         sync: sync);
   }
 
-  Duration get duration => _duration != null ? _duration : Duration(milliseconds: 150);
+  Duration get duration =>
+      _duration != null ? _duration : Duration(milliseconds: 150);
 
   void _onCancel() {
     _subscription.cancel();
@@ -55,8 +57,10 @@ class FnxStreamDebouncer<T> extends StreamTransformerBase<T, T> {
   }
 
   void _onListen() {
-    _subscription =
-        _stream.listen(onData, onError: _controller.addError, onDone: _controller.close, cancelOnError: cancelOnError);
+    _subscription = _stream.listen(onData,
+        onError: _controller.addError,
+        onDone: _controller.close,
+        cancelOnError: cancelOnError);
   }
 
   void onData(T data) {

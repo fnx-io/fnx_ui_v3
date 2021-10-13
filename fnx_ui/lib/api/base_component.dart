@@ -63,7 +63,8 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
   FnxBaseComponent get parent => _parent;
   FnxBaseComponent(@SkipSelf() @Optional() this._parent);
 
-  FnxBaseComponent get child => _validatorChildren.isEmpty ? null : _validatorChildren.first;
+  FnxBaseComponent get child =>
+      _validatorChildren.isEmpty ? null : _validatorChildren.first;
 
   @override
   void ngOnInit() {
@@ -126,12 +127,16 @@ abstract class FnxBaseComponent implements OnInit, OnDestroy {
 
   bool get hasValidChildren {
     if (_validatorChildren.isEmpty) return true;
-    return _validatorChildren.firstWhere((val) => !val.isValid, orElse: () => null) == null;
+    return _validatorChildren.firstWhere((val) => !val.isValid,
+            orElse: () => null) ==
+        null;
   }
 
   bool get hasRequiredChildren {
     if (_validatorChildren.isEmpty) return false;
-    return _validatorChildren.firstWhere((val) => val.required, orElse: () => null) != null;
+    return _validatorChildren.firstWhere((val) => val.required,
+            orElse: () => null) !=
+        null;
   }
 
   @HostBinding("class.readonly")

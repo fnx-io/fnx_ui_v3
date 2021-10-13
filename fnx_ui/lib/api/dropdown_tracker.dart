@@ -45,7 +45,8 @@ class DropdownTracker {
     String left = px(_containerRect.left);
     String top;
 
-    if (downOnly || dropdownH + _containerRect.top + _containerRect.height < scrHeight) {
+    if (downOnly ||
+        dropdownH + _containerRect.top + _containerRect.height < scrHeight) {
       // vejde se dolu
       top = px(_containerRect.top + _containerRect.height);
     } else {

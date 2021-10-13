@@ -14,7 +14,8 @@ void main(List<String> args) {
 
   var filename = 'fnx_ui_docs_${number}_${name.toLowerCase()}';
 
-  File('$filename.dart').writeAsStringSync("""import 'package:angular/angular.dart';
+  File('$filename.dart')
+      .writeAsStringSync("""import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:fnx_ui/fnx_ui.dart';
 import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_bed.dart';
@@ -40,7 +41,8 @@ class FnxUiDocs${number}${name} {}
 </fnx-ui-docs-test-bed>  
   """, flush: true);
 
-  print("import 'package:fnx_ui_doc/src/docs/${filename}.template.dart' as c${number};");
+  print(
+      "import 'package:fnx_ui_doc/src/docs/${filename}.template.dart' as c${number};");
   print('');
   print("Chapter('${name}', c${number}.FnxUiDocs${number}${name}NgFactory),");
 }

@@ -2,38 +2,70 @@ import 'package:angular/angular.dart';
 import 'package:angular_forms/angular_forms.dart';
 import 'package:angular_router/angular_router.dart';
 import 'package:fnx_ui/fnx_ui.dart';
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0000_intro.template.dart' as c0000;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0010_usage.template.dart' as c0010;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0020_responsivity.template.dart' as c0020;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0030_flex.template.dart' as c0030;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0040_grid.template.dart' as c0040;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0050_positioning.template.dart' as c0050;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0060_padding.template.dart' as c0060;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0070_margin.template.dart' as c0070;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0080_border.template.dart' as c0080;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0090_colors.template.dart' as c0090;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0100_effects.template.dart' as c0100;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0110_table.template.dart' as c0110;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart' as c0200;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0210_panel.template.dart' as c0210;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart' as c0240;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart' as c0250;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart' as c0260;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0270_textarea.template.dart' as c0270;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart' as c0300;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0310_select.template.dart' as c0310;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0320_autocomplete.template.dart' as c0320;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart' as c0350;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart' as c0360;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart' as c0370;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0380_file.template.dart' as c0380;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart' as c0400;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0410_date.template.dart' as c0410;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart' as c0500;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0505_toast.template.dart' as c0505;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0507_modal.template.dart' as c0507;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart' as c0510;
-import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart' as c0520;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0000_intro.template.dart'
+    as c0000;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0010_usage.template.dart'
+    as c0010;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0020_responsivity.template.dart'
+    as c0020;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0030_flex.template.dart'
+    as c0030;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0040_grid.template.dart'
+    as c0040;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0050_positioning.template.dart'
+    as c0050;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0060_padding.template.dart'
+    as c0060;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0070_margin.template.dart'
+    as c0070;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0080_border.template.dart'
+    as c0080;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0090_colors.template.dart'
+    as c0090;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0100_effects.template.dart'
+    as c0100;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0110_table.template.dart'
+    as c0110;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0200_item.template.dart'
+    as c0200;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0210_panel.template.dart'
+    as c0210;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0240_dropdown.template.dart'
+    as c0240;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0250_label.template.dart'
+    as c0250;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0260_text.template.dart'
+    as c0260;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0270_textarea.template.dart'
+    as c0270;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0300_checkbox.template.dart'
+    as c0300;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0310_select.template.dart'
+    as c0310;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0320_autocomplete.template.dart'
+    as c0320;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0350_integer.template.dart'
+    as c0350;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0360_double.template.dart'
+    as c0360;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0370_formatted_number.template.dart'
+    as c0370;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0380_file.template.dart'
+    as c0380;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0400_datepicker.template.dart'
+    as c0400;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0410_date.template.dart'
+    as c0410;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0500_tooltip.template.dart'
+    as c0500;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0505_toast.template.dart'
+    as c0505;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0507_modal.template.dart'
+    as c0507;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0510_loader.template.dart'
+    as c0510;
+import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart'
+    as c0520;
 
 // AngularDart info: https://angulardart.dev
 // Components info: https://angulardart.dev/components
@@ -41,7 +73,12 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_0520_tags.template.dart' as c052
 @Component(
   selector: 'fnx-ui-docs',
   templateUrl: 'fnx_ui_docs.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, routerDirectives],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    routerDirectives
+  ],
 )
 class FnxUiDocs {
   static List<Chapter> chapters = [
@@ -83,7 +120,8 @@ class FnxUiDocs {
   FnxUiDocs() {
     var _first = true;
     routes = chapters.map((ch) {
-      var _result = RouteDefinition(path: ch.selector, component: ch.factory, useAsDefault: _first);
+      var _result = RouteDefinition(
+          path: ch.selector, component: ch.factory, useAsDefault: _first);
       _first = false;
       return _result;
     }).toList();

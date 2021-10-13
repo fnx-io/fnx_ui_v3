@@ -8,7 +8,13 @@ import 'package:fnx_ui_doc/util.dart';
 @Component(
   selector: 'fnx-ui-docs-0310-select',
   templateUrl: 'fnx_ui_docs_0310_select.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    FnxUiDocsTestBed,
+    FnxUiDocsTestCase
+  ],
 )
 class FnxUiDocs0310Select {
   int value = 3;

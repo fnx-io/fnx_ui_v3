@@ -8,7 +8,13 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
 @Component(
   selector: 'fnx-ui-docs-0320-autocomplete',
   templateUrl: 'fnx_ui_docs_0320_autocomplete.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    FnxUiDocsTestBed,
+    FnxUiDocsTestCase
+  ],
 )
 class FnxUiDocs0320Autocomplete {
   int value;
@@ -21,7 +27,10 @@ class FnxUiDocs0320Autocomplete {
   Future<List<Pair<int>>> optionsProvider(String filledText) async {
     await Future.delayed(Duration(milliseconds: 300));
     if (filledText == null) return allOptions.take(20).toList();
-    return allOptions.where((p) => p.label.contains(filledText)).take(20).toList();
+    return allOptions
+        .where((p) => p.label.contains(filledText))
+        .take(20)
+        .toList();
   }
 
   Future<Pair<int>> defaultOptionProvider(dynamic value) async {

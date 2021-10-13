@@ -7,7 +7,13 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
 @Component(
   selector: 'fnx-ui-docs-0270-textarea',
   templateUrl: 'fnx_ui_docs_0270_textarea.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    FnxUiDocsTestBed,
+    FnxUiDocsTestCase
+  ],
 )
 class FnxUiDocs0270Textarea {
   String world = "world";

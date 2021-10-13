@@ -9,7 +9,12 @@ import 'package:fnx_ui/api/ui.dart' as ui;
 import 'package:fnx_ui/components/fnx_int/fnx_int.dart';
 import 'package:intl/intl.dart';
 
-@Component(selector: 'fnx-date-picker', templateUrl: 'fnx_date_picker.html', preserveWhitespace: false, directives: [coreDirectives, formDirectives, FnxInt], styleUrls: ['fnx_date_picker.css'])
+@Component(
+    selector: 'fnx-date-picker',
+    templateUrl: 'fnx_date_picker.html',
+    preserveWhitespace: false,
+    directives: [coreDirectives, formDirectives, FnxInt],
+    styleUrls: ['fnx_date_picker.css'])
 class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
   @Input()
   bool dateTime = false;
@@ -47,7 +52,8 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
   }
 
   /// Constructor used to create instance of Datepicker.
-  FnxDatePicker(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent) {
+  FnxDatePicker(@SkipSelf() @Optional() FnxBaseComponent parent)
+      : super(parent) {
     initPicker();
   }
 
@@ -130,7 +136,11 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
   }
 
   bool isSelected(var year, var month, var day) {
-    return _selected?.firstWhere((d) => d != null && d.year == year && d.month == month && d.day == day, orElse: () => null) != null;
+    return _selected?.firstWhere(
+            (d) =>
+                d != null && d.year == year && d.month == month && d.day == day,
+            orElse: () => null) !=
+        null;
   }
 
   bool isToday(var year, var month, var day) {
@@ -209,7 +219,8 @@ class FnxDatePicker extends FnxBaseComponent implements OnInit, OnDestroy {
    */
 
   void changeValueMonth(int by) {
-    _value = DateTime(_value.year, _value.month + by, _value.day, _value.hour, _value.minute);
+    _value = DateTime(
+        _value.year, _value.month + by, _value.day, _value.hour, _value.minute);
     initPickerModel();
   }
 

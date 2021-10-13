@@ -5,7 +5,8 @@ import 'package:fnx_ui/api/base_component.dart';
 import 'package:fnx_ui/api/input_component.dart';
 import 'package:meta/meta.dart';
 
-abstract class FnxBaseNumberInputComponent<T extends num> extends FnxInputComponent<T> {
+abstract class FnxBaseNumberInputComponent<T extends num>
+    extends FnxInputComponent<T> {
   @Input()
   num min = null;
 

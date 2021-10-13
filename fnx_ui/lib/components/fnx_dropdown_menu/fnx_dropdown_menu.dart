@@ -29,7 +29,8 @@ import 'package:fnx_ui/fnx_ui.dart';
 class FnxDropdownMenu extends FnxBaseComponent implements OnInit, OnDestroy {
   Element host;
 
-  FnxDropdownMenu(@SkipSelf() @Optional() FnxBaseComponent parent, this.host) : super(parent);
+  FnxDropdownMenu(@SkipSelf() @Optional() FnxBaseComponent parent, this.host)
+      : super(parent);
 
   bool visible = false;
 

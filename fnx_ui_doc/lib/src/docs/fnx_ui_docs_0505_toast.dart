@@ -8,7 +8,13 @@ import 'package:fnx_ui_doc/src/docs/fnx_ui_docs_test_case.dart';
 @Component(
   selector: 'fnx-ui-docs-0505-toast',
   templateUrl: 'fnx_ui_docs_0505_toast.html',
-  directives: [fnxUiAllDirectives, coreDirectives, formDirectives, FnxUiDocsTestBed, FnxUiDocsTestCase],
+  directives: [
+    fnxUiAllDirectives,
+    coreDirectives,
+    formDirectives,
+    FnxUiDocsTestBed,
+    FnxUiDocsTestCase
+  ],
 )
 class FnxUiDocs0505Toast {
   FnxApp app;

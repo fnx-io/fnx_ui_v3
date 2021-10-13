@@ -88,7 +88,8 @@ class FnxError {
   String get message => _message;
   Iterable<Object> get details => _details;
 
-  FnxError(String message, {String headline: "Error", Iterable<Object> details: null}) {
+  FnxError(String message,
+      {String headline: "Error", Iterable<Object> details: null}) {
     _message = message ?? "Unknown error";
     _headline = headline ?? "Error";
     _details = details ?? [];
@@ -142,20 +143,24 @@ class FnxExceptionHandler implements ExceptionHandler {
   /// Process uncaught exception.
   ///
   @override
-  void call(dynamic exception, [dynamic stackTrace = null, String reason = null]) {
-    log.severe(ExceptionHandler.exceptionToString(exception, stackTrace, reason));
+  void call(dynamic exception,
+      [dynamic stackTrace = null, String reason = null]) {
+    log.severe(
+        ExceptionHandler.exceptionToString(exception, stackTrace, reason));
 
     // ... and then try to display exception on UI
     FnxError errorToShow = null;
     errorToShow = _processError(exception, stackTrace as StackTrace);
 
     if (errorToShow == null) {
-      log.fine("Error to show is null, hopefully it got processed some other way");
+      log.fine(
+          "Error to show is null, hopefully it got processed some other way");
     } else {
       if (_showErrorHook != null) {
         _showErrorHook(errorToShow);
       } else {
-        log.warning("Cannot display error on UI, probably missing <fnx-app> element in your main application component?");
+        log.warning(
+            "Cannot display error on UI, probably missing <fnx-app> element in your main application component?");
       }
     }
 
@@ -170,7 +175,8 @@ class FnxExceptionHandler implements ExceptionHandler {
         return _errorBuilders[type](exception, stacktrace);
       }
     }
-    log.warning("Unknown FnxError builder for exception of type '${exception.runtimeType}', use method registerErrorBuilder(...)");
+    log.warning(
+        "Unknown FnxError builder for exception of type '${exception.runtimeType}', use method registerErrorBuilder(...)");
     return new FnxError(exception.toString());
   }
 }

@@ -44,5 +44,9 @@ class FnxUiDocs0090Colors {
     ]
   ];
 
-  List<String> flavours = [...List.generate(4, (i) => '-l${4 - i}'), '', ...List.generate(4, (i) => '-d${i + 1}')];
+  List<String> flavours = [
+    ...List.generate(4, (i) => '-l${4 - i}'),
+    '',
+    ...List.generate(4, (i) => '-d${i + 1}')
+  ];
 }
