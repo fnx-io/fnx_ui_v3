@@ -12,7 +12,7 @@ import 'package:fnx_ui/fnx_ui.dart';
          [class.required]="hasRequiredChildren"
          [class.text-error]="isTouchedAndInvalid"
          (click)="markAsTouched()" [innerHtml]="label"></label>
-  <ng-content></ng-content>
+  <ng-content></ng-content>  
   <label *ngIf="isTouchedAndInvalid" class="text-error margin-small-top" [attr.for]="childId">{{ errorMessage }}</label>
 ''',
   preserveWhitespace: false,
@@ -28,12 +28,17 @@ import 'package:fnx_ui/fnx_ui.dart';
 class FnxLabel extends FnxBaseComponent implements OnInit, OnDestroy {
   FnxLabel(@SkipSelf() @Optional() FnxBaseComponent parent) : super(parent);
 
+  String _label;
+
+  String get label => "${_label}${hasRequiredChildren ? ' &sext;' : ''}";
+
   @Input()
-  String label;
+  set label(String value) {
+    _label = value;
+  }
 
   String _errorMessage;
-  String get errorMessage =>
-      _errorMessage ?? fnxUiConfig.messages.input.notValid;
+  String get errorMessage => _errorMessage ?? fnxUiConfig.messages.input.notValid;
 
   @Input()
   set errorMessage(String value) {
