@@ -38,9 +38,7 @@ typedef bool _KeyListener(KeyboardEvent e);
     formDirectives,
   ],
 )
-class FnxModal
-    with ClosableComponent, Header, Footer
-    implements OnInit, OnDestroy, ModalComponent {
+class FnxModal with ClosableComponent, Header, Footer implements OnInit, OnDestroy, ModalComponent {
   Element host;
 
   FnxModal(this.host);
@@ -80,15 +78,13 @@ class FnxModal
 
   static DateTime _lastChange = DateTime.now();
 
-  static void addModalComponent(ModalComponent component) {
+  static void addModalComponent(ModalComponent component) async {
+    await Future.microtask(() {}); // nechame Angulara, at si napred poresi svuj shit
     _log.info("Adding modal to stack $component");
     _lastChange = DateTime.now();
     _stack.add(component);
     if (keyDownSubscription != null) return;
-    keyDownSubscription = ui
-        .keyDownEvents()
-        .where((KeyboardEvent e) => e.keyCode == KeyCode.ESC)
-        .listen((event) {
+    keyDownSubscription = ui.keyDownEvents().where((KeyboardEvent e) => e.keyCode == KeyCode.ESC).listen((event) {
       _log.info("Incomming ESC");
       // ESC events on document
       if (_stack.isEmpty) return;
@@ -102,10 +98,8 @@ class FnxModal
     document.onClick.where((event) => event.target is Element).listen((event) {
       // click on document
       _log.info("Incomming click");
-      if (_lastChange
-          .add(Duration(milliseconds: 100))
-          .isAfter(DateTime.now())) {
-        // zmen aprisla priis brzy
+      if (_lastChange.add(Duration(milliseconds: 200)).isAfter(DateTime.now())) {
+        // zmena prisla prilis brzy
         return;
       }
       if (_stack.isEmpty) return;
