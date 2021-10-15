@@ -30,7 +30,10 @@ class FnxLabel extends FnxBaseComponent implements OnInit, OnDestroy {
 
   String _label;
 
-  String get label => "${_label}${hasRequiredChildren ? ' &sext;' : ''}";
+  String get label {
+    if (_label == null) return '';
+    return "${_label}${hasRequiredChildren ? ' &sext;' : ''}";
+  }
 
   @Input()
   set label(String value) {
